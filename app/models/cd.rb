@@ -1,0 +1,2 @@
+class Cd < Product
+end

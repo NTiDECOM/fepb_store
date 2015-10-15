@@ -1,3 +1,3 @@
-class Book < ActiveRecord::Base
-  validates_presence_of :title, :author, :spiritual_author, :price
+class Book < Product
+  validates_presence_of :title, :author, :spiritual_author, :sell_price
 end

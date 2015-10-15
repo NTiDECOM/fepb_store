@@ -39,15 +39,20 @@ class BooksController < ApplicationController
 	  end
 	end
 
-    ##### helper methods ######
+    ##### helper methods #####
     private
 
 	def book_params
       params.require(:book).
-        permit(:isbn, :title, :author, :spiritual_author, :publisher, :cost, :price, :year, :pages_number)
+        permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number)
 	end
 
 	def set_book
 	  @book = Book.find(params[:id])
+	end
+
+
+	def handleShopify
+	
 	end
 end

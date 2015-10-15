@@ -1,0 +1,2 @@
+class Dvd < Product
+end
