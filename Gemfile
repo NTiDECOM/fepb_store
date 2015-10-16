@@ -9,8 +9,6 @@ gem 'pg', '0.18.3'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-#Zurb Foundation
-gem 'zurb-foundation', '~> 4.3.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -25,8 +23,20 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# ### MY CUSTOM GEMS ### #
+# Devise security
+gem 'devise', '~> 3.5.2'
+# HAML
+gem 'haml', '~> 4.0.7', :group => :development
+# HTML 2 HAML
+gem 'html2haml', '2.0.0'
+#Zurb Foundation
+gem 'zurb-foundation', '~> 4.3.2'
+# Kaminari pagination
+gem 'kaminari', '~> 0.16.3'
+
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -1,0 +1,68 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+
+    %title= content_for?(:title) ? yield(:title) : "Twitter for Zombies"
+
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+    = csrf_meta_tags  
+
+  %body{id: "#{params[:controller].parameterize}_controller"}
+    %nav.top-bar{"data-topbar" => true, role: "navigation"}
+      %ul.title-area
+        %li.name
+          %h1= link_to t('app_title'), books_path
+        /Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+        %li.toggle-topbar.menu-icon
+          %a{href: "#"}
+            %span Menu      
+      %section.top-bar-section
+        / Left Nav Section
+        %ul.left
+          %li
+            - if session[:book_id]
+              %a{href: "#" }= "Hello, #{session[:book_name]}"
+        / Right Nav Section
+        %ul.right
+          - if !session[:book_id]
+            %li.active
+              %a= link_to 'Login', '/login'
+          - if !session[:book_id]
+            %li.active
+              %a= link_to 'Sign up', new_book_path
+          - if !session[:book_id]
+            %li            
+              %a{href: '#'}= session[:book_id] ? session[:book_id] : 'Hi, visitant'
+          - else
+            %li.has-dropdown
+              %a{href: "#" }= "Hi, #{session[:book_name]}"
+              %ul.dropdown
+                %li                
+                  %a= link_to 'My profile', book_path(session[:book_name])
+                %li.active
+                  %a= link_to 'Logout', logout_path, method: 'delete'
+    .row{'style' => 'margin-top: 10px;'}
+      .small-12
+        /- flash.each do |name, msg|
+        /  %div "#{name}: #{msg}"
+        - if flash[:success]
+          #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => ''}
+            = flash[:success]
+            %a.close{href: '#'} &times;
+        - if flash[:info]
+          #messages.alert-box.info.radius.columns.small-12.small-centered{'data-alert' => ''}
+            = flash[:info]
+            %a.close{href: '#'} &times;
+        - if flash[:alert]
+          #messages.alert-box.alert.radius.columns.small-12.small-centered{'data-alert' => ''}
+            = flash[:alert]
+            %a.close{href: '#'} &times;
+        - if flash[:error]
+          #messages.alert-box.warning.radius.columns.small-12.small-centered{'data-alert' => ''}
+            = flash[:error]
+            %a.close{href: '#'} &times;
+        = yield

@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+1.upto(56) do |n|
+  Book.create(title: "Book #{n}", author: "Author #{n}", spiritual_author: "Spiritual author #{n}", 
+  	sell_price: n+10)
+end

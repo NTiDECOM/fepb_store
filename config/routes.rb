@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
+  root 'books#index'
+
+  resources :books
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
+
+  #devise_for :users
+
+  # get '/login' => 'sessions#new'
+  # post 'login' => 'sessions#create'
+  # delete 'logout' => 'sessions#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'books#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -14,7 +27,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :books
+  
 
   # Example resource route with options:
   #   resources :products do
