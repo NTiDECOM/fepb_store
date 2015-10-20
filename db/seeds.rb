@@ -7,6 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 1.upto(56) do |n|
-  Book.create(title: "Book #{n}", author: "Author #{n}", spiritual_author: "Spiritual author #{n}", 
-  	sell_price: n+10)
+  Book.create(
+  	title: "Book #{n}", 
+  	author: "Author #{n}", 
+  	spiritual_author: "Spiritual author #{n}", 
+  	sell_price: n+10
+  )
 end
+
+User.create(name: 'Admin', 
+	email: 'romero.mfm@gmail.com', 
+	password_digest: BCrypt::Password.create('123123')
+)
