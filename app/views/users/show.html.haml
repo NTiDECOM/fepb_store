@@ -1,28 +1,28 @@
-%p#notice= notice
+/ %p#notice= notice
 
-%p
-  %strong Name:
-  = current_user.name
+/ %p
+/   %strong Name:
+/   = current_user.name
 
-%p
-  %strong Email:
-  = current_user.email
+/ %p
+/   %strong Email:
+/   = current_user.email
 
-%p
-  %strong Password:
+/ %p
+/   %strong Password:
     
 
-%p
-  %strong CPF:
-  = current_user.cpf
+/ %p
+/   %strong CPF:
+/   = current_user.cpf
 
-%p
-  %strong Phone 1:
-  = current_user.phone1
+/ %p
+/   %strong Phone 1:
+/   = current_user.phone1
 
-%p
-  %strong Phone 2:
-  = current_user.phone2
+/ %p
+/   %strong Phone 2:
+/   = current_user.phone2
 
-= link_to 'Edit', edit_user_path(current_user), class: 'button' if current_user
-= link_to 'Back', root_path, class: 'button'
+/ = link_to 'Edit', edit_user_path(current_user), class: 'button' if current_user
+/ = link_to 'Back', root_path, class: 'button'

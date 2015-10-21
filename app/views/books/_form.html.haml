@@ -1,0 +1,74 @@
+= form_for(@book) do |f|
+  - if @book.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@book.errors.count, "error")
+        prohibited this book from being saved:
+      %ul
+        - @book.errors.full_messages.each do |message|
+          %li
+            .alert-box.alert{"data-alert" => ""}
+              = message
+              %a.close{href: "#"} &times;
+  .row
+    .columns.large-3
+      .field
+        = f.label :isbn
+        %br
+        = f.text_field :isbn
+    .columns.large-5
+      .field
+        = f.label :title
+        %br
+        = f.text_field :title
+    .columns.large-4
+      .field
+        = f.label :author
+        %br
+        = f.email_field :author
+  .row
+    .columns.large-6
+      .field
+        = f.label :spiritual_author
+        %br
+        = f.text_field :spiritual_author
+    .columns.large-6
+      .field
+        = f.label :publisher
+        %br
+        = f.text_field :publisher
+  .row
+    .columns.large-3
+      .field
+        = f.label :sell_price
+        %br
+        = f.number_field :sell_price
+    .columns.large-3
+      .field
+        = f.label :buy_price
+        %br
+        = f.number_field :buy_price
+    .columns.large-3
+      .field
+        = f.label :year
+        %br
+        = f.number_field :year
+    .columns.large-3
+      .field
+        = f.label :pages_number
+        %br
+        = f.number_field :pages_number
+  .row  
+    .columns.large-6
+      .field
+        = f.label :event_day
+        %br
+        = f.number_field :event_day
+    .columns.large-6
+      .field
+        = f.label :event_time
+        %br
+        = f.number_field :event_time
+      
+  .actions
+    = f.submit class: 'button success'

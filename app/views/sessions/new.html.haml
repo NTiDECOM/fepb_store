@@ -6,10 +6,8 @@
 = form_tag session_path do
   .field
     = label_tag :email
-    = email_field_tag :email, params[:email],
-         placeholder: 'Enter your email address', required: true
+    = email_field_tag :email, params[:email], placeholder: 'Enter your email address', required: true
   .field
     = label_tag :password
-    = password_field_tag :password, params[:password],
-         placeholder: 'Enter your password', required: true
-  = submit_tag 'Sign in'
+    = password_field_tag :password, params[:password], placeholder: 'Enter your password', required: true
+  = submit_tag 'Sign in', class: 'button success'
