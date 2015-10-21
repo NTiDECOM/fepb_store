@@ -19,9 +19,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-
 en:
-  app_title: 'FEPB Library'
+  app_name: 'FEPB Library'
   date:
     abbr_day_names:
     - Sun

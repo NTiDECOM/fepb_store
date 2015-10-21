@@ -11,35 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016014432) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20151021012039) do
 
   create_table "products", force: :cascade do |t|
-    t.string   "type"
-    t.string   "title"
-    t.decimal  "buy_price"
-    t.decimal  "sell_price"
-    t.string   "isbn"
-    t.string   "author"
-    t.string   "spiritual_author"
-    t.string   "publisher"
-    t.integer  "year"
-    t.integer  "pages_number"
+    t.string   "type",             limit: 255
+    t.string   "title",            limit: 255
+    t.decimal  "buy_price",                    precision: 10
+    t.decimal  "sell_price",                   precision: 10
+    t.string   "isbn",             limit: 255
+    t.string   "author",           limit: 255
+    t.string   "spiritual_author", limit: 255
+    t.string   "publisher",        limit: 255
+    t.integer  "year",             limit: 4
+    t.integer  "pages_number",     limit: 4
     t.date     "event_day"
     t.datetime "event_time"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "name",                   limit: 255
+    t.string   "surname",                limit: 255
+    t.string   "password_digest",        limit: 255
+    t.string   "cpf",                    limit: 255
+    t.string   "city",                   limit: 255
+    t.string   "state",                  limit: 255
+    t.string   "street",                 limit: 255
+    t.string   "street_number",          limit: 255
+    t.string   "street_complement",      limit: 255
+    t.string   "cep",                    limit: 255
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

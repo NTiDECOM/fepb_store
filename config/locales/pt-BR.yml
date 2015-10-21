@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
-  app_title: 'Livraria FEPB'
+  app_name: 'Livraria FEPB'
   date:
     abbr_day_names:
     - Dom
