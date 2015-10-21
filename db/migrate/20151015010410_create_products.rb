@@ -12,6 +12,7 @@ class CreateProducts < ActiveRecord::Migration
       t.string :publisher
       t.integer :year
       t.integer :pages_number
+      t.text :synopisis
 
       t.date :event_day
       t.datetime :event_time
