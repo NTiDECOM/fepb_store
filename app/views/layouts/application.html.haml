@@ -31,14 +31,14 @@
         / Right Nav Section
         %ul.right
           - if !current_user.present?
+            %li            
+              %a{href: '#'}= current_user.present? ? current_user.name : 'Hi, visitant'
+          - if !current_user.present?
             %li.active
               %a= link_to 'Login', new_user_session_path
           - if !current_user.present?
             %li.active
-              %a= link_to 'Sign up', new_user_registration_path
-          - if !current_user.present?
-            %li            
-              %a{href: '#'}= current_user.present? ? current_user.name : 'Hi, visitant'
+              %a= link_to 'Sign up', new_user_registration_path          
           - else
             %li                
               %a= link_to 'My profile', user_path(current_user.id)
