@@ -16,31 +16,33 @@ ActiveRecord::Schema.define(version: 20151021012039) do
   create_table "products", force: :cascade do |t|
     t.string   "type",             limit: 255
     t.string   "title",            limit: 255
-    t.decimal  "buy_price",                    precision: 10
-    t.decimal  "sell_price",                   precision: 10
+    t.decimal  "buy_price",                      precision: 10
+    t.decimal  "sell_price",                     precision: 10
     t.string   "isbn",             limit: 255
     t.string   "author",           limit: 255
     t.string   "spiritual_author", limit: 255
     t.string   "publisher",        limit: 255
     t.integer  "year",             limit: 4
     t.integer  "pages_number",     limit: 4
+    t.text     "synopisis",        limit: 65535
     t.date     "event_day"
     t.datetime "event_time"
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.string   "surname",                limit: 255
-    t.string   "password_digest",        limit: 255
     t.string   "cpf",                    limit: 255
+    t.string   "phone1",                 limit: 255
+    t.string   "phone2",                 limit: 255
     t.string   "city",                   limit: 255
     t.string   "state",                  limit: 255
+    t.string   "cep",                    limit: 255
     t.string   "street",                 limit: 255
     t.string   "street_number",          limit: 255
     t.string   "street_complement",      limit: 255
-    t.string   "cep",                    limit: 255
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255

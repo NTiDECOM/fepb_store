@@ -4,12 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :surname
       t.string :cpf
+      t.string :phone1
+      t.string :phone2
       t.string :city
       t.string :state
+      t.string :cep
       t.string :street
       t.string :street_number
       t.string :street_complement
-      t.string :cep
 
       ## Database authenticatable
       t.string :email, null: false, default: ""

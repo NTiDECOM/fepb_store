@@ -1,0 +1,68 @@
+= form_for(@user) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this book from being saved:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li
+            .alert-box.alert{"data-alert" => ""}
+              = message
+              %a.close{href: "#"} &times;
+  .row
+    .columns.large-3
+      .field
+        = f.label :name
+        %br
+        = f.text_field :name
+    .columns.large-5
+      .field
+        = f.label :surname
+        %br
+        = f.text_field :surname
+    .columns.large-4
+      .field
+        = f.label :email
+        %br
+        = f.email_field :email
+  .row
+    .columns.large-4
+      .field
+        = f.label :cpf
+        %br
+        = f.text_field :cpf
+    .columns.large-5
+      .field
+        = f.label :phone1
+        %br
+        = f.text_field :phone1
+    .columns.large-4
+      .field
+        = f.label :phone2
+        %br
+        = f.text_field :phone2
+  .row
+    .columns.large-3
+      .field
+        = f.label :street
+        %br
+        = f.number_field :street
+    .columns.large-3
+      .field
+        = f.label :street_number
+        %br
+        = f.number_field :street_number
+    .columns.large-3
+      .field
+        = f.label :street_complement
+        %br
+        = f.number_field :street_complement
+    .columns.large-3
+      .field
+        = f.label :cep
+        %br
+        = f.number_field :cep
+      
+  .actions
+    = f.submit class: 'button success'

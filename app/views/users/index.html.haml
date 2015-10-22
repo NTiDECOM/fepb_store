@@ -1,0 +1,40 @@
+%p#notice= notice
+
+%h1
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Surname
+      %th E-mail
+      %th CPF
+      %th City
+      %th State
+      %th Street
+      %th Street number
+      %th Street complement
+      %th CEP
+  %div#paginate.large-12.large-centered= paginate @users
+  %div#page_entries_info.large-12.large-centered= page_entries_info @users
+
+  %tbody
+    -@users.each do |user|
+      %tr
+        %td= user.name
+        %td= user.surname
+        %td= user.email
+        %td= user.cpf
+        %td= user.city
+        %td= user.state
+        %td= user.street
+        %td= user.street_number
+        %td= user.street_complement
+        %td= user.cep
+        %td= link_to 'Show', user, class: 'button'
+        %td= link_to 'Edit', edit_user_path(user), class: 'button'
+        %td= link_to 'Destroy', user, class: 'button alert', method: :delete, data: { confirm: 'Are you sure?' }
+%br
+
+=link_to 'New user', new_user_path, class: 'button success'
+=link_to 'Back', root_url, class: 'button'

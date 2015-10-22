@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:name, :surname)}   
   end
 
+  def notice_custom
+    redirect_to root_path, notice: 'NOTICE MESSAGE'
+  end
+
+  def error_custom
+    redirect_to root_path, alert: 'ERROR MESSAGE'
+  end
+
 	protected
 
 	# def current_user

@@ -1,28 +1,45 @@
-/ %p#notice= notice
-
-/ %p
-/   %strong Name:
-/   = current_user.name
-
-/ %p
-/   %strong Email:
-/   = current_user.email
-
-/ %p
-/   %strong Password:
-    
-
-/ %p
-/   %strong CPF:
-/   = current_user.cpf
-
-/ %p
-/   %strong Phone 1:
-/   = current_user.phone1
-
-/ %p
-/   %strong Phone 2:
-/   = current_user.phone2
-
-/ = link_to 'Edit', edit_user_path(current_user), class: 'button' if current_user
-/ = link_to 'Back', root_path, class: 'button'
+.row
+  .columns.large-12
+    %h2{style: "text-align: center;"} My profile
+.row
+  .columns.large-6
+    %p
+      %strong Name:
+      = current_user.name
+    %p
+      %strong Name:
+      = current_user.surname
+    %p
+      %strong Email:
+      = current_user.email
+    %p
+      %strong CPF:
+      = current_user.cpf
+    %p
+      %strong Phone 1:
+      = current_user.phone1
+    %p
+      %strong Phone 2:
+      = current_user.phone2
+  .columns.large-6
+    %p
+      %strong City:
+      = current_user.city
+    %p
+      %strong State:
+      = current_user.state
+    %p
+      %strong CEP:
+      = current_user.cep
+    %p
+      %strong Street:
+      = current_user.street
+    %p
+      %strong Street number:
+      = current_user.street_number
+    %p
+      %strong Street complement:
+      = current_user.street_complement
+      
+= link_to 'Edit', edit_user_path(current_user), class: 'button' if current_user
+= link_to 'Back', root_path, class: 'button'

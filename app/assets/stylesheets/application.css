@@ -14,3 +14,11 @@
  *= require_self
  *= require foundation_and_overrides
  */
+
+.notice {
+  color: $success-color;
+}
+
+.notice {
+  color: $alert-color;
+}

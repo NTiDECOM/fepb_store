@@ -1,24 +1,36 @@
-%p#notice= notice
+.row
+  .columns.large-12
+    %h2{style: "text-align: center;"} Book
+.row
+  .columns.large-6
+    %p
+      %strong ISBN:
+      = @book.isbn
+    %p
+      %strong Title:
+      = @book.title
+    %p
+      %strong Author:
+      = @book.author  
+    %p
+      %strong Spiritual author:
+      = @book.spiritual_author
+  .columns.large-6
+    %p
+      %strong Sell price:
+      = @book.sell_price
+    %p
+      %strong Buy price:
+      = @book.buy_price  
+    %p
+      %strong Publisher:
+      = @book.publisher
+    %p
+      %strong Year:
+      = @book.year
+    %p
+      %strong Number of pages:
+      = @book.pages_number
 
-%p
-  %strong Title:
-  = @book.title
-
-%p
-  %strong Author:
-  = @book.author
-
-%p
-  %strong Spiritual author:
-  = @book.spiritual_author
-
-%p
-  %strong Price:
-  = number_to_currency(@book.sell_price)
-
-%p
-  %strong Number of pages
-  = @book.pages_number
-
-= link_to 'Edit', edit_book_path(@book), class: 'button'
-= link_to 'Back', books_path, class: 'button'
+= link_to 'Edit', edit_book_path(@book.id), class: 'button'
+= link_to 'Back', root_path, class: 'button'

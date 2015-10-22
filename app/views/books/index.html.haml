@@ -5,23 +5,34 @@
 %table
   %thead
     %tr
+      %th ISBN
       %th Title
       %th Author
       %th Spiritual author
-      %th Price
+      %th Publisher
+      %th Buy price
+      %th Sell price
+      %th Year
+      %th Number of pages
+
   %div#paginate.small-12.small-centered= paginate @books
   %div#page_entries_info.small-12.small-centered= page_entries_info @books
 
   %tbody
     -@books.each do |book|
       %tr
+        %td= book.isbn
         %td= book.title
         %td= book.author
         %td= book.spiritual_author
+        %td= book.publisher
         %td= book.sell_price
+        %td= book.buy_price
+        %td= book.year
+        %td= book.pages_number
         %td= link_to 'Show', book, class: 'button'
         %td= link_to 'Edit', edit_book_path(book), class: 'button'
         %td= link_to 'Destroy', book, class: 'button alert', method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
-/ =link_to 'New Book', new_book_path, class: 'button success'
+=link_to 'New Book', new_book_path, class: 'button success'

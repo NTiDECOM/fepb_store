@@ -24,7 +24,10 @@
         %ul.left
           %li
             - if current_user.present?
-              %a{href: "#" }= "Hello, #{current_user.name}"
+              %a{href: "#" }= current_user.email
+          %li
+            - if current_user.present?
+              %a= link_to 'Manage users', users_path
         / Right Nav Section
         %ul.right
           - if !current_user.present?
@@ -37,31 +40,44 @@
             %li            
               %a{href: '#'}= current_user.present? ? current_user.name : 'Hi, visitant'
           - else
-            %li.has-dropdown
-              %a{href: "#" }= "Hi, #{current_user.name}"
-              %ul.dropdown
-                %li                
-                  %a= link_to 'My profile', user_path(current_user.id)
-                %li.active
-                  %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
+            %li                
+              %a= link_to 'My profile', user_path(current_user.id)
+            %li.active
+              %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
+            / %li.has-dropdown
+            /   %a{href: "#" }= "Hi, #{current_user.name}"
+            /   %ul.dropdown
+            /     %li                
+            /       %a= link_to 'My profile', user_path(current_user.id)
+            /     %li.active
+            /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
     .row{'style' => 'margin-top: 10px;'}
-      .small-12
+      .large-12.large-centered
+        - flash.each do |key, message|
+          - if message.is_a?(String) && message.present?
+            #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => '', class: key}
+              = simple_format(message)
+              %a.close{href: '#'} &times;
+        / = form_tag('/notice_custom', method: 'get') do
+        /   = submit_tag 'SUCCESS', class: 'button success'
+        / = form_tag('/error_custom', method: 'get') do
+        /   = submit_tag 'ERROR', class: 'button error'
         /- flash.each do |name, msg|
-        /  %div "#{name}: #{msg}"
-        - if flash[:success]
-          #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => ''}
-            = flash[:success]
-            %a.close{href: '#'} &times;
-        - if flash[:info]
-          #messages.alert-box.info.radius.columns.small-12.small-centered{'data-alert' => ''}
-            = flash[:info]
-            %a.close{href: '#'} &times;
-        - if flash[:alert]
-          #messages.alert-box.alert.radius.columns.small-12.small-centered{'data-alert' => ''}
-            = flash[:alert]
-            %a.close{href: '#'} &times;
-        - if flash[:error]
-          #messages.alert-box.warning.radius.columns.small-12.small-centered{'data-alert' => ''}
-            = flash[:error]
-            %a.close{href: '#'} &times;
+        /  %div "#{name}: #{msg}"    
+        / - if flash[:success]
+        /   #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => ''}
+        /     = flash[:success]
+        /     %a.close{href: '#'} &times;
+        / - if flash[:info]
+        /   #messages.alert-box.info.radius.columns.small-12.small-centered{'data-alert' => ''}
+        /     = flash[:info]
+        /     %a.close{href: '#'} &times;
+        / - if flash[:alert]
+        /   #messages.alert-box.alert.radius.columns.small-12.small-centered{'data-alert' => ''}
+        /     = flash[:alert]
+        /     %a.close{href: '#'} &times;
+        / - if flash[:error]
+        /   #messages.alert-box.warning.radius.columns.small-12.small-centered{'data-alert' => ''}
+        /     = flash[:error]
+        /     %a.close{href: '#'} &times;
         = yield

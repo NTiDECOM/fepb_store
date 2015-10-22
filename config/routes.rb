@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :books
   resources :users
 
-  #devise_for :users
+  get '/notice_custom' => 'application#notice_custom'
+  get '/error_custom' => 'application#error_custom'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'
