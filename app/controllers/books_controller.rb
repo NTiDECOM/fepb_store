@@ -34,9 +34,9 @@ class BooksController < ApplicationController
 
 	def destroy
       if @book.destroy
-	    redirect_to :books_path, notice: "Book removed successfully"
+	    redirect_to @book, notice: "Book removed successfully"
 	  else
-	  	redirect_to :books_path, notice: "Book could not be removed"
+	  	redirect_to @book, notice: "Book could not be removed"
 	  end
 	end
 
@@ -50,10 +50,5 @@ class BooksController < ApplicationController
 
 	def set_book
 	  @book = Book.find(params[:id])
-	end
-
-
-	def handleShopify
-	
 	end
 end
