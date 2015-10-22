@@ -3,13 +3,30 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-	# helper_method :current_user
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
-  before_filter :update_sanitized_params, if: :devise_controller?
+  protected
 
-  def update_sanitized_params
-    devise_parameter_sanitizer.for(:sign_up) {|u| u.permit(:name, :surname, :email, :password, :password_confirmation)}
-    devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:name, :surname)}   
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email) }
+
+    devise_parameter_sanitizer.for(:sign_up) {
+      |u| u.permit(
+        :name, :surname, 
+        :email, 
+        :password, :password_confirmation
+      )
+    }
+
+    devise_parameter_sanitizer.for(:account_update) {
+      |u| u.permit(
+        :name, :surname, 
+        :cpf, 
+        :phone1, :phone2, 
+        :city, :state, :cep, 
+        :street, :street_number, :street_complement
+      )
+    }     
   end
 
   def notice_custom
@@ -19,16 +36,4 @@ class ApplicationController < ActionController::Base
   def error_custom
     redirect_to root_path, alert: 'ERROR MESSAGE'
   end
-
-	protected
-
-	# def current_user
-	# 	@current_user ||= User.find(session[:user_id]) if session[:user_id]
-	# end
-
-	# def authenticate
-	# 	unless current_user
-	# 		redirect_to new_session_url, alert: 'You need to sign in or sign up before continuing.'
-	# 	end
-	# end
 end
