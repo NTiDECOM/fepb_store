@@ -30,9 +30,9 @@
         %td= book.buy_price
         %td= book.year
         %td= book.pages_number
-        %td= link_to 'Show', book, class: 'button'
-        %td= link_to 'Edit', edit_book_path(book), class: 'button'
-        %td= link_to 'Destroy', book, class: 'button alert', method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Show', book, class: 'button radius'
+        %td= link_to 'Edit', edit_book_path(book), class: 'button radius'
+        %td= link_to 'Destroy', book, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
-=link_to 'New Book', new_book_path, class: 'button success'
+=link_to 'New Book', new_book_path, class: 'button success radius'
