@@ -12,6 +12,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :street
       t.string :street_number
       t.string :street_complement
+      t.boolean :admin
 
       ## Database authenticatable
       t.string :email, null: false, default: ""
