@@ -34,6 +34,8 @@ gem 'html2haml', '2.0.0'
 gem 'zurb-foundation', '~> 4.3.2'
 # Kaminari pagination
 gem 'kaminari', '~> 0.16.3'
+# CarrierWave
+gem 'carrierwave'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

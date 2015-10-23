@@ -1,6 +1,8 @@
 .row
   .columns.large-12
     %h2{style: "text-align: center;"} Book
+    = image_tag @book.product_image_url if @book.product_image
+
 .row
   .columns.large-6
     %p

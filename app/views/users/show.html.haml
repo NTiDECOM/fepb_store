@@ -1,6 +1,7 @@
 .row
   .columns.large-12
-    %h2{style: "text-align: center;"} My profile
+    %h2{style: "text-align: center;"}= current_user.admin == true ? 'My profile (Admin)' : 'My profile'
+
 .row
   .columns.large-6
     %p
