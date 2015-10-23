@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -36,6 +36,8 @@ gem 'zurb-foundation', '~> 4.3.2'
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
 gem 'carrierwave'
+# rails_12factor
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
