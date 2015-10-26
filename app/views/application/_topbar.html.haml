@@ -1,0 +1,40 @@
+%nav.top-bar{"data-topbar" => true, role: "navigation"}
+  %ul.title-area
+    %li.name
+      %h1= link_to t('views.application.name'), books_path
+    /Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+    %li.toggle-topbar.menu-icon
+      %a{href: "#"}
+        %span Menu      
+  %section.top-bar-section
+    / Left Nav Section
+    %ul.left
+      %li
+        - if current_user.present?
+          %a{href: "#" }= current_user.email
+      %li
+        - if current_user.present?
+          %a= link_to 'Manage users', users_path
+    / Right Nav Section
+    %ul.right
+      - if !current_user.present?
+        %li            
+          %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
+      - if !current_user.present?
+        %li.active
+          %a= link_to t('views.application.auth.log_in'), new_user_session_path
+      - if !current_user.present?
+        %li.active
+          %a= link_to t('views.application.auth.sign_up'), new_user_registration_path          
+      - else
+        %li                
+          %a= link_to t('views.user.my_profile'), user_path(current_user.id)
+        %li.active
+          %a= link_to t('views.application.auth.log_out'), destroy_user_session_path, method: 'delete'
+        / %li.has-dropdown
+        /   %a{href: "#" }= "Hi, #{current_user.name}"
+        /   %ul.dropdown
+        /     %li                
+        /       %a= link_to 'My profile', user_path(current_user.id)
+        /     %li.active
+        /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'

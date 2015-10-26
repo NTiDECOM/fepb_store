@@ -5,15 +5,15 @@
 %table
   %thead
     %tr
-      %th ISBN
-      %th Title
-      %th Author
-      %th Spiritual author
-      %th Publisher
-      %th Buy price
-      %th Sell price
-      %th Year
-      %th Number of pages
+      %th= t('views.models.book.isbn')
+      %th= t('views.models.product.title')
+      %th= t('views.models.book.author')
+      %th= t('views.models.book.spiritual_author')
+      %th= t('views.models.book.publisher')
+      %th= t('views.models.product.buy_price')
+      %th= t('views.models.product.sell_price')
+      %th= t('views.models.book.year')
+      %th= t('views.models.book.pages_number')
 
   %div#paginate.small-12.small-centered= paginate @books
   %div#page_entries_info.small-12.small-centered= page_entries_info @books
@@ -30,9 +30,9 @@
         %td= book.buy_price
         %td= book.year
         %td= book.pages_number
-        %td= link_to 'Show', book, class: 'button radius'
-        %td= link_to 'Edit', edit_book_path(book), class: 'button radius' if current_user and current_user.admin
-        %td= link_to 'Destroy', book, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+        %td= link_to t('views.application.show'), book, class: 'button radius'
+        %td= link_to t('views.application.edit'), edit_book_path(book), class: 'button radius' if current_user and current_user.admin
+        %td= link_to t('views.application.destroy'), book, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
 %br
 
 =link_to 'New Book', new_book_path, class: 'button success radius' if current_user and current_user.admin

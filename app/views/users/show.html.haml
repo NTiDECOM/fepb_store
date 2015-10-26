@@ -42,5 +42,5 @@
       %strong Street complement:
       = current_user.street_complement
       
-= link_to 'Edit', edit_user_path(current_user), class: 'button radius' if current_user
-= link_to 'Back', root_path, class: 'button radius'
+= link_to t('views.application.edit'), edit_user_path(current_user), class: 'button radius' if current_user
+= link_to t('views.application.back'), root_path, class: 'button radius'

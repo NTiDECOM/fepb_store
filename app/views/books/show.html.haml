@@ -5,33 +5,33 @@
 .row
   .columns.large-6
     %p
-      %strong ISBN:
+      %strong= t('models.book.isbn')
       = @book.isbn
     %p
-      %strong Title:
+      %strong= t('models.product.title')
       = @book.title
     %p
-      %strong Author:
+      %strong= t('models.book.author')
       = @book.author  
     %p
-      %strong Spiritual author:
+      %strong= t('models.book.spiritual_author')
       = @book.spiritual_author
   .columns.large-6
     %p
-      %strong Sell price:
+      %strong= t('models.product.sell_price')
       = @book.sell_price
     %p
-      %strong Buy price:
+      %strong= t('models.product.buy_price')
       = @book.buy_price  
     %p
-      %strong Publisher:
+      %strong= t('models.book.publisher')
       = @book.publisher
     %p
-      %strong Year:
+      %strong= t('models.book.year')
       = @book.year
     %p
-      %strong Number of pages:
+      %strong= t('models.book.pages_number')
       = @book.pages_number
 
-= link_to 'Edit', edit_book_path(@book.id), class: 'button radius'
-= link_to 'Back', root_path, class: 'button radius'
+= link_to t('views.application.edit'), edit_book_path(@book.id), class: 'button radius'
+= link_to t('views.application.back'), root_path, class: 'button radius'

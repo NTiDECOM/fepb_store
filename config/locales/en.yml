@@ -19,8 +19,27 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  app_name: 'FEPB Library'
+en:  
+  app:
+    model:
+      book:
+        author: 'Author'
+        isbn: 'ISBN'
+        pages_number: 'Number of pages'
+        spiritual_author: 'Spiritual author'
+        publisher: 'Publisher'
+        year: 'Year'
+      product:
+        buy_price: 'Buy price'
+        sell_price: 'Sell price'
+        title: 'Title'
+    generic:
+      app_name: 'FEPB Library'
+    view:
+      books_index:
+      book_edit:
+      books_show:
+      books_form:
   date:
     abbr_day_names:
     - Sun

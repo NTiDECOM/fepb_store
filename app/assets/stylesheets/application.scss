@@ -14,8 +14,10 @@
  *= require_self
  *= require foundation_and_overrides
  *= require kaminari_overrides
+ *= require foundation-icons
+ *= require footer
  */
 
-.top-bar ul li > a {
-  font-size: 18px;
-}
+/* .top-bar ul li > a {
+  font-size: 16px;
+} */

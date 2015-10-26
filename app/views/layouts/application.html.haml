@@ -4,53 +4,15 @@
     %meta{charset: 'utf-8'}
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
 
-    %title= content_for?(:title) ? yield(:title) : t('app_name')
+    %title= content_for?(:title) ? yield(:title) : t('views.application.name')
 
     = stylesheet_link_tag    "application"    
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
+    /%link{:href => "http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css", :rel => "stylesheet"}
 
   %body{id: "#{params[:controller].parameterize}_controller"}
-    %nav.top-bar{"data-topbar" => true, role: "navigation"}
-      %ul.title-area
-        %li.name
-          %h1= link_to t('app_name'), books_path
-        /Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
-        %li.toggle-topbar.menu-icon
-          %a{href: "#"}
-            %span Menu      
-      %section.top-bar-section
-        / Left Nav Section
-        %ul.left
-          %li
-            - if current_user.present?
-              %a{href: "#" }= current_user.email
-          %li
-            - if current_user.present?
-              %a= link_to 'Manage users', users_path
-        / Right Nav Section
-        %ul.right
-          - if !current_user.present?
-            %li            
-              %a{href: '#'}= current_user.present? ? current_user.name : 'Hi, visitant'
-          - if !current_user.present?
-            %li.active
-              %a= link_to 'Login', new_user_session_path
-          - if !current_user.present?
-            %li.active
-              %a= link_to 'Sign up', new_user_registration_path          
-          - else
-            %li                
-              %a= link_to 'My profile', user_path(current_user.id)
-            %li.active
-              %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
-            / %li.has-dropdown
-            /   %a{href: "#" }= "Hi, #{current_user.name}"
-            /   %ul.dropdown
-            /     %li                
-            /       %a= link_to 'My profile', user_path(current_user.id)
-            /     %li.active
-            /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
+    = render 'topbar'
     .row{'style' => 'margin-top: 10px;'}
       .large-12.large-centered
         - flash.each do |key, message|
@@ -81,3 +43,4 @@
         /     = flash[:error]
         /     %a.close{href: '#'} &times;
         = yield
+      = render 'footer'

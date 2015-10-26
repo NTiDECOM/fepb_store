@@ -20,7 +20,48 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
-  app_name: 'Livraria FEPB'
+  views:
+    application:
+      auth:
+        hello_guest: 'Olá, visitante'
+        log_in: Entrar
+        sign_up: Criar conta
+        log_out: Sair
+      back: Voltar
+      destroy: Remover
+      name: Livraria FEPB
+      edit: Editar
+      show: Exibir
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"
+    books:
+      index:
+      edit:
+      show:
+      form:
+    products:
+      index:
+      edit:
+      show:
+      form:
+    users:
+      my_profile: Minha conta
+  models:
+    book:
+      author: 'Autor'
+      isbn: 'ISBN'
+      pages_number: 'Número de páginas'
+      spiritual_author: 'Autor espiritual'
+      publisher: 'Editora'
+      year: 'Ano'
+    product:
+      buy_price: 'Preço de compra'
+      sell_price: 'Preço de venda'
+      title: 'Título'
   date:
     abbr_day_names:
     - Dom
@@ -154,6 +195,15 @@ pt-BR:
   helpers:
     select:
       prompt: Por favor selecione
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>%{count}</b> %{entry_name}"
+      more_pages:
+        #display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"
+        display_entries: "Exibindo <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b>"
     submit:
       create: Criar %{model}
       submit: Salvar %{model}

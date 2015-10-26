@@ -31,10 +31,10 @@
         %td= user.street_number
         %td= user.street_complement
         %td= user.cep
-        %td= link_to 'Show', user, class: 'button radius'
-        %td= link_to 'Edit', edit_user_path(user), class: 'button radius'
-        %td= link_to 'Destroy', user, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to t('views.application.show'), user, class: 'button radius'
+        %td= link_to t('views.application.edit'), edit_user_path(user), class: 'button radius'
+        %td= link_to t('views.application.destroy'), user, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
 =link_to 'New user', new_user_path, class: 'button success radius'
-=link_to 'Back', root_url, class: 'button radius'
+=link_to t('views.application.back'), root_url, class: 'button radius'

@@ -11,19 +11,19 @@ class UsersController < ApplicationController
   def show
   end 
 
-    def create      
-      if @user.save
-        redirect_to @user, notice: "User created successfully"
-      else
-        render action: :new, notice: "Could not update this User"
-      end
+  def create      
+    if @user.save
+      redirect_to @user, notice: "User created successfully"
+    else
+      render action: :new, notice: "Could not update this User"
+    end
   end
 
   def edit       
   end
 
   def update
-    if @user.update(User_params)
+    if @user.update(user_params)
       redirect_to @user, notice: "User updated successfully"
     else
         redirect_to @user, notice: "Could not update this User"
@@ -31,31 +31,31 @@ class UsersController < ApplicationController
   end
 
   def destroy
-      if @user.destroy
-      redirect_to :Users_path, notice: "User removed successfully"
+    if @user.destroy
+      redirect_to :users_path, notice: "User removed successfully"
     else
-      redirect_to :Users_path, notice: "User could not be removed"
+      redirect_to :users_path, notice: "User could not be removed"
     end
   end
 
   ##### helper methods #####
   private
 
-  def User_params
-      params.require(:user).permit(
-        :name, 
-        :surname, 
-        :email, 
-        :cpf, 
-        :phone1,
-        :phone2,
-        :city, 
-        :state,         
-        :cep,
-        :street, 
-        :street_number, 
-        :street_complement, 
-      )
+  def user_params
+    params.require(:user).permit(
+      :name, 
+      :surname, 
+      :email, 
+      :cpf, 
+      :phone1,
+      :phone2,
+      :city, 
+      :state,         
+      :cep,
+      :street, 
+      :street_number, 
+      :street_complement
+    )
   end
 
   def set_User
