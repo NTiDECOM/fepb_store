@@ -43,6 +43,8 @@ gem 'kaminari', '~> 0.16.3'
 gem 'carrierwave'
 # rails_12factor
 gem 'rails_12factor', group: :production
+# Mail Catcher
+gem 'mailcatcher'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
