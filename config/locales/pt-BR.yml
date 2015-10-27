@@ -24,11 +24,14 @@ pt-BR:
     application:
       auth:
         hello_guest: 'Olá, visitante'
+        forgot_password: Esqueci minha senha
         log_in: Entrar
-        sign_up: Criar conta
         log_out: Sair
+        remember_password: Lembrar senha
+        sign_up: Criar conta
       back: Voltar
       destroy: Remover
+      manage_users: Gerenciar usuários
       name: Livraria FEPB
       edit: Editar
       show: Exibir
@@ -62,6 +65,14 @@ pt-BR:
       buy_price: 'Preço de compra'
       sell_price: 'Preço de venda'
       title: 'Título'
+    user:
+      cpf: CPF
+      email: E-mail
+      name: Nome
+      surname: Sobrenome
+      password: Senha
+      password_confirmation: Confirmação de senha
+
   date:
     abbr_day_names:
     - Dom

@@ -1,13 +1,13 @@
-%h1 Sign in
+%h1= t('views.application.auth.log_in')
 
 - if flash.alert
   .alert= flash.alert
 
 = form_tag session_path do
   .field
-    = label_tag :email
+    = label_tag t('models.user.email')
     = email_field_tag :email, params[:email], placeholder: 'Enter your email address', required: true
   .field
-    = label_tag :password
+    = label_tag t('models.user.password')
     = password_field_tag :password, params[:password], placeholder: 'Enter your password', required: true
-  = submit_tag 'Sign in', class: 'button success'
+  = submit_tag t('views.application.auth.log_in'), class: 'button success'

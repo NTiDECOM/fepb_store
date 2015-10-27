@@ -14,7 +14,7 @@
           %a{href: "#" }= current_user.email
       %li
         - if current_user.present?
-          %a= link_to 'Manage users', users_path
+          %a= link_to t('views.application.manage_users'), users_path
     / Right Nav Section
     %ul.right
       - if !current_user.present?
@@ -28,7 +28,7 @@
           %a= link_to t('views.application.auth.sign_up'), new_user_registration_path          
       - else
         %li                
-          %a= link_to t('views.user.my_profile'), user_path(current_user.id)
+          %a= link_to t('views.users.my_profile'), user_path(current_user.id)
         %li.active
           %a= link_to t('views.application.auth.log_out'), destroy_user_session_path, method: 'delete'
         / %li.has-dropdown

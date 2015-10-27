@@ -5,15 +5,16 @@
 %table
   %thead
     %tr
-      %th= t('views.models.book.isbn')
-      %th= t('views.models.product.title')
-      %th= t('views.models.book.author')
-      %th= t('views.models.book.spiritual_author')
-      %th= t('views.models.book.publisher')
-      %th= t('views.models.product.buy_price')
-      %th= t('views.models.product.sell_price')
-      %th= t('views.models.book.year')
-      %th= t('views.models.book.pages_number')
+      %th
+      %th= t('models.book.isbn')
+      %th= t('models.product.title')
+      %th= t('models.book.author')
+      %th= t('models.book.spiritual_author')
+      %th= t('models.book.publisher')
+      %th= t('models.product.buy_price')
+      %th= t('models.product.sell_price')
+      %th= t('models.book.year')
+      %th= t('models.book.pages_number')
 
   %div#paginate.small-12.small-centered= paginate @books
   %div#page_entries_info.small-12.small-centered= page_entries_info @books
@@ -21,6 +22,7 @@
   %tbody
     -@books.each do |book|
       %tr
+        %td= book.product_image ? image_tag(book.product_image_url, size: "100") : ''
         %td= book.isbn
         %td= book.title
         %td= book.author
