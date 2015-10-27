@@ -15,6 +15,9 @@
       %th= t('models.product.sell_price')
       %th= t('models.book.year')
       %th= t('models.book.pages_number')
+      %th
+      %th
+      %th
 
   %div#paginate.small-12.small-centered= paginate @books
   %div#page_entries_info.small-12.small-centered= page_entries_info @books
@@ -28,8 +31,8 @@
         %td= book.author
         %td= book.spiritual_author
         %td= book.publisher
-        %td= book.sell_price
-        %td= book.buy_price
+        %td= number_to_currency book.sell_price
+        %td= number_to_currency book.buy_price
         %td= book.year
         %td= book.pages_number
         %td= link_to t('views.application.show'), book, class: 'button radius'
@@ -37,4 +40,4 @@
         %td= link_to t('views.application.destroy'), book, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
 %br
 
-=link_to 'New Book', new_book_path, class: 'button success radius' if current_user and current_user.admin
+=link_to t('views.application.new'), new_book_path, class: 'button success radius' if current_user and current_user.admin

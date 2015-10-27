@@ -33,6 +33,7 @@ pt-BR:
       destroy: Remover
       manage_users: Gerenciar usuários
       name: Livraria FEPB
+      new: Novo
       edit: Editar
       show: Exibir
     pagination:

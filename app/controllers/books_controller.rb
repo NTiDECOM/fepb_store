@@ -13,14 +13,14 @@ class BooksController < ApplicationController
 	def show
 	end	
 
-    def create
-      @book = Book.new(book_params)
+  def create
+    @book = Book.new(book_params)
 
-      if @book.save
-        redirect_to @book, notice: "Book created successfully"
-      else
-      	render action: :new, notice: "Could not update this book"
-      end
+    if @book.save
+      redirect_to @book, notice: "Book created successfully"
+    else
+    	render action: :new, notice: "Could not update this book"
+    end
 	end
 
 	def edit       
@@ -42,12 +42,12 @@ class BooksController < ApplicationController
 	  end
 	end
 
-    ##### helper methods #####
-    private
+  ##### helper methods #####
+  private
 
 	def book_params
-      params.require(:book).
-        permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
+    params.require(:book).
+    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
 	end
 
 	def set_book
