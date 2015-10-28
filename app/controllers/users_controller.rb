@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 	def index
       #@users = User.all
       @users = User.order(:name).page(params[:page])
@@ -19,7 +21,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit       
+  def edit
   end
 
   def update
@@ -54,11 +56,16 @@ class UsersController < ApplicationController
       :cep,
       :street, 
       :street_number, 
-      :street_complement
+      :street_complement,
+      :avatar
     )
   end
 
-  def set_User
-    @user = User.find(params[:id])
+  def set_user
+    if current_user
+      @user = current_user 
+    else
+      @user = User.find(params[:id])
+    end
   end
 end

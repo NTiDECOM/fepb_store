@@ -1,46 +1,47 @@
 .row
-  .columns.large-12
-    %h2{style: "text-align: center;"}= current_user.admin == true ? 'My profile (Admin)' : 'My profile'
+  .columns.large-12.text-center
+    %h2{style: "text-align: center;"}= @user.admin == true ? 'My profile (Admin)' : 'My profile'
+    = image_tag(@user.avatar_url, size: "200", style: 'margin-bottom: 10px;') if @user.avatar
 
 .row
   .columns.large-6
     %p
       %strong Name:
-      = current_user.name
+      = @user.name
     %p
       %strong Name:
-      = current_user.surname
+      = @user.surname
     %p
       %strong Email:
-      = current_user.email
+      = @user.email
     %p
       %strong CPF:
-      = current_user.cpf
+      = @user.cpf
     %p
       %strong Phone 1:
-      = current_user.phone1
+      = @user.phone1
     %p
       %strong Phone 2:
-      = current_user.phone2
+      = @user.phone2
   .columns.large-6
     %p
       %strong City:
-      = current_user.city
+      = @user.city
     %p
       %strong State:
-      = current_user.state
+      = @user.state
     %p
       %strong CEP:
-      = current_user.cep
+      = @user.cep
     %p
       %strong Street:
-      = current_user.street
+      = @user.street
     %p
       %strong Street number:
-      = current_user.street_number
+      = @user.street_number
     %p
       %strong Street complement:
-      = current_user.street_complement
+      = @user.street_complement
       
-= link_to t('views.application.edit'), edit_user_path(current_user), class: 'button radius' if current_user
+= link_to t('views.application.edit'), edit_user_path(@user.id), class: 'button radius' if @user
 = link_to t('views.application.back'), root_path, class: 'button radius'

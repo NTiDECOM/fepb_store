@@ -1,10 +1,10 @@
-%p#notice= notice
-
-%h1
+%div#paginate.large-12.large-centered= paginate @users
+%div#page_entries_info.large-12.large-centered= page_entries_info @users
 
 %table
   %thead
     %tr
+      %th
       %th Name
       %th Surname
       %th E-mail
@@ -15,12 +15,10 @@
       %th Street number
       %th Street complement
       %th CEP
-  %div#paginate.large-12.large-centered= paginate @users
-  %div#page_entries_info.large-12.large-centered= page_entries_info @users
-
   %tbody
     -@users.each do |user|
       %tr
+        %td= image_tag(user.avatar_url, size: "100") if user.avatar
         %td= user.name
         %td= user.surname
         %td= user.email
