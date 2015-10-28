@@ -1,0 +1,11 @@
+= form_for(@shirt, html: {multipart: true}) do |f|
+  - if @shirt.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@shirt.errors.count, "error")
+        prohibited this shirt from being saved:
+      %ul
+        - @shirt.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

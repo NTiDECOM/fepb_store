@@ -23,6 +23,12 @@ $background-color: #111; //#2980b9
 }
 
 .footer {
+  a:visited {
+    color: $text-color;
+  }
+  a:hover {
+    background-color: transparent;
+  }
   h4 {
     color: $text-color;
     font-size: 1em;
@@ -35,7 +41,7 @@ $background-color: #111; //#2980b9
     font-weight: 300; 
     font-size: .8em;
     color: $text-color;
-  }
+  }  
 }
 
 @media only screen and (min-width: 40.063em) {

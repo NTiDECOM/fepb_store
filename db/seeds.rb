@@ -6,7 +6,47 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-1.upto(56) do |n|
-  Book.create(title: "Book #{n}", author: "Author #{n}", spiritual_author: "Spiritual author #{n}", 
-  	sell_price: n+10)
+1.upto(15) do |n|
+  Book.create(
+    title: "Livro #{n}", 
+    author: "Autor #{n}", 
+    spiritual_author: "Autor espiritual #{n}", 
+    buy_price: 20,
+  	sell_price: 50, 
+    year: 2015, 
+    pages_number: n + 100, 
+    synopisis: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  )
+end
+
+1.upto(10) do |n|
+  Cd.create(
+    title: "Cd #{n}", 
+    buy_price: 2,
+    sell_price: 10
+  )
+end
+
+1.upto(10) do |n|
+  Dvd.create(
+    title: "Dvd #{n}", 
+    buy_price: 5,
+    sell_price: 20
+  )
+end
+
+1.upto(10) do |n|
+  Shirt.create(
+    title: "Camisa #{n}", 
+    buy_price: 10,
+    sell_price: 20
+  )
+end
+
+1.upto(10) do |n|
+  Ticket.create(
+    title: "Ingresso #{n}", 
+    buy_price: 2,
+    sell_price: 15
+  )
 end

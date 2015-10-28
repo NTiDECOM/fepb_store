@@ -10,8 +10,7 @@ class UserMailer < ApplicationMailer
     @greeting = "Hi"
     @url = 'http://localhost:3000/users/sign_in'
 
-    attachments['book.ico'] = File.read("#{Rails.root}/public/favicon.ico")
-    puts ">>> #{@user.email}"
+    attachments['book.png'] = File.read("#{Rails.root}/app/assets/images/book-generic.png")
     mail to: @user.email, subject: 'Bem-vindo à Livraria FEPB!'
   end
 end

@@ -17,67 +17,60 @@
     .columns.large-3
       .field
         = f.label :isbn
-        %br
         = f.text_field :isbn
     .columns.large-5
       .field
         = f.label :title
-        %br
         = f.text_field :title
     .columns.large-4
       .field
         = f.label :author
-        %br
         = f.text_field :author
   .row
     .columns.large-6
       .field
         = f.label :spiritual_author
-        %br
         = f.text_field :spiritual_author
     .columns.large-6
       .field
         = f.label :publisher
-        %br
         = f.text_field :publisher
   .row
-    .columns.large-3
+    .columns.large-2
       .field
         = f.label :sell_price
-        %br
         = f.number_field :sell_price
-    .columns.large-3
+    .columns.large-2
       .field
         = f.label :buy_price
-        %br
         = f.number_field :buy_price
-    .columns.large-3
+    .columns.large-2
       .field
         = f.label :year
-        %br
         = f.number_field :year
-    .columns.large-3
+    .columns.large-2
       .field
         = f.label :pages_number
-        %br
         = f.number_field :pages_number
-  .row  
-    .columns.large-6
-      .field
-        = f.label :event_day
-        %br
-        = f.number_field :event_day
-    .columns.large-6
-      .field
-        = f.label :event_time
-        %br
-        = f.number_field :event_time
-  .row  
-    .columns.large-12
+    .columns.large-4
       .field
         = f.label :product_image
         = f.file_field :product_image, class: 'file-input'
         / = f.hidden_field :product_image_cache
-      
+  .row
+    .columns.large-6
+      .field
+        = f.label :synopisis
+        = f.text_area :synopisis, rows: 60
+    - if @book.is_a? Ticket
+      .columns.large-3
+        .field
+          = f.label :event_day
+          = f.date_select :event_day
+    - if @book.is_a? Ticket
+      .columns.large-3
+        .field
+          = f.label :event_time
+          = f.time_select :event_time
   .actions
     = f.submit class: 'button success radius'

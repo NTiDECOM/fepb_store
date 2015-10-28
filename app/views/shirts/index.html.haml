@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Listing Shirts
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @shirts.each do |shirt|
+      %tr
+        %td= link_to 'Show', shirt
+        %td= link_to 'Edit', edit_shirt_path(shirt)
+        %td= link_to 'Destroy', shirt, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Shirt', new_shirt_path

@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  root 'books#index'
+  root 'products#index'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :books
+  resources :cds
+  resources :dvds
+  resources :products
+  resources :shirts
+  resources :tickets
   resources :users
 
   get '/notice_custom' => 'application#notice_custom'

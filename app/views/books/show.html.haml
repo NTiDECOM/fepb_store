@@ -1,15 +1,15 @@
 .row
   .columns.large-12.text-center
-    %h2{style: "text-align: center;"} Book
-    = image_tag(@book.product_image_url, size: "200", style: 'margin-bottom: 10px;') if @book.product_image
+    %h2{style: "text-align: center;"}
+      %strong= @book.title
+    = image_tag(@book.product_image_url, size: "200", style: 'margin: 0px 20px 10px 0px; display: inline; float: left;') if @book.product_image
+    %p{style: 'text-align: justify; text-justify: inter-word;'}
+      = @book.synopisis
 .row
   .columns.large-6
     %p
       %strong= t('models.book.isbn')
-      = @book.isbn
-    %p
-      %strong= t('models.product.title')
-      = @book.title
+      = @book.isbn   
     %p
       %strong= t('models.book.author')
       = @book.author  
@@ -32,6 +32,7 @@
     %p
       %strong= t('models.book.pages_number')
       = @book.pages_number
+
 
 = link_to t('views.application.edit'), edit_book_path(@book.id), class: 'button radius'
 = link_to t('views.application.back'), root_path, class: 'button radius'

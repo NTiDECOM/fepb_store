@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :require_admin, only: [:edit, :destroy]
 
   protected
 
@@ -14,7 +15,8 @@ class ApplicationController < ActionController::Base
       |u| u.permit(
         :name, :surname, 
         :email, 
-        :password, :password_confirmation
+        :password, :password_confirmation,
+        :admin
       )
     }
 
@@ -24,7 +26,8 @@ class ApplicationController < ActionController::Base
         :cpf, 
         :phone1, :phone2, 
         :city, :state, :cep, 
-        :street, :street_number, :street_complement
+        :street, :street_number, :street_complement,
+        :admin
       )
     }     
   end
@@ -35,5 +38,13 @@ class ApplicationController < ActionController::Base
 
   def error_custom
     redirect_to root_path, alert: 'ERROR MESSAGE'
+  end
+
+  def require_admin
+    if !current_user.present?
+      redirect_to new_user_session_path, alert: t('errors.messages.permission')
+    elsif current_user.present? and !current_user.admin
+      redirect_to new_user_session_path, alert: t('errors.messages.permission')
+    end
   end
 end

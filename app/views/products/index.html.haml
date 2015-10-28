@@ -1,0 +1,30 @@
+%div#paginate= paginate @products
+%div#page_entries_info= page_entries_info @products
+
+%table
+  %thead
+    %tr
+      %th= t('models.product.type')
+      %th
+      %th= t('models.product.title')
+      %th= t('models.product.buy_price')
+      %th= t('models.product.sell_price')
+      %th
+      %th
+      %th
+  %tbody
+    -@products.each do |product|
+      %tr
+        %td= product.type
+        %td= product.product_image ? image_tag(product.product_image_url, size: "100") : ''
+        %td= product.title
+        %td= number_to_currency product.sell_price
+        %td= number_to_currency product.buy_price
+        / %td= link_to t('views.application.show'), product, class: 'button radius'
+        / %td= link_to t('views.application.edit'), edit_product_path(product), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, product.class.to_s.downcase, class: 'button radius'
+        %td= link_to '<i class="fi-pencil"></i>'.html_safe, "edit_#{product.class.to_s.downcase}_path(#{product.class.to_s.downcase})", class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, product, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+%br
+
+=link_to t('views.application.new'), new_product_path, class: 'button success radius' if current_user and current_user.admin

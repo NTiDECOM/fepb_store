@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def show
   end 
 
-  def create      
+  def create
     if @user.save
       redirect_to @user, notice: "User created successfully"
     else
@@ -57,7 +57,8 @@ class UsersController < ApplicationController
       :street, 
       :street_number, 
       :street_complement,
-      :avatar
+      :avatar,
+      :admin
     )
   end
 

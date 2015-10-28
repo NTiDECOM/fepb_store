@@ -6,15 +6,15 @@
 
     %title= content_for?(:title) ? yield(:title) : t('views.application.name')
 
-    = stylesheet_link_tag    "application"    
+    = stylesheet_link_tag    "application"
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
-    /%link{:href => "http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css", :rel => "stylesheet"}
+    =favicon_link_tag 'favicon.ico'
 
   %body{id: "#{params[:controller].parameterize}_controller"}
     = render 'topbar'
     .row{'style' => 'margin-top: 10px;'}
-      .large-12.large-centered
+      .large-12.large-centered.text-center
         - flash.each do |key, message|
           - if message.is_a?(String) && message.present?
             #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => '', class: key}
