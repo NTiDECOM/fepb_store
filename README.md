@@ -1,2 +1,2 @@
 # fepb_store
-A library system for managing and renting books from FEPB
+A store system for management and commerce of products of the FEPB.
