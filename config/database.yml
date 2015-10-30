@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: fepb-library_development
+  database: fepb_store_development
   username: root
   password:
   host: localhost
@@ -25,7 +25,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: fepb-library_test
+  database: fepb_store_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -48,6 +48,6 @@ test:
 #
 production:
   <<: *default
-  database: fepb-library_production
-  username: fepb-library
+  database: fepb_store_production
+  username: fepb_store
   password: <%= ENV['FEPB-LIBRARY_DATABASE_PASSWORD'] %>

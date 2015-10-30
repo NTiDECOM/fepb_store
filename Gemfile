@@ -45,6 +45,8 @@ gem 'carrierwave'
 gem 'rails_12factor', group: :production
 # Mail Catcher
 gem 'mailcatcher'
+# Rename
+gem 'rename'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
