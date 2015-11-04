@@ -6,6 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create(
+  name: 'admin',
+  email: 'romero.mfm@gmail.com',
+  password: BCrypt::Password.create('123123'),
+  admin: true
+)
+
 1.upto(15) do |n|
   Book.create(
     title: "Livro #{n}", 
