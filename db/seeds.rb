@@ -10,7 +10,6 @@ User.create(
   name: 'admin',
   email: 'romero.mfm@gmail.com',
   password: '123123',
-  #encrypted_password: BCrypt::Password.create('123123'),
   admin: true
 )
 

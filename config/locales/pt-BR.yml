@@ -33,7 +33,7 @@ pt-BR:
       destroy: Remover
       details: Detalhes
       manage_users: Gerenciar usuários
-      name: Livraria FEPB
+      name: Lojinha virtual FEPB
       new: Novo
       edit: Editar
       show: Exibir
@@ -59,16 +59,26 @@ pt-BR:
     book:
       author: 'Autor'
       isbn: 'ISBN'
+      label: 'Livro'
       pages_number: 'Número de páginas'
       spiritual_author: 'Autor espiritual'
       publisher: 'Editora'
       synopisis: 'Sinopse'
       year: 'Ano'
+    cd: 
+      label: 'CD'
+    dvd: 
+      label: 'DVD'
+    shirt: 
+      label: 'Camisa'
     product:
       buy_price: 'Preço de compra'
+      label: 'Produto'
       sell_price: 'Preço de venda'
       title: 'Título'
       type: Tipo
+    ticket: 
+      label: 'Ingresso'
     user:
       cpf: CPF
       email: E-mail
