@@ -16,41 +16,41 @@
   .row
     .columns.large-3
       .field
-        = f.label :isbn
+        = f.label t('models.book.isbn')
         = f.text_field :isbn
     .columns.large-5
       .field
-        = f.label :title
+        = f.label t('models.product.title')
         = f.text_field :title
     .columns.large-4
       .field
-        = f.label :author
+        = f.label t('models.book.author')
         = f.text_field :author
   .row
     .columns.large-6
       .field
-        = f.label :spiritual_author
+        = f.label t('models.book.spiritual_author')
         = f.text_field :spiritual_author
     .columns.large-6
       .field
-        = f.label :publisher
+        = f.label t('models.book.publisher')
         = f.text_field :publisher
   .row
     .columns.large-2
       .field
-        = f.label :sell_price
-        = f.number_field :sell_price
+        = f.label t('models.product.sell_price')
+        = f.text_field :sell_price, {class: 'price_field'}
     .columns.large-2
       .field
-        = f.label :buy_price
-        = f.number_field :buy_price
+        = f.label t('models.product.buy_price')
+        = f.text_field :buy_price, {class: 'price_field'}
     .columns.large-2
       .field
-        = f.label :year
+        = f.label t('models.product.year')
         = f.number_field :year
     .columns.large-2
       .field
-        = f.label :pages_number
+        = f.label t('models.book.pages_number')
         = f.number_field :pages_number
     .columns.large-4
       .field
@@ -61,16 +61,6 @@
     .columns.large-6
       .field
         = f.label :synopisis
-        = f.text_area :synopisis, rows: 60
-    - if @book.is_a? Ticket
-      .columns.large-3
-        .field
-          = f.label :event_day
-          = f.date_select :event_day
-    - if @book.is_a? Ticket
-      .columns.large-3
-        .field
-          = f.label :event_time
-          = f.time_select :event_time
+        = f.text_area :synopisis, rows: 60    
   .actions
     = f.submit class: 'button success radius'

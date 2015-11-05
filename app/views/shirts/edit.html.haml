@@ -1,5 +1,7 @@
-%h1 Editing Shirt
+.row
+  .columns.large-12.text-center
+    %h1= t('views.shirt.edit.title')
+
 = render 'form'
-= link_to 'Show', @shirt
-|
-= link_to 'Back', shirts_path
+
+= link_to t('views.application.back'), @shirt, class: 'button radius'

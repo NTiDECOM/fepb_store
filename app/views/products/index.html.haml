@@ -20,11 +20,13 @@
         %td= product.title
         %td= number_to_currency product.sell_price
         %td= number_to_currency product.buy_price
-        / %td= link_to t('views.application.show'), product, class: 'button radius'
-        / %td= link_to t('views.application.edit'), edit_product_path(product), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, url_for(product), class: 'button radius'
-        %td= link_to '<i class="fi-pencil"></i>'.html_safe, "edit_#{product.class.to_s.downcase}_path(#{product.class.to_s.downcase})", class: 'button radius' if current_user and current_user.admin
-        %td= link_to '<i class="fi-trash"></i>'.html_safe, product, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+        %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
 %br
 
-=link_to t('views.application.new'), new_product_path, class: 'button success radius' if current_user and current_user.admin
+.row#new_product_select
+  .columns.large-2
+    =select_tag(:product, options_for_select(product_select_type_path), {onchange: "set_path_for_new_btn()"})
+    =link_to t('views.application.new'), new_product_path, id: "product_link_to", class: 'button success radius' if current_user and current_user.admin
+/"edit_#{product.class.to_s.downcase}_path(#{product.id})"

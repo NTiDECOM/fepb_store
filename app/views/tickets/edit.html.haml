@@ -1,5 +1,7 @@
-%h1 Editing Ticket
+.row
+  .columns.large-12.text-center
+    %h1= t('views.ticket.edit.title')
+
 = render 'form'
-= link_to 'Show', @ticket
-|
-= link_to 'Back', tickets_path
+
+= link_to t('views.application.back'), @ticket, class: 'button radius'

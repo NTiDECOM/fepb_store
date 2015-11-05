@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  
   def index
       #@products = product.all
       @products = Product.order(:id).page(params[:page])

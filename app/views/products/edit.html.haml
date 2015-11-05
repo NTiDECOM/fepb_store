@@ -1,5 +1,7 @@
-%h1 Editing Product
+.row
+  .columns.large-12.text-center
+    %h1= t('views.products.edit.title')
+
 = render 'form'
-= link_to 'Show', @product
-|
-= link_to 'Back', products_path
+
+= link_to t('views.application.back'), @product, class: 'button radius'

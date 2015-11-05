@@ -15,6 +15,8 @@ group :assets do
   gem 'coffee-rails', '~> 4.1.0'
   # Foundation Icon Fonts on SASS for Rails
   gem 'foundation-icons-sass-rails'
+  # Modernizr Rails
+  gem 'modernizr-rails'
 end
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -45,6 +47,8 @@ gem 'carrierwave'
 gem 'rails_12factor', group: :production
 # Mail Catcher
 gem 'mailcatcher'
+# Rename
+gem 'rename'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

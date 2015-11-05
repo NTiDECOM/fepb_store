@@ -3,9 +3,34 @@
     #error_explanation
       %h2
         = pluralize(@ticket.errors.count, "error")
-        prohibited this ticket from being saved:
+        prohibited this dvd from being saved:
       %ul
         - @ticket.errors.full_messages.each do |message|
           %li= message
+  .row
+    .columns.large-12.large-centered.text-center
+      = image_tag(@ticket.product_image_url, size: "200", style: 'margin-bottom: 10px;') if @ticket.product_image
+  .row
+    .columns.large-6
+      .field
+        = f.label :title
+        = f.text_field :title
+      .field
+        = f.label :sell_price
+        = f.text_field :sell_price, {class: 'price_field'}
+      .field
+        = f.label :buy_price
+        = f.text_field :buy_price, {class: 'price_field'}
+      .field
+        = f.label :product_image
+        = f.file_field :product_image, class: 'file-input'
+        / = f.hidden_field :product_image_cache
+    .columns.large-6
+      .field
+        = f.label :event_day
+        = f.date_select :event_day        
+      .field
+        = f.label :event_time
+        = f.time_select :event_time      
   .actions
-    = f.submit
+    = f.submit class: 'button success radius'

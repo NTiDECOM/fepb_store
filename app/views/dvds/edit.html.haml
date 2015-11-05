@@ -1,5 +1,7 @@
-%h1 Editing Dvd
+.row
+  .columns.large-12.text-center
+    %h1= t('views.dvd.edit.title')
+
 = render 'form'
-= link_to 'Show', @dvd
-|
-= link_to 'Back', dvds_path
+
+= link_to t('views.application.back'), @dvd, class: 'button radius'

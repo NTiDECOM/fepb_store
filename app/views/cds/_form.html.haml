@@ -17,10 +17,10 @@
         = f.text_field :title
       .field
         = f.label :sell_price
-        = f.number_field :sell_price
+        = f.text_field :sell_price, {class: 'price_field'}
       .field
         = f.label :buy_price
-        = f.number_field :buy_price
+        = f.text_field :buy_price, {class: 'price_field'}
       .field
         = f.label :year
         = f.number_field :year
@@ -29,4 +29,4 @@
         = f.file_field :product_image, class: 'file-input'
         / = f.hidden_field :product_image_cache
   .actions
-    = f.submit
+    = f.submit class: 'button success radius'

@@ -1,14 +1,33 @@
-%p#notice= notice
-%h1 Listing Cds
+%div#paginate= paginate @cds
+%div#page_entries_info= page_entries_info @cds
+
 %table
   %thead
     %tr
-      %th{:colspan => "3"}
+      %th
+      %th= t('models.product.title')
+      %th= t('models.cd.publisher')
+      %th= t('models.product.buy_price')
+      %th= t('models.product.sell_price')
+      %th= t('models.product.year')
+      %th
+      %th
+      %th
   %tbody
-    - @cds.each do |cd|
+    -@cds.each do |cd|
       %tr
-        %td= link_to 'Show', cd
-        %td= link_to 'Edit', edit_cd_path(cd)
-        %td= link_to 'Destroy', cd, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Cd', new_cd_path
+        %td= cd.product_image ? image_tag(cd.product_image_url, size: "100") : ''
+        %td= cd.title
+        %td= cd.publisher
+        %td= number_to_currency cd.sell_price
+        %td= number_to_currency cd.buy_price
+        %td= cd.year
+        / %td= link_to t('views.application.show'), cd, class: 'button radius'
+        / %td= link_to t('views.application.edit'), edit_cd_path(cd), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, cd, class: 'button radius'
+        %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_cd_path(cd), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, cd, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+
+%br
+
+=link_to t('views.application.new'), new_cd_path, class: 'button success radius' if current_user and current_user.admin
