@@ -20,6 +20,26 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  activerecord:
+    models:
+      cd:
+        one: 'CD'
+        other: 'CDs'
+      dvd:
+        one: 'DVD'
+        other: 'DVDs'
+      product:
+        one: 'Produto'
+        other: 'Produtos'
+      shirt:
+        one: 'Camisa'
+        other: 'Camisas'
+      ticket:
+        one: 'Ingresso'
+        other: 'Ingressos'
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
   views:
     application:
       auth:
@@ -33,7 +53,7 @@ pt-BR:
       destroy: Remover
       details: Detalhes
       manage_users: Gerenciar usuários
-      name: Lojinha virtual FEPB
+      name: Loja virtual FEPB
       new: Novo
       edit: Editar
       show: Exibir
@@ -43,19 +63,34 @@ pt-BR:
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
-    books:
+    book:
       index:
       edit:
+        title: 'Editar livro'
       show:
       form:
-    products:
-      index:
+    cd:
       edit:
+        title: 'Editar CD'
+    dvd:
+      edit:
+        title: 'Editar DVD'
+    product:
+      edit:
+        title: 'Editar produto'
+      index:
       show:
       form:
-    users:
+    shirt:
+      edit:
+        title: 'Editar camisa'
+    ticket:      
+      edit:
+        title: 'Editar ingresso'
+    user:
       my_profile: Minha conta
   models:
+    all_products: Todos os produtos
     book:
       author: 'Autor'
       isbn: 'ISBN'
@@ -64,7 +99,6 @@ pt-BR:
       spiritual_author: 'Autor espiritual'
       publisher: 'Editora'
       synopisis: 'Sinopse'
-      year: 'Ano'
     cd: 
       label: 'CD'
     dvd: 
@@ -77,6 +111,7 @@ pt-BR:
       sell_price: 'Preço de venda'
       title: 'Título'
       type: Tipo
+      year: 'Ano'
     ticket: 
       label: 'Ingresso'
     user:

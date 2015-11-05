@@ -16,5 +16,9 @@
 //= require turbolinks
 //= require_tree .
 //= require products
+//= require tickets
+//= require modernizr
+//= require maskMoney.min
+//= require util
 
 $(function(){ $(document).foundation(); });

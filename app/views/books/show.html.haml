@@ -19,10 +19,10 @@
   .columns.large-6
     %p
       %strong= t('models.product.sell_price')
-      = @book.sell_price
+      = number_to_currency @book.sell_price
     %p
       %strong= t('models.product.buy_price')
-      = @book.buy_price  
+      = number_to_currency @book.buy_price  
     %p
       %strong= t('models.book.publisher')
       = @book.publisher
@@ -35,4 +35,4 @@
 
 
 = link_to t('views.application.edit'), edit_book_path(@book.id), class: 'button radius'
-= link_to t('views.application.back'), root_path, class: 'button radius'
+/ = link_to t('views.application.back'), root_path, class: 'button radius'

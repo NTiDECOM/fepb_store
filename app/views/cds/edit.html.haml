@@ -1,5 +1,7 @@
-%h1 Editing Cd
+.row
+  .columns.large-12.text-center
+    %h1= t('views.cd.edit.title')
+
 = render 'form'
-= link_to 'Show', @cd
-|
-= link_to 'Back', cds_path
+
+= link_to t('views.application.back'), @cd, class: 'button radius'
