@@ -1,4 +1,4 @@
-%nav.top-bar{"data-topbar" => true, role: "navigation", "data-options" => "is_hover: false"}
+%nav.top-bar{"data-topbar" => true, role: "navigation"}
   %ul.title-area
     %li.name
       %h1= link_to t('views.application.name'), root_path
@@ -8,13 +8,13 @@
         %span Menu      
   %section.top-bar-section
     / Left Nav Section
-    %ul.left
-      %li.has-dropdown
-        %a{href: "#" } Menu
-        - if current_user.present? and current_user.admin
+    - if current_user.present? and current_user.admin
+      %ul.left
+        %li.has-dropdown
+          %a{href: "#" } Menu        
           %ul.dropdown
             %li
-              %a= link_to t('views.application.manage_users')
+              %a= link_to t('views.application.manage_users'), users_path
             %li
               %a= link_to t('models.all_products'), products_path
             %li

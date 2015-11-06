@@ -22,6 +22,9 @@
 pt-BR:
   activerecord:
     models:
+      book:
+        one: 'Livro'
+        other: 'Livros'
       cd:
         one: 'CD'
         other: 'CDs'
@@ -52,10 +55,11 @@ pt-BR:
       back: Voltar
       destroy: Remover
       details: Detalhes
+      edit: Editar
       manage_users: Gerenciar usuários
       name: Loja virtual FEPB
       new: Novo
-      edit: Editar
+      select_one: 'Selecione...'
       show: Exibir
     pagination:
       first: "&laquo; Primeira"

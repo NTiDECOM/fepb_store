@@ -2,7 +2,6 @@
 // All this logic will automatically be available in application.js.
 
 function set_path_for_new_btn() {
-  alert('kkkk');
   var sel_val = $('#product').val();
   $('#product_link_to').attr('href', sel_val)
 }

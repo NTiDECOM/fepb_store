@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_admin
 
 	def index
       #@users = User.all
@@ -68,5 +69,9 @@ class UsersController < ApplicationController
     else
       @user = User.find(params[:id])
     end
+  end
+
+  def validate_admin
+    redirect_to new_user_session_path, alert: t('errors.messages.permission') if !current_user or current_user.admin == false
   end
 end

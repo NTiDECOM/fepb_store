@@ -20,5 +20,6 @@
 //= require modernizr
 //= require maskMoney.min
 //= require util
+//= require responsive-tables
 
 $(function(){ $(document).foundation(); });

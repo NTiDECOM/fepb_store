@@ -30,13 +30,13 @@ class BooksController < ApplicationController
 	  if @book.update(book_params)
 	  	redirect_to @book, notice: "Book updated successfully"
 	  else
-        redirect_to @book, notice: "Could not update this book"
+      redirect_to @book, notice: "Could not update this book"
 	  end
 	end
 
 	def destroy
       if @book.destroy
-	    redirect_to @book, notice: "Book removed successfully"
+	      redirect_to @book, notice: "Book removed successfully"
 	  else
 	  	redirect_to @book, notice: "Book could not be removed"
 	  end
