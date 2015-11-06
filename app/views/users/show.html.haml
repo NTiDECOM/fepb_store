@@ -1,47 +1,49 @@
 .row
   .columns.large-12.text-center
-    %h2{style: "text-align: center;"}= @user.admin == true ? 'My profile (Admin)' : 'My profile'
+    %h2{style: "text-align: center;"}= @user.admin == true ? t('models.user.my_profile') : 'My profile'
     = image_tag(@user.avatar_url, size: "200", style: 'margin-bottom: 10px;') if @user.avatar
 
 .row
   .columns.large-6
     %p
-      %strong Name:
+      %strong= "#{t('models.user.name')}:"
       = @user.name
     %p
-      %strong Name:
+      %strong= "#{t('models.user.surname')}:"
       = @user.surname
     %p
-      %strong Email:
+      %strong= "#{t('models.user.email')}:"
       = @user.email
     %p
-      %strong CPF:
+      %strong= "#{t('models.user.cpf')}:"
       = @user.cpf
     %p
-      %strong Phone 1:
+      %strong= "#{t('models.user.phone1')}:"
       = @user.phone1
     %p
-      %strong Phone 2:
+      %strong= "#{t('models.user.phone2')}:"
       = @user.phone2
   .columns.large-6
     %p
-      %strong City:
+      %strong= "#{t('models.user.city')}:"
       = @user.city
     %p
-      %strong State:
+      %strong= "#{t('models.user.state')}:"
       = @user.state
     %p
-      %strong CEP:
+      %strong= "#{t('models.user.cep')}:"
       = @user.cep
     %p
-      %strong Street:
+      %strong= "#{t('models.user.street')}:"
       = @user.street
     %p
-      %strong Street number:
+      %strong= "#{t('models.user.street_number')}:"
       = @user.street_number
     %p
-      %strong Street complement:
+      %strong= "#{t('models.user.street_complement')}:"
       = @user.street_complement
-      
-= link_to t('views.application.edit'), edit_user_path(@user.id), class: 'button radius' if @user
-= link_to t('views.application.back'), root_path, class: 'button radius'
+%br
+.row
+  .columns.large-12.large-centered.text-center
+    = link_to t('views.application.edit'), edit_user_path(@user.id), class: 'button radius' if @user
+    = link_to t('views.application.back'), root_path, class: 'button radius'

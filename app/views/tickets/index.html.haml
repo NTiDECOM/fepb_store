@@ -1,6 +1,11 @@
-%div#paginate= paginate @tickets
-%div#page_entries_info= page_entries_info @tickets
-
+.row
+  .columns.large-12.text-center
+    %div#paginate= paginate @tickets
+    %div#page_entries_info= page_entries_info @tickets
+%br
+  .row
+    .columns.large-12.large-centered.text-center
+      =link_to t('views.application.new'), new_ticket_path, class: 'button success radius' if current_user and current_user.admin
 %table
   %thead
     %tr

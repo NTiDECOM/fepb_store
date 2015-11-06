@@ -1,5 +1,12 @@
-%div#paginate= paginate @dvds
-%div#page_entries_info= page_entries_info @dvds
+.row
+  .columns.large-12.text-center
+    %div#paginate= paginate @dvds
+    %div#page_entries_info= page_entries_info @dvds
+
+%br
+  .row
+    .columns.large-12.large-centered.text-center
+      =link_to t('views.application.new'), new_dvd_path, class: 'button success radius' if current_user and current_user.admin
 
 %table
   %thead

@@ -92,7 +92,9 @@ pt-BR:
       edit:
         title: 'Editar ingresso'
     user:
-      my_profile: Minha conta
+      edit:
+        title: 'Editar usuário'
+      my_profile: 'Minha conta'
   models:
     all_products: Todos os produtos
     book:
@@ -119,12 +121,20 @@ pt-BR:
     ticket: 
       label: 'Ingresso'
     user:
-      cpf: CPF
-      email: E-mail
+      cep: 'CEP'
+      cpf: 'CPF'
+      city: Cidade
+      email: E-mail      
       name: Nome
-      surname: Sobrenome
       password: Senha
       password_confirmation: Confirmação de senha
+      phone1: 'Telefone 1'
+      phone2: 'Telefone 2'
+      state: Estado
+      street: Rua
+      street_complement: 'Complemento'
+      street_number: 'Número'
+      surname: Sobrenome
 
   date:
     abbr_day_names:

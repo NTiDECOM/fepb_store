@@ -1,77 +1,81 @@
 = form_for(@user, html: {multipart: true}) do |f|
   - if @user.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@user.errors.count, "error")
-        prohibited this book from being saved:
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li
-            .alert-box.alert{"data-alert" => ""}
-              = message
-              %a.close{href: "#"} &times;
+    .row
+      .columns.large-12.large-centered.text-center
+        #error_explanation
+          %h2
+            = pluralize(@user.errors.count, "error")
+            prohibited this book from being saved:
+          %ul
+            - @user.errors.full_messages.each do |message|
+              %li
+                .alert-box.alert{"data-alert" => ""}
+                  = message
+                  %a.close{href: "#"} &times;
   .row
     .columns.large-12.large-centered.text-center
       = image_tag(@user.avatar_url, size: "200", style: 'margin-bottom: 10px;') if @user.avatar
   .row
     .columns.large-3
       .field
-        = f.label :name
+        = f.label t('models.user.name')
         %br
         = f.text_field :name
     .columns.large-5
       .field
-        = f.label :surname
+        = f.label t('models.user.surname')
         %br
         = f.text_field :surname
     .columns.large-4
       .field
-        = f.label :email
+        = f.label t('models.user.email')
         %br
         = f.email_field :email
   .row
     .columns.large-4
       .field
-        = f.label :cpf
+        = f.label t('models.user.cpf')
         %br
         = f.text_field :cpf
-    .columns.large-5
+    .columns.large-4
       .field
-        = f.label :phone1
+        = f.label t('models.user.phone1')
         %br
         = f.telephone_field :phone1
     .columns.large-4
       .field
-        = f.label :phone2
+        = f.label t('models.user.phone2')
         %br
         = f.telephone_field :phone2
   .row
     .columns.large-3
       .field
-        = f.label :street
+        = f.label t('models.user.street')
         %br
-        = f.number_field :street
+        = f.text_field :street
     .columns.large-3
       .field
-        = f.label :street_number
+        = f.label t('models.user.street_number')
         %br
         = f.number_field :street_number
     .columns.large-3
       .field
-        = f.label :street_complement
+        = f.label t('models.user.street_complement')
         %br
-        = f.number_field :street_complement
+        = f.text_field :street_complement
     .columns.large-3
       .field
-        = f.label :cep
+        = f.label t('models.user.cep')
         %br
-        = f.number_field :cep
+        = f.text_field :cep
   .row  
     .columns.large-12
       .field
         = f.label :avatar
         = f.file_field :avatar, class: 'file-input'
         / = f.hidden_field :product_image_cache
-      
-  .actions
-    = f.submit class: 'button success radius'
+  %br
+  .row
+    .columns.large-12.large-centered
+      .actions
+        = f.submit class: 'button success radius'

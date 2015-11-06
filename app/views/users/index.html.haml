@@ -1,20 +1,25 @@
-%div#paginate.large-12.large-centered= paginate @users
-%div#page_entries_info.large-12.large-centered= page_entries_info @users
-
+.row
+  .columns.large-12.text-center
+    %div#paginate= paginate @users
+    %div#page_entries_info= page_entries_info @users
+%br
+  .row
+    .columns.large-12.large-centered.text-center
+      =link_to t('views.application.new'), new_user_path, class: 'button success radius' if current_user and current_user.admin
 %table
   %thead
     %tr
       %th
-      %th Name
-      %th Surname
-      %th E-mail
-      %th CPF
-      %th City
-      %th State
-      %th Street
-      %th Street number
-      %th Street complement
-      %th CEP
+      %th= t('models.user.name')
+      %th= t('models.user.surname')
+      %th= t('models.user.email')
+      %th= t('models.user.cpf')
+      %th= t('models.user.city')
+      %th= t('models.user.state')
+      %th= t('models.user.street')
+      %th= t('models.user.street_number')
+      %th= t('models.user.street_complement')
+      %th= t('models.user.cep')
   %tbody
     -@users.each do |user|
       %tr
@@ -29,10 +34,10 @@
         %td= user.street_number
         %td= user.street_complement
         %td= user.cep
-        %td= link_to t('views.application.show'), user, class: 'button radius'
-        %td= link_to t('views.application.edit'), edit_user_path(user), class: 'button radius'
-        %td= link_to t('views.application.destroy'), user, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, user, class: 'button radius'
+        %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_user_path(user), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, user, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
 %br
 
 =link_to 'New user', new_user_path, class: 'button success radius'
-=link_to t('views.application.back'), root_url, class: 'button radius'
+/ =link_to t('views.application.back'), root_url, class: 'button radius'

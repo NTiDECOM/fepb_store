@@ -1,6 +1,12 @@
-%div#paginate= paginate @cds
-%div#page_entries_info= page_entries_info @cds
+.row
+  .columns.large-12.text-center
+    %div#paginate= paginate @cds
+    %div#page_entries_info= page_entries_info @cds
 
+%br
+  .row
+    .columns.large-12.large-centered.text-center
+      =link_to t('views.application.new'), new_book_path, class: 'button success radius' if current_user and current_user.admin
 %table
   %thead
     %tr

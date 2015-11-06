@@ -1,8 +1,10 @@
 .row
-	.columns.large-12.text-center
-		%h1 Editing User
+  .columns.large-12.text-center
+    %h1= t('views.user.edit.title')
 
 = render 'form'
 
-= link_to t('views.application.show'), @user, class: 'button radius'
-= link_to t('views.application.back'), users_path, class: 'button radius'
+.row
+  .columns.large-12
+    = link_to t('views.application.show'), @user, class: 'button radius'
+    = link_to t('views.application.back'), users_path, class: 'button radius'
