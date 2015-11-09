@@ -113,6 +113,7 @@ pt-BR:
       label: 'Camisa'
     product:
       buy_price: 'Preço de compra'
+      image: Imagem
       label: 'Produto'
       sell_price: 'Preço de venda'
       title: 'Título'
@@ -135,7 +136,6 @@ pt-BR:
       street_complement: 'Complemento'
       street_number: 'Número'
       surname: Sobrenome
-
   date:
     abbr_day_names:
     - Dom
@@ -252,7 +252,7 @@ pt-BR:
       not_a_number: não é um número
       not_an_integer: não é um número inteiro
       odd: deve ser ímpar
-      permission: Você precisa estar logado como um admin para executar esta ação
+      permission: Você precisa estar logado como administrador para executar esta ação
       record_invalid: 'A validação falhou: %{errors}'
       restrict_dependent_destroy:
         one: Não é possível excluir o registro pois existe um %{record} dependente

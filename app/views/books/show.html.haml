@@ -2,35 +2,35 @@
   .columns.large-12.text-center
     %h2{style: "text-align: center;"}
       %strong= @book.title
-    = image_tag(@book.product_image_url, size: "200", style: 'margin: 0px 20px 10px 0px; display: inline; float: left;') if @book.product_image
+    = image_tag(@book.product_image_url, size: "200", class: 'product-thumb') if @book.product_image
     %p{style: 'text-align: justify; text-justify: inter-word;'}
       = @book.synopisis
 .row{style: 'margin-top: 20px;'}
   .columns.large-6
     %p
-      %strong= t('models.book.isbn')
+      %strong= "#{t('models.book.isbn')}:"
       = @book.isbn   
     %p
-      %strong= t('models.book.author')
+      %strong= "#{t('models.book.author')}:"
       = @book.author  
     %p
-      %strong= t('models.book.spiritual_author')
+      %strong= "#{t('models.book.spiritual_author')}:"
       = @book.spiritual_author
   .columns.large-6
     %p
-      %strong= t('models.product.sell_price')
+      %strong= "#{t('models.product.sell_price')}:"
       = number_to_currency @book.sell_price
     %p
-      %strong= t('models.product.buy_price')
+      %strong= "#{t('models.product.buy_price')}:"
       = number_to_currency @book.buy_price  
     %p
-      %strong= t('models.book.publisher')
+      %strong= "#{t('models.book.publisher')}:"
       = @book.publisher
     %p
-      %strong= t('models.product.year')
+      %strong= "#{t('models.product.year')}:"
       = @book.year
     %p
-      %strong= t('models.book.pages_number')
+      %strong= "#{t('models.book.pages_number')}:"
       = @book.pages_number
 .row
   .columns.large-12.text-center

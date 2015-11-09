@@ -2,3 +2,12 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.product-thumb {
+  border-radius: 5px; 
+  border: 1px solid #c3c3c3; 
+  display: inline; 
+  float: left; 
+  margin: 0px 20px 10px 0px; 
+  padding: 10px;
+}

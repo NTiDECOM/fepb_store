@@ -49,6 +49,8 @@ gem 'rails_12factor', group: :production
 gem 'mailcatcher'
 # Rename
 gem 'rename'
+# RMagick
+# gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'

@@ -13,20 +13,23 @@
   .row
     .columns.large-12
       .field
-        = f.label :title
+        = f.label t('models.product.title')
         = f.text_field :title
       .field
-        = f.label :sell_price
+        = f.label t('models.product.sell_price')
         = f.text_field :sell_price, {class: 'price_field'}
       .field
-        = f.label :buy_price
+        = f.label t('models.product.buy_price')
         = f.text_field :buy_price, {class: 'price_field'}
       .field
-        = f.label :year
+        = f.label t('models.product.year')
         = f.number_field :year
       .field
-        = f.label :product_image
+        = f.label t('models.product.image')
         = f.file_field :product_image, class: 'file-input'
         / = f.hidden_field :product_image_cache
-  .actions
-    = f.submit class: 'button success radius'
+  .row
+    .columns.large-12.text-center
+      .actions
+        = f.submit class: 'button success radius'
+        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

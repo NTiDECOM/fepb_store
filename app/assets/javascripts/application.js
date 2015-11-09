@@ -21,5 +21,6 @@
 //= require maskMoney.min
 //= require util
 //= require responsive-tables
+//= require prefixfree.min
 
 $(function(){ $(document).foundation(); });

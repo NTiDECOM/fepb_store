@@ -28,9 +28,12 @@
     .columns.large-6
       .field
         = f.label :event_day
-        = f.date_select :event_day        
+        = f.date_select :event_day
       .field
         = f.label :event_time
-        = f.time_select :event_time      
-  .actions
-    = f.submit class: 'button success radius'
+        = f.time_select :event_time
+  .row
+    .columns.large-12.text-center
+      .actions
+        = f.submit class: 'button success radius'
+        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

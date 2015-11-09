@@ -1,19 +1,18 @@
 .row
-  .columns.large-12.text-center
+  .columns.large-12
     %h2{style: "text-align: center;"}
       %strong= @dvd.title
-    = image_tag(@dvd.product_image_url, size: "200", style: 'margin: 0px 20px 10px 0px; display: inline; float: left;') if @dvd.product_image
-.row
-  .columns.large-3
+    = image_tag(@dvd.product_image_url, size: "200", class: 'product-thumb') if @dvd.product_image
     %p
-      %strong= t('models.product.sell_price')
+      %strong= "#{t('models.product.sell_price')}:"
       = number_to_currency @dvd.sell_price
     %p
-      %strong= t('models.product.buy_price')
+      %strong= "#{t('models.product.buy_price')}:"
       = number_to_currency @dvd.buy_price
     %p
-      %strong= t('models.dvd.year')
+      %strong= "#{t('models.product.year')}:"
       = @dvd.year
-
-= link_to t('views.application.edit'), edit_dvd_path(@dvd.id), class: 'button radius'
-/ = link_to t('views.application.back'), root_path, class: 'button radius'
+.row
+  .columns.large-12.text-center
+    = link_to t('views.application.edit'), edit_dvd_path(@dvd.id), class: 'button radius'
+    / = link_to t('views.application.back'), root_path, class: 'button radius'

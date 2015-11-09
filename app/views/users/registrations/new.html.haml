@@ -1,36 +1,41 @@
 .row
-  .columns.large-12
+  .columns.large-12.text-center
     %h2= t 'views.application.auth.sign_up'
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      .row
-        .columns.large-6.large-centered
-          = devise_error_messages!
-          .field
-            = f.label t('models.user.name')
-            %br/
-            = f.text_field :name, autofocus: true, placeholder: 'Enter your name', required: true
-          .field
-            = f.label t('models.user.surname')
-            %br/
-            = f.text_field :surname, placeholder: 'Enter your surname', required: true
-          .field
-            = f.label t('models.user.email')
-            %br/
-            = f.email_field :email, placeholder: 'Enter your e-mail', required: true
-          .field
-            = f.label t('models.user.password')
-            - if @minimum_password_length
-              %em
-                (#{@minimum_password_length} characters minimum)
-            %br/
-            = f.password_field :password, autocomplete: "off", placeholder: 'Enter your password', required: true
-          .field
-            = f.label t('models.user.password_confirmation')
-            %br/
-            = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirm your password', required: true            
-            = f.hidden_field :admin, value: true
-          %br/
-          .actions
-            = f.submit t('views.application.auth.sign_up'), class: 'button radius success'
-            = link_to t('views.application.back'), books_path, class: 'button radius'
-          /= render "devise/shared/links"
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  .row
+    .columns.large-6
+      .field
+        = f.label t('models.user.name')
+        = f.text_field :name, autofocus: true, required: true
+    .columns.large-6
+      .field
+        = f.label t('models.user.surname')
+        = f.text_field :surname, required: true
+  .row
+    .columns.large-6
+      .field
+        = f.label t('models.user.email')
+        = f.email_field :email, required: true
+    .columns.large-6
+      .field
+        = f.label :avatar
+        = f.file_field :avatar, class: 'file-input'
+        / = f.hidden_field :avatar_cache
+  .row
+    .columns.large-6
+      .field
+        = f.label t('models.user.password')
+        - if @minimum_password_length
+          (#{@minimum_password_length} characters minimum)
+        = f.password_field :password, autocomplete: "off", required: true
+    .columns.large-6
+      .field
+        = f.label t('models.user.password_confirmation')
+        = f.password_field :password_confirmation, autocomplete: "off", required: true            
+        = f.hidden_field :admin, value: true  
+  .row
+    .columns.large-12.text-center
+      .actions
+        = f.submit t('views.application.auth.sign_up'), class: 'button radius success'
+        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'
+      /= render "devise/shared/links"
