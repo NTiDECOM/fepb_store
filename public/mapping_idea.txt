@@ -1,0 +1,17 @@
+user
+  has_many:sales
+
+sale
+  belongs_to:user
+  has_many:sale_item
+  buyer_name:string
+  price:decimal
+
+sale_item
+  has_one:product
+  belongs_to:sale
+  product_quantity:integer
+  price:decimal
+
+product
+  has_one:sale_item
