@@ -1,24 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Alfa+Slab+One|Titillium+Web:400,900);
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+.bg-img {
+  background-image: url('library-tunel.jpg');
+  background-size: cover;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 0;
+
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.grad{
+  background-size: cover;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0.7;
+  position: fixed;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+
 .login {
-	padding-top: 15%;
-	z-index: 5;
-	font-size: 18px;
+  font-size: 18px;
+  padding: 30px 30px 0px 30px;
+  z-index: 5;
 
 	a, label {
-	  color: #FFF;		
+	  color: #FFF;
 	}
-}
+
+  background-color: rgba(255, 255, 255, 0.7);
+  // background-color: #FFF;
+  border: 1px solid #ccd6dd;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+;}
 
 .login input[type=text],
 .login input[type=email],
 .login input[type=password] {
-	background: transparent !important;
-	border: 1px solid rgba(255,255,255,0.6);
+	background: rgba(255,255,255,0.7) !important;
+	// border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid #ccd6dd;
 	border-radius: 3px;
-	color: #fff;
+	// color: #228CDB;
 	font-weight: 400;
 	padding: 4px;
 }
-
 
 .login input[type=submit]{
 	width: 100%;
@@ -47,41 +90,34 @@
 }
 
 ::-webkit-input-placeholder{
-   color: rgba(255,255,255,0.6);
+   color: rgba(0,0,0,0.6);
 }
 
 ::-moz-input-placeholder{
-   color: rgba(255,255,255,0.6);
+   color: rgba(0,0,0,0.6);
+}
+
+#login-title {
+  text-align: center; 
+  margin: 50% 0 50px 0;
 }
 
 #login-title span {
-	font-size: 40px;
-	font-weight: bold;
-
+  font-family: 'Titillium Web', sans-serif;  
+  font-weight: 200;
+  padding-bottom: 30px;
 }
 
 .virtual-store-label {
-	color: #FFF;
+  color: #FFF;
+  font-size: 40px;
+	// color: #228CDB;
+ //  text-shadow: 2px 2px 2px #fff;
 }
 
 .fepb-label {
-	color: #E46BB0;
-}
-
-.bg-img {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 0;
-
-  display: block;
-  background-image: url('login_body.jpg');
-  width: 100%;
-  height: 100%;
-
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  color: #5DA423;
+  font-size: 85px;
+	// color: #E46BB0;
+ //  text-shadow: 2px 2px 2px #fff;
 }

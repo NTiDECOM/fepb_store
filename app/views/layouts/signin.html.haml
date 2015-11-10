@@ -12,14 +12,17 @@
     = favicon_link_tag 'favicon.ico'
 
   %body{id: "#{params[:controller].parameterize}_controller"}
-    <div class="bg-img"></div>
+    .bg-img &nbsp
+    / .grad &nbsp
     .row
       .columns.large-6.large-centered
-        #login-title{style: "text-align: center; margin-top: 35%;"}
-          %span.virtual-store-label= t('views.application.virtual_store')
-          &nbsp;&nbsp;&nbsp;
+        #login-title
           %span.fepb-label= t('views.application.fepb')
-        .login        
+          / &nbsp;
+          %br/
+          %br/
+          %span.virtual-store-label= t('views.application.virtual_store')
+        .login
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|          
             .row
               .columns.large-12.large-centered
@@ -28,9 +31,9 @@
             .row
               .columns.large-12.large-centered
                 - if devise_mapping.rememberable?
-                  = f.check_box :remember_me, style: 'display: inline; float:left;'
-                  = f.label t('views.application.auth.remember_password'), '', style: 'display: inline; float:left;'
-                = link_to t('views.application.auth.forgot_password'), new_password_path(resource_name), style: 'display: inline; float: right;'
+                  = f.check_box :remember_me, style: 'display: inline; float:left; margin: 3px 5px 0px 0px;'
+                  = f.label t('views.application.auth.remember_password'), '', style: 'display: inline; float:left; color: #000; font-size: 14px;'
+                = link_to t('views.application.auth.forgot_password'), new_password_path(resource_name), style: 'display: inline; float: right; color: #000; font-size: 14px;'
             .row{style: 'margin-top: 50px;'}
               .columns.large-12.large-centered
                 = f.submit t('views.application.auth.log_in'), class: 'button radius success', style: 'width: 100%;'

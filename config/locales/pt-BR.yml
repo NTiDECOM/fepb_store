@@ -62,7 +62,7 @@ pt-BR:
       new: Novo
       select_one: 'Selecione...'
       show: Exibir
-      virtual_store: Loja virtual
+      virtual_store: Loja Virtual
     pagination:
       first: "&laquo; Primeira"
       last: "Última &raquo;"
