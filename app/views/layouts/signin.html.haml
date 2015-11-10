@@ -12,17 +12,26 @@
     = favicon_link_tag 'favicon.ico'
 
   %body{id: "#{params[:controller].parameterize}_controller"}
-    .large-3.large-centered.columns
-      .login-box
-        .row
-          .large-12.columns
-            %form
-              .row
-                .large-12.columns
-                  %input{:name => "username", :placeholder => "Username", :type => "text"}/
-              .row
-                .large-12.columns
-                  %input{:name => "password", :placeholder => "Password", :type => "password"}/
-              .row
-                .large-12.large-centered.columns
-                  %input.button.expand{:type => "submit", :value => "Log In"}/
+    <div class="bg-img"></div>
+    .row
+      .columns.large-6.large-centered
+        #login-title{style: "text-align: center; margin-top: 35%;"}
+          %span.virtual-store-label= t('views.application.virtual_store')
+          &nbsp;&nbsp;&nbsp;
+          %span.fepb-label= t('views.application.fepb')
+        .login        
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|          
+            .row
+              .columns.large-12.large-centered
+                = f.email_field :email, placeholder: t('models.user.email'), autofocus: true
+                = f.password_field :password, placeholder: t('models.user.password'), autocomplete: "off"
+            .row
+              .columns.large-12.large-centered
+                - if devise_mapping.rememberable?
+                  = f.check_box :remember_me, style: 'display: inline; float:left;'
+                  = f.label t('views.application.auth.remember_password'), '', style: 'display: inline; float:left;'
+                = link_to t('views.application.auth.forgot_password'), new_password_path(resource_name), style: 'display: inline; float: right;'
+            .row{style: 'margin-top: 50px;'}
+              .columns.large-12.large-centered
+                = f.submit t('views.application.auth.log_in'), class: 'button radius success', style: 'width: 100%;'
+                / = render "devise/shared/links"
