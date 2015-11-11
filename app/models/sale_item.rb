@@ -6,7 +6,20 @@ class SaleItem < ActiveRecord::Base
   validate :product_present
   validate :sale_present
 
+  attr_accessor :product, :quantity
+
+  def total_price
+    @product.sell_price * @quantity
+  end
+    
+  end
+
   private
+
+  def initialize(product, quantity)
+    @product = product
+    @quantity = quantity
+  end
 
   def product_present
     if product.nil?

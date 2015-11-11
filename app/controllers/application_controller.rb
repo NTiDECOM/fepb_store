@@ -47,4 +47,12 @@ class ApplicationController < ActionController::Base
       redirect_to new_user_session_path, alert: t('errors.messages.permission')
     end
   end
+
+  def current_sale
+    if !session[:sale_id].nil?
+      Sale.find(session[:sale_id])
+    else
+      Sale.new
+    end
+  end
 end

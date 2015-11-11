@@ -1,0 +1,50 @@
+/ .row
+/   .columns.large-12.text-center
+/     %div#paginate= paginate @sales
+/     %div#page_entries_info= page_entries_info @sales
+/ %br
+/   .row
+/     .columns.large-12.large-centered.text-center
+/       =link_to t('views.application.new'), new_sale_path, class: 'button success radius' if current_user and current_user.admin
+%table
+  %thead
+    %tr
+      %th
+      %th= t('models.sale.id')
+      %th= t('models.sale.quantity')
+      %th= t('models.sale.total')
+      %th
+      %th
+      %th
+  %tbody
+    %tr
+      %td= @sale.id
+      %td= @sale.sale_items.length
+      %td= number_to_currency sale.subtotal
+      %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
+      %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_sale_path(sale), class: 'button radius' if current_user and current_user.admin
+      %td= link_to '<i class="fi-trash"></i>'.html_safe, @sale, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+
+%table
+  %thead
+    %tr
+      %th
+      %th= t('models.sale.id')
+      %th= t('models.sale.quantity')
+      %th= t('models.sale.total')
+      %th
+      %th
+      %th
+  %tbody
+    -@sales.each do |sale|
+      %tr
+        %td= sale.id
+        %td= sale.sale_items.length
+        %td= number_to_currency sale.subtotal
+        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
+        %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_sale_path(sale), class: 'button radius' if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, sale, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+
+%br
+
+=link_to t('views.application.new'), new_sale_path, class: 'button success radius' if current_user and current_user.admin

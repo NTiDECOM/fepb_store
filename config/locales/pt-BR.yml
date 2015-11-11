@@ -34,6 +34,10 @@ pt-BR:
       product:
         one: 'Produto'
         other: 'Produtos'
+      sale:
+        id: 'ID'
+        quantity: 'Quantidade'
+        total: 'Total'
       shirt:
         one: 'Camisa'
         other: 'Camisas'
@@ -87,6 +91,7 @@ pt-BR:
       index:
       show:
       form:
+    sale:
     shirt:
       edit:
         title: 'Editar camisa'

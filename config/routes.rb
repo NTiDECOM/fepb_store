@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'sale_items/create'
+
+  get 'sale_items/update'
+
+  get 'sale_items/destroy'
+
+  get 'sales/show'
+
   root 'products#index'
 
   devise_for :users, :controllers => {sessions: "users/sessions"}
@@ -10,9 +18,13 @@ Rails.application.routes.draw do
   resources :shirts
   resources :tickets
   resources :users
+  resource :sales, only: [:show]
+  resources :sale_items, only: [:create, :update, :destroy]
 
   get '/notice_custom' => 'application#notice_custom'
   get '/error_custom' => 'application#error_custom'
+
+  get 'add_sale_item/:id/:quant' => 'sales#add_item', as: 'add_item'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'

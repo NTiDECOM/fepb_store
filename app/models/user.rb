@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
 
   private
 
+  def initialize
+
+  end
+
   def acc_created_notification
     UserMailer.acc_created(self).deliver_now
   end

@@ -31,4 +31,5 @@
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, url_for(product), class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+        %td= link_to '<i class="fi-shopping-cart"></i>'.html_safe, add_item_path(product.id, 1), class: 'button radius', method: :get if current_user and current_user.admin
 /"edit_#{product.class.to_s.downcase}_path(#{product.id})"
