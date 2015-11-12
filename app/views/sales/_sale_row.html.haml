@@ -1,0 +1,18 @@
+.row
+  .columns.small-8.large-12.text-center
+    %h4= product.title
+  .columns.small-4.large-12
+    = form_for sale_item, remote: true do |f|
+      %h4.text-right
+        Unit Price:
+        %span{:style => "color: green"}= number_to_currency sale_item.unit_price
+      .row
+        .columns.small-4
+          = f.number_field :quantity, value: sale_item.product_quantity.to_i, class: "form-control", min: 1
+          = f.hidden_field :product_id, value: product.id
+        .columns.small-8.text-right
+          = f.submit "Update Quantity", class: "button radius"
+          = link_to "Delete", sale_item, { data: { confirm: "Are you sure you wish to delete the product '#{sale_item.product.title}' from your cart?" }, method: :delete, remote: true, class: "button radius alert" }
+      %h4.text-right
+        Total Price:
+        %span{:style => "color: green"}= number_to_currency sale_item.total_price

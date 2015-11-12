@@ -1,0 +1,13 @@
+.row
+  .columns.large-12
+    - if !@sale_item.nil? && @sale_item.errors.any?
+      .alert.alert-danger
+        %ul
+          - @sale_item.errors.full_messages.each do |msg|
+            %li= msg
+    - if @sale_items.size == 0
+      %p.text-center
+        There are no items in your shopping cart.  Please #{link_to "go back", root_path} and add some items to your cart.
+    - else
+      - @sale_items.each do |sale_item|
+        = render 'sales/sale_row', product: sale_item.product, sale_item: sale_item, show_total: true

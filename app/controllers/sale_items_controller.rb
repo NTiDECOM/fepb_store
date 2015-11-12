@@ -1,7 +1,7 @@
 class SaleItemsController < ApplicationController
   def create
     @sale = current_sale
-    @sale_item = @sale.sale_items.new(order_item_params)
+    @sale_item = @sale.sale_items.new(sale_item_params)
     @sale.save
     session[:sale_id] = @sale.id
   end
@@ -23,6 +23,6 @@ class SaleItemsController < ApplicationController
   private
 
   def sale_item_params
-    params.require(:sale_item).permit(:quanity, :product_id)
+    params.require(:sale_item).permit(:product_quantity, :product_id)
   end
 end

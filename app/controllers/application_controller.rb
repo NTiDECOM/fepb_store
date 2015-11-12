@@ -6,6 +6,24 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :require_admin, only: [:edit, :destroy]
 
+  helper_method :current_sale
+
+  def require_admin
+    if !current_user.present?
+      redirect_to new_user_session_path, alert: t('errors.messages.permission')
+    elsif current_user.present? and !current_user.admin
+      redirect_to new_user_session_path, alert: t('errors.messages.permission')
+    end
+  end
+
+  def current_sale
+    if !session[:sale_id].nil?
+      Sale.find(session[:sale_id])
+    else
+      Sale.new
+    end
+  end
+
   protected
 
   def configure_permitted_parameters
@@ -38,21 +56,5 @@ class ApplicationController < ActionController::Base
 
   def error_custom
     redirect_to root_path, alert: 'ERROR MESSAGE'
-  end
-
-  def require_admin
-    if !current_user.present?
-      redirect_to new_user_session_path, alert: t('errors.messages.permission')
-    elsif current_user.present? and !current_user.admin
-      redirect_to new_user_session_path, alert: t('errors.messages.permission')
-    end
-  end
-
-  def current_sale
-    if !session[:sale_id].nil?
-      Sale.find(session[:sale_id])
-    else
-      Sale.new
-    end
   end
 end

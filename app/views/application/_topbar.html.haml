@@ -29,10 +29,7 @@
               %a= link_to t('models.ticket.label'), tickets_path
     / Right Nav Section
     %ul.right
-
-      - if !current_user.present?
-        %li
-          = link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link"
+      - if !current_user.present?        
         %li            
           %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
         %li.active
@@ -40,6 +37,8 @@
         %li.active
           %a= link_to t('views.application.auth.sign_up'), new_user_registration_path          
       - else
+        %li.sale-info
+          = render 'layouts/sale_text'
         %li
           =image_tag(current_user.avatar_url, size: "30", style: 'margin-top: 7px;') if current_user.avatar
         %li          

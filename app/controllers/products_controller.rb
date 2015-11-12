@@ -3,8 +3,9 @@ class ProductsController < ApplicationController
   before_filter :require_admin
   
   def index
-      #@products = product.all
-      @products = Product.order(:id).page(params[:page])
+    #@products = product.all
+    @products = Product.order(:id).page(params[:page])
+    @sale_item = current_sale.sale_items.new
   end
 
   def new
@@ -20,7 +21,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product, notice: "Product created successfully"
     else
-      render action: :new, notice: "Could not update this product"
+      render action: :new, notice: "Could not save this product"
     end
   end
 

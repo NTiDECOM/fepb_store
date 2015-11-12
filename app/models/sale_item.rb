@@ -1,25 +1,16 @@
 class SaleItem < ActiveRecord::Base
-  has_many :products
+  belongs_to :product
   belongs_to :sale
 
   validates :product_quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
-  validate :sale_present
-
-  attr_accessor :product, :quantity
+  validate :sale_present  
 
   def total_price
-    @product.sell_price * @quantity
-  end
-    
+    product.sell_price * product_quantity
   end
 
   private
-
-  def initialize(product, quantity)
-    @product = product
-    @quantity = quantity
-  end
 
   def product_present
     if product.nil?
@@ -28,13 +19,13 @@ class SaleItem < ActiveRecord::Base
   end
 
   def sale_present
-    if order.nil?
+    if sale.nil?
       errors.add(:order, "is not a valid order.")
     end
   end
 
   def finalize
-    self[:unit_price] = product.price
-    self[:total_price] = quantity * self[:unit_price]
+    self[:unit_price] = unit_price
+    self[:total_price] = product_quantity * self[:product_price]
   end
 end
