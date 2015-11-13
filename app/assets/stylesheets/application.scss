@@ -18,11 +18,18 @@
  *= require footer
  *= require responsive-tables
  *= require login
+ *= require sales
  */
 
-/* .top-bar ul li > a {
-  font-size: 16px;
-} */
+.top-bar {
+  // height: 80px;
+  // border-bottom: 1px solid #B5B5B5;
+  // text-align: middle;
+}
+
+// .top-bar ul li > a {
+//   font-size: 16px;
+// }
 
 select {
   border-radius: 3px;
@@ -33,4 +40,13 @@ select {
 table {
   margin-left: auto;
   margin-right: auto;
+}
+
+a:visited {
+  color: #FFF;
+}
+
+input.number-field {
+  display: inline;
+  width: 50px; 
 }

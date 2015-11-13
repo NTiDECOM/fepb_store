@@ -1,1 +1,3 @@
-= link_to "#{current_sale.sale_items.size} Items in Sale ( #{number_to_currency current_sale.subtotal} )", sale_path, class: "button radius"
+= link_to sale_path, class: "button radius" do
+  %i.fi-shopping-cart
+  = "(#{current_sale.sale_items.size})"

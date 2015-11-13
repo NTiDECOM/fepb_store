@@ -2,6 +2,7 @@ class SaleItemsController < ApplicationController
   def create
     @sale = current_sale
     @sale_item = @sale.sale_items.new(sale_item_params)
+    puts " >>> @sale_item: #{@sale_item}"
     @sale.save
     session[:sale_id] = @sale.id
   end

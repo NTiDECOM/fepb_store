@@ -1,13 +1,36 @@
+.row.sale-row.sale-header
+  .columns.small-8.large-12
+    %h4 Minhas compras
+%br/    
 .row
-  .columns.large-12
-    - if !@sale_item.nil? && @sale_item.errors.any?
+  .columns.small-8.large-12
+    - if @sale_item.present? && @sale_item.errors.any?
       .alert.alert-danger
         %ul
           - @sale_item.errors.full_messages.each do |msg|
             %li= msg
-    - if @sale_items.size == 0
+    - if @sale_items.size.zero?
       %p.text-center
         There are no items in your shopping cart.  Please #{link_to "go back", root_path} and add some items to your cart.
+        Não há itens selecionados para comprar. Por favor, #{link_to "escolha algum produto", root_path} para formar uma compra.
     - else
+      .row.sale-row.sale-header
+        .columns.small-8.large-3
+          Produto
+        .columns.small-8.large-3
+          Título
+        .columns.small-8.large-3
+          Quantidade
+        .columns.small-8.large-3
+          Preço unitário
       - @sale_items.each do |sale_item|
-        = render 'sales/sale_row', product: sale_item.product, sale_item: sale_item, show_total: true
+        = render 'sales/sale_row', sale_item: sale_item, show_total: true
+      .row.sale-row.sale-header
+        .columns.small-8.large-12
+          %h5.text-right
+            Preço total:
+            %span{style: "color: green"}= number_to_currency current_sale.total_price
+      %br/
+      .row
+        .columns.small-8.large-12
+          %td= link_to 'Comprar mais produtos'.html_safe, root_path, class: 'button radius'
