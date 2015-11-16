@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
   before_filter :require_admin
   
   def index
-    #@products = product.all
     @products = Product.order(:id).page(params[:page])
-    # @sale_item = current_sale.sale_items.new
+    @sale_item = current_sale.sale_items.new
+    # puts " >>> current_sale.sale_items: #{current_sale.sale_items}"
   end
 
   def new

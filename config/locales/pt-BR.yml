@@ -55,6 +55,7 @@ pt-BR:
         log_out: Sair
         remember_password: Lembrar senha
         sign_up: Criar conta
+      are_you_sure: "Tem certeza?"
       back: Voltar
       destroy: Remover
       details: Detalhes

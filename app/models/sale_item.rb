@@ -4,10 +4,12 @@ class SaleItem < ActiveRecord::Base
 
   validates :product_quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :product_present
-  validate :sale_present  
+  validate :sale_present
 
+  before_save :finalize
+  
   def total_price
-    product.sell_price * product_quantity
+    self.product.sell_price * self.product_quantity
   end
 
   private
@@ -25,7 +27,8 @@ class SaleItem < ActiveRecord::Base
   end
 
   def finalize
+    " >>> FINALIZEEEEEEEEEEEEEEEEEEEE <<<<<<<<<<<<<<<<"
     self[:unit_price] = unit_price
-    self[:total_price] = product_quantity * self[:product_price]
+    self[:total_price] = self.product_quantity * self[:product_price]
   end
 end

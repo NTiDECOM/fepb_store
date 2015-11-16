@@ -1,31 +1,36 @@
 class SaleItemsController < ApplicationController
+  def new
+    @sale_item = SaleItem.new
+  end
+
   def create
     @sale = current_sale
+    # @sale_item = @sale.sale_items.new
+    @sale_item = @sale.sale_items.new(sale_item_params)
 
-    puts " >>> current_sale: #{@sale}"
+    # @sale.sale_items.each do |item|
+    #   if item.product.present? and item.product.id.to_i == sale_item_params[:product_id].to_i
+    #     puts " >>> if"
+    #     puts " >>> item: #{item}"
+    #     new_quantity = item.product_quantity + sale_item_params[:product_quantity].to_i
+    #     @sale_item = @sale.sale_items.update(item.id, product_quantity: new_quantity)
+    #   else
+    #     puts " >>> else"
+    #     @sale_item = @sale.sale_items.new(sale_item_params)
+    #   end
+    # end
 
-    puts " >>> @sale_item product_id: #{sale_item_params[:product_id]}"
-    puts " >>> @sale_item product_quantity: #{sale_item_params[:product_quantity]}"
+    # puts " >>> @sale_item.errors: #{@sale_item.errors.full_messages}"
+    # puts " >>> @sale.sale_items.size: #{@sale.sale_items.size}"
 
-    @sale.sale_items.each do |item|
-      puts " >>> @item: #{item.product.title}"
-      puts " >>> @item product_quantity BEFORE: #{item.product_quantity}"
-      if item.product.id == sale_item_params[:product_id]
-        item.product_quantity = item.product_quantity + 1
-      else
-        @sale_item = @sale.sale_items.new(sale_item_params)
-      end
-      puts " >>> @item: #{item.product.title}"
-      puts " >>> @item product_quantity AFTER: #{item.product_quantity}"
-    end
+    @sale.save
+    session[:sale_id] = @sale.id
 
-    puts " >>> @sale_item type: #{@sale.sale_items.class.name}"
-    puts " >>> @sale_item product: #{@sale.sale_items.product}"
-    puts " >>> @sale_item: #{@sale_item}"
-    puts " >>> @sale_item_params: #{sale_item_params}"
-    puts " >>> @sale_item_params[:product_quantity]: #{sale_item_params[:product_quantity]}"
-    # @sale.save
-    # session[:sale_id] = @sale.id
+    # puts " >>> @sale_item type: #{@sale.sale_items.class.name}"
+    # puts " >>> @sale_item product: #{@sale.sale_items.product}"
+    # puts " >>> @sale_item: #{@sale_item}"
+    # puts " >>> @sale_item_params: #{sale_item_params}"
+    # puts " >>> @sale_item_params[:product_quantity]: #{sale_item_params[:product_quantity]}"
   end
 
   def update

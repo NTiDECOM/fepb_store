@@ -1,23 +1,4 @@
-/ .row
-/   .columns.small-8.large-12
-/     %h4 Minhas compras
-/   .columns.small-4.large-12
-/     = form_for sale_item, remote: true do |f|
-/       %h4.text-right
-/         Unit Price:
-/         %span{:style => "color: green"}= number_to_currency sale_item.unit_price
-/       .row
-/         .columns.small-4
-/           = f.number_field :quantity, value: product_quantity.to_i, class: "form-control", min: 1
-/           = f.hidden_field :product_id, value: sale_item.product.id
-/         .columns.small-8.text-right
-/           = f.submit "Update Quantity", class: "button radius"
-/           = link_to "Delete", sale_item, { data: { confirm: "Are you sure you wish to delete the product '#{sale_item.product.title}' from your cart?" }, method: :delete, remote: true, class: "button radius alert" }
-/       %h4.text-right
-/         Total Price:
-/         %span{:style => "color: green"}= number_to_currency sale_item.total_price
-
-= form_for sale_item, remote: true do |f|
+= form_for sale_item, method: :put, remote: true do |f|
   .row.sale-row
     .columns.small-8.large-3
       = link_to sale_item.product do
@@ -25,9 +6,9 @@
     .columns.small-8.large-3
       = link_to sale_item.product.title, sale_item.product
     .columns.small-8.large-3
-      = f.button type: "submit", class: "button radius alert small", method: :delete, data: { confirm: 'Are you sure?' } do 
+      = f.button type: "submit", class: "button radius alert small", method: :delete, data: { confirm: t('views.application.are_you_sure') } do 
         %i.fi-trash
-      = f.number_field :quantity, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
+      = f.number_field :product_quantity, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
       = f.button type: "submit", class: "button radius small" do 
         %i.fi-refresh
     .columns.small-8.large-3

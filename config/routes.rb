@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/notice_custom' => 'application#notice_custom'
   get '/error_custom' => 'application#error_custom'
 
-  get 'add_sale_item/:id/:quant' => 'sales#add_item', as: 'add_item'
+  post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'

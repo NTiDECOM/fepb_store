@@ -4,4 +4,9 @@
 function set_path_for_new_btn() {
   var sel_val = $('#product').val();
   $('#product_link_to').attr('href', sel_val)
+  
+  if (sel_val == '')
+    $('#product_link_to').attr('disabled', true);    
+  else
+    $('#product_link_to').attr('disabled', false);
 }

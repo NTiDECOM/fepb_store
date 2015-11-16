@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151109141107) do
+ActiveRecord::Schema.define(version: 20151116175733) do
 
   create_table "products", force: :cascade do |t|
     t.string   "type",             limit: 255
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20151109141107) do
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.string   "product_image",    limit: 255
+    t.boolean  "active"
   end
 
   create_table "sale_items", force: :cascade do |t|
@@ -45,15 +46,23 @@ ActiveRecord::Schema.define(version: 20151109141107) do
   add_index "sale_items", ["product_id"], name: "index_sale_items_on_product_id", using: :btree
   add_index "sale_items", ["sale_id"], name: "index_sale_items_on_sale_id", using: :btree
 
-  create_table "sales", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.string   "buyer_name", limit: 255
-    t.decimal  "subtotal",               precision: 12, scale: 3
-    t.decimal  "total",                  precision: 12, scale: 3
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+  create_table "sale_statuses", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.string   "buyer_name",     limit: 255
+    t.decimal  "subtotal",                   precision: 12, scale: 3
+    t.decimal  "total",                      precision: 12, scale: 3
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.integer  "sale_status_id", limit: 4
+  end
+
+  add_index "sales", ["sale_status_id"], name: "index_sales_on_sale_status_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -87,5 +96,6 @@ ActiveRecord::Schema.define(version: 20151109141107) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "sales", "sale_statuses"
   add_foreign_key "sales", "users"
 end
