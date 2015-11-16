@@ -13,24 +13,24 @@
   .row
     .columns.large-6
       .field
-        = f.label :title
+        = f.label t('models.product.title')
         = f.text_field :title
       .field
-        = f.label :sell_price
+        = f.label t('models.product.sell_price')
         = f.text_field :sell_price, {class: 'price_field'}
       .field
-        = f.label :buy_price
+        = f.label t('models.product.buy_price')
         = f.text_field :buy_price, {class: 'price_field'}
       .field
-        = f.label :product_image
+        = f.label t('models.product.image')
         = f.file_field :product_image, class: 'file-input'
         / = f.hidden_field :product_image_cache
     .columns.large-6
       .field
-        = f.label :event_day
+        = f.label t('models.ticket.event_day')
         = f.date_select :event_day
       .field
-        = f.label :event_time
+        = f.label t('models.ticket.event_time')
         = f.time_select :event_time
   .row
     .columns.large-12.text-center

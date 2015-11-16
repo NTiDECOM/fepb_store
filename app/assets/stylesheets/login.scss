@@ -20,7 +20,7 @@
   filter: blur(5px);
 }
 
-.grad{
+.grad {
   background-size: cover;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
   display: block;
@@ -33,6 +33,20 @@
   z-index: 1;
 }
 
+.login-container {
+	// height: 600px;
+	// margin-left: -150px;
+ //  margin-top: -200px;
+ //  left: 50%;
+ //  position: absolute;
+ //  top: 50%;
+	// width: 400px;
+	// display: table-cell;
+	// vertical-align: middle;
+	margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
 
 .login {
   font-size: 18px;
@@ -49,7 +63,7 @@
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-;}
+}
 
 .login input[type=text],
 .login input[type=email],
@@ -99,7 +113,7 @@
 
 #login-title {
   text-align: center; 
-  margin: 50% 0 50px 0;
+  margin: 30% 0 50px 0;
 }
 
 #login-title span {
@@ -120,4 +134,17 @@
   font-size: 85px;
 	// color: #E46BB0;
  //  text-shadow: 2px 2px 2px #fff;
+}
+
+input.remember-password {
+  display: inline; 
+  float:left; 
+  margin: 3px 5px 0px 0px;	
+}
+
+label.remember-password-label {
+	display: inline; 
+	float:left; 
+	color: #000; 
+	font-size: 14px;
 }

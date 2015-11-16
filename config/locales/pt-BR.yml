@@ -129,6 +129,8 @@ pt-BR:
       type: Tipo
       year: 'Ano'
     ticket: 
+      event_day: 'Dia do evento'
+      event_time: 'Horário do evento'
       label: 'Ingresso'
     user:
       cep: 'CEP'

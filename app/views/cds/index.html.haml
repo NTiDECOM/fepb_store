@@ -6,7 +6,7 @@
 %br
   .row
     .columns.large-12.large-centered.text-center
-      =link_to t('views.application.new'), new_book_path, class: 'button success radius' if current_user and current_user.admin
+      =link_to t('views.application.new'), new_cd_path, class: 'button success radius' if current_user and current_user.admin
 %table
   %thead
     %tr
@@ -33,7 +33,3 @@
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, cd, class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_cd_path(cd), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, cd, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
-
-%br
-
-=link_to t('views.application.new'), new_cd_path, class: 'button success radius' if current_user and current_user.admin

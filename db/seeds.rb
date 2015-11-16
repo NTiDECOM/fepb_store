@@ -14,7 +14,7 @@ User.create(
   admin: true
 )
 
-1.upto(15) do |n|
+1.upto(2) do |n|
   Book.create(
     title: "Livro #{n}", 
     author: "Autor #{n}", 
@@ -27,7 +27,7 @@ User.create(
   )
 end
 
-1.upto(10) do |n|
+1.upto(2) do |n|
   Cd.create(
     title: "Cd #{n}", 
     buy_price: 2,
@@ -35,7 +35,7 @@ end
   )
 end
 
-1.upto(10) do |n|
+1.upto(2) do |n|
   Dvd.create(
     title: "Dvd #{n}", 
     buy_price: 5,
@@ -43,7 +43,7 @@ end
   )
 end
 
-1.upto(10) do |n|
+1.upto(2) do |n|
   Shirt.create(
     title: "Camisa #{n}", 
     buy_price: 10,
@@ -51,7 +51,7 @@ end
   )
 end
 
-1.upto(10) do |n|
+1.upto(2) do |n|
   Ticket.create(
     title: "Ingresso #{n}", 
     buy_price: 2,

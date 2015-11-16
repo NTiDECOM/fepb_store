@@ -34,5 +34,5 @@
       = @book.pages_number
 .row
   .columns.large-12.text-center
-    = link_to t('views.application.edit'), edit_book_path(@book.id), class: 'button radius'
-/ = link_to t('views.application.back'), root_path, class: 'button radius'
+    = link_to t('views.application.edit'), edit_book_path(@book), class: 'button radius'
+    = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

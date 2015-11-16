@@ -35,12 +35,11 @@ ActiveRecord::Schema.define(version: 20151109141107) do
   create_table "sale_items", force: :cascade do |t|
     t.integer  "sale_id",          limit: 4
     t.integer  "product_id",       limit: 4
-    t.string   "product_name",     limit: 255
     t.integer  "product_quantity", limit: 4
-    t.decimal  "unit_price",                   precision: 12, scale: 3
-    t.decimal  "total_price",                  precision: 12, scale: 3
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.decimal  "unit_price",                 precision: 12, scale: 3
+    t.decimal  "total_price",                precision: 12, scale: 3
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
   end
 
   add_index "sale_items", ["product_id"], name: "index_sale_items_on_product_id", using: :btree

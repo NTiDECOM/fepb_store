@@ -4,7 +4,8 @@
 
 = render 'form'
 
+%br
 .row
-  .columns.large-12
+  .columns.large-12.large-centered.text-center
     = link_to t('views.application.show'), @user, class: 'button radius'
-    = link_to t('views.application.back'), users_path, class: 'button radius'
+    = link_to t('views.application.back'), @user	, class: 'button radius'

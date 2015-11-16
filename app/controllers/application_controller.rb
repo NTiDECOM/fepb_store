@@ -22,6 +22,18 @@ class ApplicationController < ActionController::Base
     else
       Sale.new
     end
+
+    puts " >>> current_sale ApplicationController: #{session}"
+
+    # puts " >>> current_sale ApplicationController: #{session[:sale_id]}"
+
+    # if session[:sale].nil?
+    #   session[:sale] = Sale.new
+    # else
+    #   session[:sale]
+    # end
+
+    # puts " >>> current_sale ApplicationController: #{session[:sale]}"
   end
 
   protected

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   def index
     #@products = product.all
     @products = Product.order(:id).page(params[:page])
-    @sale_item = current_sale.sale_items.new
+    # @sale_item = current_sale.sale_items.new
   end
 
   def new

@@ -38,6 +38,3 @@
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_user_path(user), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, user, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
 %br
-
-=link_to 'New user', new_user_path, class: 'button success radius'
-/ =link_to t('views.application.back'), root_url, class: 'button radius'
