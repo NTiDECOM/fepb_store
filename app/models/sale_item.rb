@@ -12,7 +12,7 @@ class SaleItem < ActiveRecord::Base
     if persisted?
       self[:unit_price]
     else
-      product.price
+      product.sell_price
     end
   end
   
@@ -33,6 +33,6 @@ class SaleItem < ActiveRecord::Base
   def finalize
     " >>> FINALIZEEEEEEEEEEEEEEEEEEEE <<<<<<<<<<<<<<<<"
     self[:unit_price] = unit_price
-    self[:total_price] = self.product_quantity * self[:product_price]
+    self[:total_price] = product_quantity * self[:product_price]
   end
 end

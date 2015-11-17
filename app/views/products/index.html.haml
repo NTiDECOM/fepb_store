@@ -36,6 +36,6 @@
         = form_for @sale_item, remote: true do |f|
           %td
             = f.number_field :product_quantity, value: @sale_item.product_quantity.to_i, min: 1, class: 'number-field'
-            = button_tag type: "submit", class: "button radius" do 
-              %i.fi-shopping-cart
             = f.hidden_field :product_id, value: product.id
+            = f.button type: "submit", class: "button radius" do 
+              %i.fi-shopping-cart

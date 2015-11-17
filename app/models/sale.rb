@@ -28,6 +28,5 @@ class Sale < ActiveRecord::Base
 
   def set_sale_status
     self.sale_status_id = 1
-    puts ">>> self.sale.status: #{self.sale_status}"
   end
 end
