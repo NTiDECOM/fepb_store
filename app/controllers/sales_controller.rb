@@ -11,7 +11,6 @@ class SalesController < ApplicationController
 
     product = Product.find(product_id)
     sale_item = SaleItem.new(product: product, product_quantity: product_quantity)
-
     
     puts ">>> sale_item.total_price: #{sale_item.total_price}"
     puts ">>> sale_item: #{sale_item}"

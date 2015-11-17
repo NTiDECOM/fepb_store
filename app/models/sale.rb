@@ -4,7 +4,6 @@ class Sale < ActiveRecord::Base
   belongs_to :sale_status
   before_create :set_sale_status
 
-
   def total_price
     self.sale_items.collect { |sale_item| 
       sale_item.valid? ? (sale_item.product_quantity * sale_item.product.sell_price) : 0 

@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.order(:id).page(params[:page])
     @sale_item = current_sale.sale_items.new
-    # puts " >>> current_sale.sale_items: #{current_sale.sale_items}"
   end
 
   def new

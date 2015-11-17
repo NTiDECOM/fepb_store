@@ -1,4 +1,4 @@
-= form_for sale_item, method: :put, remote: true do |f|
+= form_for sale_item, remote: true do |f|
   .row.sale-row
     .columns.small-8.large-3
       = link_to sale_item.product do
@@ -8,7 +8,7 @@
     .columns.small-8.large-3
       = f.button type: "submit", method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do 
         %i.fi-trash
-      = f.number_field :product_quantity, method: :put, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
+      = f.number_field :product_quantity, method: :patch, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
       = f.button type: "submit", class: "button radius small" do 
         %i.fi-refresh
     .columns.small-8.large-3
