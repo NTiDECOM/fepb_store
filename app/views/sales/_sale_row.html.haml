@@ -6,9 +6,9 @@
     .columns.small-8.large-3
       = link_to sale_item.product.title, sale_item.product
     .columns.small-8.large-3
-      = f.button type: "submit", class: "button radius alert small", method: :delete, data: { confirm: t('views.application.are_you_sure') } do 
+      = f.button type: "submit", method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do 
         %i.fi-trash
-      = f.number_field :product_quantity, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
+      = f.number_field :product_quantity, method: :put, value: sale_item.product_quantity.to_i, min: 1, class: "number-field"
       = f.button type: "submit", class: "button radius small" do 
         %i.fi-refresh
     .columns.small-8.large-3

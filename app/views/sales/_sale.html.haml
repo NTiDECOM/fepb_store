@@ -10,9 +10,9 @@
           - @sale_item.errors.full_messages.each do |msg|
             %li= msg
     - if @sale_items.size.zero?
-      %p.text-center
+      %p
         / There are no items in your shopping cart.  Please #{link_to "go back", root_path} and add some items to your cart.
-        Não há itens selecionados para comprar. Por favor, #{link_to "escolha algum produto", root_path} para formar uma compra.
+        Não há itens selecionados para comprar. Por favor, #{link_to "escolha algum produto", root_path, style: "font-weight: bold;"} para formar uma compra.
     - else
       .row.sale-row.sale-header
         .columns.small-8.large-3

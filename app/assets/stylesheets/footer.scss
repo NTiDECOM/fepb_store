@@ -27,6 +27,7 @@ $background-color: #111; //#2980b9
     color: $text-color;
   }
   a:hover {
+    color: $text-color;
     background-color: transparent;
   }
   h4 {
@@ -39,7 +40,7 @@ $background-color: #111; //#2980b9
   }
   p, a {
     font-weight: 300; 
-    font-size: .8em;
+    font-size: 1em;
     color: $text-color;
   }  
 }

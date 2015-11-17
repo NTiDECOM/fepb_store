@@ -7,23 +7,27 @@ class SaleItem < ActiveRecord::Base
   validate :sale_present
 
   before_save :finalize
+
+  def unit_price
+    if persisted?
+      self[:unit_price]
+    else
+      product.price
+    end
+  end
   
   def total_price
-    self.product.sell_price * self.product_quantity
+    unit_price * product_quantity
   end
 
   private
 
   def product_present
-    if product.nil?
-      errors.add(:product, "is not valid or is not active.")
-    end
+    errors.add(:product, "is not valid or is not active.") if product.nil?
   end
 
   def sale_present
-    if sale.nil?
-      errors.add(:order, "is not a valid order.")
-    end
+    errors.add(:order, "is not a valid order.") if sale.nil?
   end
 
   def finalize

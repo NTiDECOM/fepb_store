@@ -1,5 +1,18 @@
 .top-bar {
   height: 100%;
+
+  a, a:active, a:hover, a:visited {
+    color: #FFF;    
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 16px; 
+  }
+}
+
+.top-bar-section ul li > a {
+  font-size: 16px;
 }
 
 nav.top-bar > section > ul {
@@ -19,3 +32,4 @@ nav.top-bar > section > ul > li > a {
 .top-bar-section .has-dropdown > a:after {
 	margin-top: 7px;
 }
+
