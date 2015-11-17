@@ -18,10 +18,12 @@ class SaleItemsController < ApplicationController
   end
 
   def destroy
+    ">>> DESTROY"
     @sale = current_sale
     @sale_item = @sale.sale_items.find(params[:id])
     @sale_item.destroy
     @sale_items = @sale.sale_items
+    redirect_to @sale
   end
 
   private

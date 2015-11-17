@@ -15,8 +15,8 @@ class Sale < ActiveRecord::Base
     self.sale_items << sale_item
     puts ">>> self.sale_items: #{self.sale_items.length}"
     self.sale_items.each do |item|
-        puts "#{item.product.title} - #{item.product_quantity}"
-      end
+      puts "#{item.product.title} - #{item.product_quantity}"
+    end
   end
 
   private
