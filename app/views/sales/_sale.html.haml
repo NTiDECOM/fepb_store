@@ -33,5 +33,6 @@
       %br/
       .row
         .columns.small-8.large-12.text-center
-          = link_to 'Comprar mais produtos', root_path, class: 'button radius'
-          = link_to 'Finalizar compra', root_path, class: 'button radius alert'
+          = link_to t('views.sale.cancel_sale'), @sale, method: :delete, data: { confirm: t('views.application.are_you_sure') }, class: 'button radius secondary'
+          = link_to t('views.sale.continue_shopping'), root_path, class: 'button radius'
+          = link_to t('views.sale.register_sale'), finalize_sale_path, class: 'button radius alert'

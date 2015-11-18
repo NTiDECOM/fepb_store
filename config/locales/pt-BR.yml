@@ -95,6 +95,9 @@ pt-BR:
       id: 'ID'
       quantity: 'Quantidade'
       total: 'Total'
+      register_sale: 'Registrar venda'
+      continue_shopping: 'Continuar comprando'
+      cancel_sale: 'Cancelar compra'
     shirt:
       edit:
         title: 'Editar camisa'

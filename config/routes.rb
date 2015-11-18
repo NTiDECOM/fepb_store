@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   resources :shirts
   resources :tickets
   resources :users
-  resource :sale, only: [:show]
+  resource :sale, only: [:show, :destroy]
   resources :sale_items, only: [:create, :update, :destroy]
 
   get '/notice_custom' => 'application#notice_custom'
   get '/error_custom' => 'application#error_custom'
 
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
+
+  get 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'

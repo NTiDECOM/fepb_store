@@ -40,7 +40,7 @@
     .columns.large-3.end
       .product-box.text-center
         .product-thumb-container
-          = link_to product.product_image ? image_tag(product.product_image_url, size: "100") : '', url_for(product)
+          = link_to product.product_image ? image_tag(product.product_image_url) : '', url_for(product)
         .product-title
           = product.title
         .product-sell-price
