@@ -25,7 +25,7 @@
           Preço unitário
       - @sale_items.each do |sale_item|
         = render 'sales/sale_row', sale_item: sale_item, show_total: true
-      .row.sale-row.sale-header
+      .row.sale-row.sale-header        
         .columns.small-8.large-12
           %h5.text-right
             Preço total:
@@ -35,4 +35,8 @@
         .columns.small-8.large-12.text-center
           = link_to t('views.sale.cancel_sale'), @sale, method: :delete, data: { confirm: t('views.application.are_you_sure') }, class: 'button radius secondary'
           = link_to t('views.sale.continue_shopping'), root_path, class: 'button radius'
-          = link_to t('views.sale.register_sale'), finalize_sale_path, class: 'button radius alert'
+          = link_to t('views.sale.register_sale'), finalize_sale_path, class: 'button radius alert', data: {:'reveal-id' => 'finalize_sale_modal'}
+
+#finalize_sale_modal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "modalTitle", "data-reveal" => "", :role => "dialog"}
+  = render 'sales/finalize_sale_modal'
+  %a.close-reveal-modal{"aria-label" => "Close"} ×

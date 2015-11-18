@@ -27,6 +27,8 @@
               %a= link_to t('models.dvd.label'), dvds_path
             %li
               %a= link_to t('models.ticket.label'), tickets_path
+            %li
+              %a= link_to t('views.sale.history'), sales_path
     / Right Nav Section
     %ul.right
       - if !current_user.present?        

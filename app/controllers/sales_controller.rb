@@ -1,6 +1,10 @@
 class SalesController < ApplicationController
   # before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @sales = Sale.order(:id).page(params[:page])
+  end
+
   def show
     @sale_items = current_sale.sale_items
   end
@@ -51,10 +55,10 @@ class SalesController < ApplicationController
   end
 
   def finalize
-    @sale = current_sale
-    @sale.update(sale_status: SaleStatus.find(2))
+    @sale = current_sale    
+    @sale.update(sale_status: SaleStatus.find(2), buyer_name: params[:customer_name])
     current_sale = nil
     session[:sale_id] = nil
-    redirect_to root_path, notice: 'Venda registrada com sucesso'
+    redirect_to root_path, notice: t('controllers.sales.finalize_success')
   end
 end

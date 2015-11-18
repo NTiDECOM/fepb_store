@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :tickets
   resources :users
   resource :sale, only: [:show, :destroy]
+  resources :sales, only: [:index]
   resources :sale_items, only: [:create, :update, :destroy]
 
   get '/notice_custom' => 'application#notice_custom'
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
 
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
 
-  get 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
+  post 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'

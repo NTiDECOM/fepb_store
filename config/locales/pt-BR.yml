@@ -46,6 +46,16 @@ pt-BR:
       user:
         one: 'Usuário'
         other: 'Usuários'
+  controllers:
+    application:
+    books:
+    cds:
+    dvds:
+    products:
+    sales:
+      finalize_success: 'Venda registrada com sucesso'
+    shirts:
+    tickets:
   views:
     application:
       auth:
@@ -92,12 +102,16 @@ pt-BR:
       show:
       form:
     sale:
+      cancel_sale: 'Cancelar compra'
+      continue_shopping: 'Continuar comprando'
+      customer_name: 'Nome do comprador'
+      finalize: 'Finalizar'
+      history: 'Histórico de vendas'
       id: 'ID'
       quantity: 'Quantidade'
-      total: 'Total'
       register_sale: 'Registrar venda'
-      continue_shopping: 'Continuar comprando'
-      cancel_sale: 'Cancelar compra'
+      total: 'Total'
+      updated_at: 'Última movimentação'
     shirt:
       edit:
         title: 'Editar camisa'
@@ -122,6 +136,9 @@ pt-BR:
       label: 'CD'
     dvd: 
       label: 'DVD'
+    sale:
+      buyer_name: 'Comprador'
+      items_number: 'Itens'
     shirt: 
       label: 'Camisa'
     product:
@@ -362,7 +379,7 @@ pt-BR:
   time:
     am: ''
     formats:
-      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      default: "%a, %d de %B de %Y, %H:%M:%S"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
