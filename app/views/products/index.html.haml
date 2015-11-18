@@ -9,28 +9,47 @@
     .columns.large-12.large-centered.text-center
       =select_tag(:product, options_for_select(product_select_type_path), {onchange: "set_path_for_new_btn()", style: 'width: 150px;'})
       =link_to t('views.application.new'), '#', id: "product_link_to", class: 'button success radius', disabled: true if current_user and current_user.admin
-%table.responsive
-  %thead
-    %tr
-      %th
-      %th= t('models.product.title')
-      %th= t('models.product.sell_price')
-      %th
-      %th
-      %th
-      %th
-  %tbody
-    -@products.each do |product|
-      %tr
-        %td= link_to product.product_image ? image_tag(product.product_image_url, size: "80") : '', url_for(product)
-        %td= product.title
-        %td= number_to_currency product.sell_price
-        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, url_for(product), class: 'button radius'
-        %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius' if current_user and current_user.admin
-        %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
-        %td
+/ %table.responsive
+/   %thead
+/     %tr
+/       %th
+/       %th= t('models.product.title')
+/       %th= t('models.product.sell_price')
+/       %th
+/       %th
+/       %th
+/       %th
+/   %tbody
+/     -@products.each do |product|
+/       %tr
+/         %td= link_to product.product_image ? image_tag(product.product_image_url, size: "80") : '', url_for(product)
+/         %td= product.title
+/         %td= number_to_currency product.sell_price
+/         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, url_for(product), class: 'button radius'
+/         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius' if current_user and current_user.admin
+/         %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
+/         %td
+/           = form_for @sale_item, remote: true do |f|        
+/             = f.number_field :product_quantity, value: @sale_item.product_quantity.to_i, min: 1, class: 'number-field'
+/             = f.hidden_field :product_id, value: product.id
+/             = f.button type: "submit", class: "button radius" do 
+/               %i.fi-shopping-cart
+
+.row
+  -@products.each do |product|
+    .columns.large-3.end
+      .product-box.text-center
+        .product-thumb-container
+          = link_to product.product_image ? image_tag(product.product_image_url, size: "100") : '', url_for(product)
+        .product-title
+          = product.title
+        .product-sell-price
+          = number_to_currency product.sell_price   
+        = link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius small' if current_user and current_user.admin
+        = link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius small', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
+        .product-cart
           = form_for @sale_item, remote: true do |f|        
             = f.number_field :product_quantity, value: @sale_item.product_quantity.to_i, min: 1, class: 'number-field'
             = f.hidden_field :product_id, value: product.id
-            = f.button type: "submit", class: "button radius" do 
+            = f.button type: "submit", class: "button radius small" do 
               %i.fi-shopping-cart

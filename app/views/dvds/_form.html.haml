@@ -9,7 +9,7 @@
           %li= message
   .row
     .columns.large-4
-      = image_tag(@dvd.product_image_url, size: "200", style: 'margin-bottom: 10px;') if @dvd.product_image
+      = image_tag(@dvd.product_image_url, size: "200", class: 'product-thumb') if @dvd.product_image
       .field
         = f.label t('models.product.image')
         = f.file_field :product_image, class: 'file-input'

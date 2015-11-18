@@ -1,16 +1,16 @@
-/ = form_for sale_item, remote: true do |f|
-.row.sale-row
-  .columns.small-8.large-3
-    = link_to sale_item.product do
-      = sale_item.product.product_image ? image_tag(sale_item.product.product_image_url, size: "80") : ''
-  .columns.small-8.large-3
-    = link_to sale_item.product.title, sale_item.product
-  .columns.small-8.large-3
-    = link_to sale_item, method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do 
-      %i.fi-trash
-    = number_field_tag :product_quantity, value: sale_item.product_quantity.to_i, min: 1, class: "number-field", style: "width: 50px;"
-    = link_to new_sale_item_path(sale_item, product_quantity: sale_item.product_quantity.to_i, product_id: sale_item.product.id), class: "button radius small" do 
-      %i.fi-refresh
-  .columns.small-8.large-3
-    = number_to_currency sale_item.product.sell_price
-    / = hidden_field_tag :product_id, value: sale_item.product.id
+= form_for sale_item, remote: true do |f|
+  .row.sale-row
+    .columns.small-8.large-3
+      = link_to sale_item.product do
+        = sale_item.product.product_image ? image_tag(sale_item.product.product_image_url, size: "80") : ''
+    .columns.small-8.large-3
+      = link_to sale_item.product.title, sale_item.product
+    .columns.small-8.large-3
+      = link_to sale_item, method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do 
+        %i.fi-trash
+      = f.number_field :product_quantity, method: :patch, value: sale_item.product_quantity.to_i, min: 1, class: "number-field", style: "width: 50px;"      
+      = f.button type: "submit", class: "button radius small" do
+        %i.fi-refresh
+    .columns.small-8.large-3
+      = number_to_currency sale_item.product.sell_price
+      / = hidden_field_tag :product_id, value: sale_item.product.id

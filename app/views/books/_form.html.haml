@@ -14,7 +14,7 @@
                   %a.close{href: "#"} &times;
   .row
     .columns.large-12.large-centered.text-center
-      = image_tag(@book.product_image_url, size: "200", style: 'margin-bottom: 10px;') if @book.product_image
+      = image_tag(@book.product_image_url, size: "200", class: 'product-thumb') if @book.product_image
   .row
     .columns.large-3
       .field
