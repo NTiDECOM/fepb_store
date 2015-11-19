@@ -60,8 +60,8 @@ end
   )
 end
 
+=begin
 SaleStatus.delete_all
-SaleStatus.create! id: 1, name: "In Progress"
-SaleStatus.create! id: 2, name: "Placed"
-SaleStatus.create! id: 3, name: "Shipped"
-SaleStatus.create! id: 4, name: "Cancelled"
+SaleStatus.create! id: 0, name: "Em progresso"
+SaleStatus.create! id: 1, name: "Finalizada"
+SaleStatus.create! id: 2, name: "Cancelada"=end

@@ -4,6 +4,8 @@ class Sale < ActiveRecord::Base
   belongs_to :sale_status
   before_create :set_sale_status
 
+  enum status: [in_progress: 0, finalized: 1, canceled: 2]
+
   def total_price
     self.sale_items.collect { |sale_item| 
       sale_item.valid? ? (sale_item.product_quantity * sale_item.product.sell_price) : 0 
@@ -26,6 +28,6 @@ class Sale < ActiveRecord::Base
   end
 
   def set_sale_status
-    self.sale_status_id = 1
+    self.status = SaleStatus.name[:in_progress]
   end
 end

@@ -8,7 +8,7 @@ class SaleItemsController < ApplicationController
     @sale_item = @sale.sale_items.new(sale_item_params)
 
     if @sale.id.present?
-      sale_items = SaleItem.joins(:sale).where({sale_id: @sale.id, product_id: @sale_item.product_id, 'sales.sale_status_id' => 1})
+      sale_items = SaleItem.joins(:sale).where({sale_id: @sale.id, product_id: @sale_item.product_id, status: SaleStatus.name[:em_progresso]})
       @sale_item = sale_items[0]
       new_product_quantity = @sale_item.product_quantity.to_i + sale_item_params[:product_quantity].to_i
       @sale_item.update(product_quantity: new_product_quantity)
