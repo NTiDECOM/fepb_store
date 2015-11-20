@@ -34,4 +34,8 @@ class SaleItem < ActiveRecord::Base
     self[:unit_price] = unit_price
     self[:total_price] = product_quantity * self[:unit_price]
   end
+
+  def create_new_sale_item
+
+  end
 end

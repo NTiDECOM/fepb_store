@@ -1,10 +1,9 @@
 class Sale < ActiveRecord::Base
   has_many :sale_items
   belongs_to :user
-  belongs_to :sale_status
-  before_create :set_sale_status
+  before_create :set_status
 
-  enum status: [in_progress: 0, finalized: 1, canceled: 2]
+  enum status: [:in_progress, :finalized, :canceled]
 
   def total_price
     self.sale_items.collect { |sale_item| 
@@ -13,9 +12,7 @@ class Sale < ActiveRecord::Base
   end
 
   def add_sale_item(sale_item)
-    puts ">>> self.sale_items type: #{self.sale_items.class}"
     self.sale_items << sale_item
-    puts ">>> self.sale_items: #{self.sale_items.length}"
     self.sale_items.each do |item|
       puts "#{item.product.title} - #{item.product_quantity}"
     end
@@ -27,7 +24,7 @@ class Sale < ActiveRecord::Base
     self[:subtotal] = subtotal
   end
 
-  def set_sale_status
-    self.status = SaleStatus.name[:in_progress]
+  def set_status
+    self.status = :in_progress
   end
 end

@@ -4,21 +4,27 @@ class SaleItemsController < ApplicationController
   end
 
   def create    
-    @sale = current_sale
-    @sale_item = @sale.sale_items.new(sale_item_params)
+    @sale = current_sale    
 
     if @sale.id.present?
-      sale_items = SaleItem.joins(:sale).where({sale_id: @sale.id, product_id: @sale_item.product_id, status: SaleStatus.name[:em_progresso]})
-      @sale_item = sale_items[0]
-      new_product_quantity = @sale_item.product_quantity.to_i + sale_item_params[:product_quantity].to_i
-      @sale_item.update(product_quantity: new_product_quantity)
+      sale_items = SaleItemQuery.new.search.sale_in_progress(@sale.id, sale_item_params[:product_id])
+      @sale_item = sale_items.first
+
+      if @sale_item.present?
+        new_product_quantity = @sale_item.product_quantity.to_i + sale_item_params[:product_quantity].to_i
+        @sale_item.update(product_quantity: new_product_quantity)
+      else        
+        @sale_item = @sale.sale_items.new(sale_item_params)
+        @sale.update(total: @sale.total_price)
+      end
     else
+      @sale_item = @sale.sale_items.new(sale_item_params)
       @sale.user = current_user
-      @sale.buyer_name = current_user.name
       @sale.total = @sale.total_price
+      @sale.status = :in_progress
       @sale.save
       session[:sale_id] = @sale.id
-    end   
+    end
   end
 
   def update
@@ -31,6 +37,7 @@ class SaleItemsController < ApplicationController
 
   def destroy
     @sale = current_sale
+    @sale.status = :canceled
     @sale_item = @sale.sale_items.find(params[:id])
     @sale_item.destroy
     @sale_items = @sale.sale_items
