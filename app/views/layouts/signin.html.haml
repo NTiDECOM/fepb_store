@@ -17,7 +17,6 @@
       .columns.large-6.large-centered.login-container
         #login-title
           %span.fepb-label= t('views.application.fepb')
-          / &nbsp;
           %br/
           %br/
           %span.virtual-store-label= t('views.application.virtual_store')
@@ -37,3 +36,4 @@
               .columns.large-12.large-centered
                 = f.submit t('views.application.auth.log_in'), class: 'button radius', style: 'width: 100%;'
                 / = render "devise/shared/links"
+        = render 'messages'

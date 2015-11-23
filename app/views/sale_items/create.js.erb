@@ -1,5 +1,7 @@
 <% if @sale.errors.any? || @sale_item.errors.any? %>
 alert("not valid.")
 <% else %>
-  $(".sale-text").html("<%= escape_javascript(render 'layouts/sale_text') %>")
+  $(".sale-text").html("<%= escape_javascript(render 'layouts/sale_text') %>");
+  $('.sale-text').fadeOut();
+  $('.sale-text').fadeIn();
 <% end %>

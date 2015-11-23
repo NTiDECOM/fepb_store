@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :require_admin, only: [:edit, :destroy]
+  after_filter :flash_to_headers
 
   helper_method :current_sale
 
@@ -17,7 +18,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_sale
-    if !session[:sale_id].nil?
+    if session[:sale_id].present?
       Sale.find(session[:sale_id])
     else
       Sale.new
@@ -50,11 +51,25 @@ class ApplicationController < ActionController::Base
     }     
   end
 
-  def notice_custom
-    redirect_to root_path, notice: 'NOTICE MESSAGE'
+  private
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = flash_message
+    response.headers["X-Message-Type"] = flash_type.to_s
+
+    flash.discard # don't want the flash to appear when you reload page
   end
 
-  def error_custom
-    redirect_to root_path, alert: 'ERROR MESSAGE'
+  def flash_message
+    [:error, :warning, :notice].each do |type|
+      return flash[type] unless flash[type].blank?
+    end
+  end
+
+  def flash_type
+    [:error, :warning, :notice].each do |type|
+      return type unless flash[type].blank?
+    end
   end
 end

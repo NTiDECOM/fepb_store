@@ -22,5 +22,6 @@
 //= require util
 //= require responsive-tables
 //= require prefixfree.min
+//= require flash_message
 
 $(function(){ $(document).foundation(); });
