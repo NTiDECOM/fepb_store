@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :require_admin, only: [:edit, :destroy]
-  after_filter :flash_to_headers
+  # after_filter :flash_to_headers
 
   helper_method :current_sale
 
@@ -59,17 +59,5 @@ class ApplicationController < ActionController::Base
     response.headers["X-Message-Type"] = flash_type.to_s
 
     flash.discard # don't want the flash to appear when you reload page
-  end
-
-  def flash_message
-    [:error, :warning, :notice].each do |type|
-      return flash[type] unless flash[type].blank?
-    end
-  end
-
-  def flash_type
-    [:error, :warning, :notice].each do |type|
-      return type unless flash[type].blank?
-    end
   end
 end

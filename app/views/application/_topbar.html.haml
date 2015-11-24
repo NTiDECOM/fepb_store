@@ -42,9 +42,9 @@
         %li.sale-info
           = render 'layouts/sale_text'
         %li
-          =image_tag(current_user.avatar_url, size: "30", style: 'margin-top: 7px;') if current_user.avatar
-        %li          
-          %a= link_to t('views.user.my_profile'), user_path(current_user.id)
+          = link_to user_path(current_user.id), class: 'my-account-link' do
+            = t('views.user.my_profile')
+            = image_tag(current_user.avatar_url) if current_user.avatar
         %li
           %a= link_to t('views.application.auth.log_out'), destroy_user_session_path, method: 'delete'
         / %li.has-dropdown

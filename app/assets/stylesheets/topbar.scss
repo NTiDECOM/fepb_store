@@ -1,3 +1,13 @@
+.my-account-link {
+  display: inline;
+
+  > img {
+    height: 35px;
+    margin-left: 10px;
+    width: 35px;
+  }
+}
+
 .top-bar {
   height: 100%;
 
@@ -31,4 +41,3 @@ nav.top-bar > section > ul > li > a {
 .top-bar-section .has-dropdown > a:after {
 	margin-top: 7px;
 }
-
