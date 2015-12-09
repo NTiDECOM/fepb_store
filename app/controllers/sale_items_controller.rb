@@ -4,7 +4,7 @@ class SaleItemsController < ApplicationController
   end
 
   def create    
-    @sale = current_sale    
+    @sale = current_sale
 
     if @sale.id.present?
       sale_items = SaleItemQuery.new.search.sale_in_progress(@sale.id, sale_item_params[:product_id])

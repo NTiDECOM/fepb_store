@@ -11,13 +11,6 @@ class Sale < ActiveRecord::Base
     }.sum
   end
 
-  def add_sale_item(sale_item)
-    self.sale_items << sale_item
-    self.sale_items.each do |item|
-      puts "#{item.product.title} - #{item.product_quantity}"
-    end
-  end
-
   private
 
   def update_subtotal
