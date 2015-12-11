@@ -61,8 +61,8 @@ pt-BR:
       auth:
         hello_guest: 'Olá, visitante'
         forgot_password: Esqueci minha senha
-        log_in: Entrar
-        log_out: Sair
+        sign_in: Entrar
+        sign_out: Sair
         remember_password: Lembrar senha
         sign_up: Criar conta
       are_you_sure: "Tem certeza?"

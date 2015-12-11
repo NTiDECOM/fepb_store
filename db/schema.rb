@@ -11,91 +11,86 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116175733) do
+ActiveRecord::Schema.define(version: 20151120001619) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "products", force: :cascade do |t|
-    t.string   "type",             limit: 255
-    t.string   "title",            limit: 255
-    t.decimal  "buy_price",                      precision: 10
-    t.decimal  "sell_price",                     precision: 10
-    t.string   "isbn",             limit: 255
-    t.string   "author",           limit: 255
-    t.string   "spiritual_author", limit: 255
-    t.string   "publisher",        limit: 255
-    t.integer  "year",             limit: 4
-    t.integer  "pages_number",     limit: 4
-    t.text     "synopisis",        limit: 65535
+    t.string   "type"
+    t.string   "title"
+    t.decimal  "buy_price"
+    t.decimal  "sell_price"
+    t.string   "isbn"
+    t.string   "author"
+    t.string   "spiritual_author"
+    t.string   "publisher"
+    t.integer  "year"
+    t.integer  "pages_number"
+    t.text     "synopisis"
     t.date     "event_day"
     t.datetime "event_time"
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.string   "product_image",    limit: 255
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "product_image"
     t.boolean  "active"
   end
 
   create_table "sale_items", force: :cascade do |t|
-    t.integer  "sale_id",          limit: 4
-    t.integer  "product_id",       limit: 4
-    t.integer  "product_quantity", limit: 4
-    t.decimal  "unit_price",                 precision: 12, scale: 3
-    t.decimal  "total_price",                precision: 12, scale: 3
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.integer  "sale_id"
+    t.integer  "product_id"
+    t.integer  "product_quantity"
+    t.decimal  "unit_price",       precision: 12, scale: 3
+    t.decimal  "total_price",      precision: 12, scale: 3
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
   end
 
   add_index "sale_items", ["product_id"], name: "index_sale_items_on_product_id", using: :btree
   add_index "sale_items", ["sale_id"], name: "index_sale_items_on_sale_id", using: :btree
 
-  create_table "sale_statuses", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-  end
-
   create_table "sales", force: :cascade do |t|
-    t.integer  "user_id",        limit: 4
-    t.string   "buyer_name",     limit: 255
-    t.decimal  "subtotal",                   precision: 12, scale: 3
-    t.decimal  "total",                      precision: 12, scale: 3
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
-    t.integer  "sale_status_id", limit: 4
+    t.integer  "user_id"
+    t.string   "buyer_name"
+    t.decimal  "subtotal",   precision: 12, scale: 3
+    t.decimal  "total",      precision: 12, scale: 3
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "status",                              default: 0
   end
 
-  add_index "sales", ["sale_status_id"], name: "index_sales_on_sale_status_id", using: :btree
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                   limit: 255
-    t.string   "surname",                limit: 255
-    t.string   "cpf",                    limit: 255
-    t.string   "phone1",                 limit: 255
-    t.string   "phone2",                 limit: 255
-    t.string   "city",                   limit: 255
-    t.string   "state",                  limit: 255
-    t.string   "cep",                    limit: 255
-    t.string   "street",                 limit: 255
-    t.string   "street_number",          limit: 255
-    t.string   "street_complement",      limit: 255
+    t.string   "name"
+    t.string   "surname"
+    t.string   "cpf"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "cep"
+    t.string   "street"
+    t.string   "street_number"
+    t.string   "street_complement"
     t.boolean  "admin"
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "avatar",                 limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "sales", "sale_statuses"
   add_foreign_key "sales", "users"
 end

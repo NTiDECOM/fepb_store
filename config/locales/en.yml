@@ -20,26 +20,87 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:  
-  app:
-    model:
+  activerecord:
+    models:
       book:
-        author: 'Author'
-        isbn: 'ISBN'
-        pages_number: 'Number of pages'
-        spiritual_author: 'Spiritual author'
-        publisher: 'Publisher'
-        year: 'Year'
+        one: 'Livro'
+        other: 'Livros'
+      cd:
+        one: 'CD'
+        other: 'CDs'
+      dvd:
+        one: 'DVD'
+        other: 'DVDs'
       product:
-        buy_price: 'Buy price'
-        sell_price: 'Sell price'
-        title: 'Title'
-    generic:
-      app_name: 'FEPB Library'
-    view:
-      books_index:
-      book_edit:
-      books_show:
-      books_form:
+        one: 'Produto'
+        other: 'Produtos'
+      sale:
+        one: 'Venda'
+        other: 'Vendas'
+      shirt:
+        one: 'Camisa'
+        other: 'Camisas'
+      ticket:
+        one: 'Ingresso'
+        other: 'Ingressos'
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+  controllers:
+    application:
+    books:
+    cds:
+    dvds:
+    products:
+    sales:
+      finalize_success: 'Venda registrada com sucesso'
+    shirts:
+    tickets:
+  views:
+    application:
+      auth:
+        hello_guest: 'Hello, guest'
+        forgot_password: 'Forgot your password?'
+        sign_in: 'Sign in'
+        sign_out: 'Sign out'
+        remember_password: 'Remember password'
+        sign_up: 'Sign up'
+      are_you_sure: 'Are you sure?'
+      back: 'Back'
+      destroy: 'Remove'
+      details: 'Details'
+      edit: 'Edit'
+      manage_users: 'Manage users'
+      name: 'DIcore Online'
+      new: 'New'
+      select_one: 'Select...'
+      show: 'Show'
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"    
+    user:
+      edit:
+        title: 'Editar usuário'
+      my_profile: 'Minha conta'
+  models:    
+    user:
+      cep: 'CEP'
+      cpf: 'CPF'
+      city: 'City'
+      email: 'E-mail'
+      name: 'Name'
+      password: 'Password'
+      password_confirmation: 'Password confirmation'
+      phone1: 'Telefone 1'
+      phone2: 'Telefone 2'
+      state: 'State'
+      street: 'Street'
+      street_complement: 'Complement'
+      street_number: 'Number'
+      surname: 'Surname'
   date:
     abbr_day_names:
     - Sun
