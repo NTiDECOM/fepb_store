@@ -1,17 +1,17 @@
 class BooksController < ApplicationController
-	before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-	def index
+  def index
       #@books = Book.all
       @books = Book.order(:id).page(params[:page])
-	end
+  end
 
-	def new
+  def new
       @book = Book.new
-	end
+  end
 
-	def show
-	end	
+  def show
+  end 
 
   def create
     @book = Book.new(book_params)
@@ -19,38 +19,38 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book, notice: "Book created successfully"
     else
-    	render action: :new, notice: "Could not update this book"
+      render action: :new, notice: "Could not update this book"
     end
-	end
+  end
 
-	def edit       
-	end
+  def edit       
+  end
 
-	def update
-	  if @book.update(book_params)
-	  	redirect_to @book, notice: "Book updated successfully"
-	  else
+  def update
+    if @book.update(book_params)
+      redirect_to @book, notice: "Book updated successfully"
+    else
       redirect_to @book, notice: "Could not update this book"
-	  end
-	end
+    end
+  end
 
-	def destroy
+  def destroy
       if @book.destroy
-	      redirect_to @book, notice: "Book removed successfully"
-	  else
-	  	redirect_to @book, notice: "Book could not be removed"
-	  end
-	end
+        redirect_to @book, notice: "Book removed successfully"
+    else
+      redirect_to @book, notice: "Book could not be removed"
+    end
+  end
 
   ##### helper methods #####
   private
 
-	def book_params
+  def book_params
     params.require(:book).
     permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
-	end
+  end
 
-	def set_book
-	  @book = Book.find(params[:id])
-	end
+  def set_book
+    @book = Book.find(params[:id])
+  end
 end

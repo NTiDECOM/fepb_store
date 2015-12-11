@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151120001619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+=======
+ActiveRecord::Schema.define(version: 20151120113538) do
+>>>>>>> 946ce1659420f2e8e8445d0951b64c6af00349fc
 
   create_table "products", force: :cascade do |t|
     t.string   "type"
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 20151120001619) do
   add_index "sale_items", ["sale_id"], name: "index_sale_items_on_sale_id", using: :btree
 
   create_table "sales", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "user_id"
     t.string   "buyer_name"
     t.decimal  "subtotal",   precision: 12, scale: 3
@@ -57,6 +62,15 @@ ActiveRecord::Schema.define(version: 20151120001619) do
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.integer  "status",                              default: 0
+=======
+    t.integer  "user_id",    limit: 4
+    t.string   "buyer_name", limit: 255
+    t.decimal  "subtotal",               precision: 12, scale: 3
+    t.decimal  "total",                  precision: 12, scale: 3
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
+    t.integer  "status",     limit: 4,                            default: 0
+>>>>>>> 946ce1659420f2e8e8445d0951b64c6af00349fc
   end
 
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree

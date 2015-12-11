@@ -48,15 +48,15 @@ class SalesController < ApplicationController
 
   def destroy
     @sale = current_sale
-    @sale.update(sale_status: SaleStatus.find(4))
+    @sale.update(status: :canceled)
     current_sale = nil
     session[:sale_id] = nil
     redirect_to sale_path
   end
 
   def finalize
-    @sale = current_sale    
-    @sale.update(sale_status: SaleStatus.find(2), buyer_name: params[:customer_name])
+    @sale = current_sale
+    @sale.update(status: :finalized, buyer_name: params[:customer_name])
     current_sale = nil
     session[:sale_id] = nil
     redirect_to root_path, notice: t('controllers.sales.finalize_success')

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  title: MyString
-  buy_price: 9.99
-  sell_price: 9.99
+book1:
+  id: 1
+  title: 'Livro 1'
+  buy_price: 4.99
+  sell_price: 14.99
 
-two:
-  title: MyString
-  buy_price: 9.99
-  sell_price: 9.99
+book2:
+  id: 2
+  title: 'Livro 2'
+  buy_price: 2.99
+  sell_price: 12.99

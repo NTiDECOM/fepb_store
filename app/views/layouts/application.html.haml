@@ -13,34 +13,6 @@
 
   %body{id: "#{params[:controller].parameterize}_controller"}
     = render 'topbar'
-    .row{'style' => 'margin-top: 10px;'}
-      .large-12.large-centered.text-center
-        - flash.each do |key, message|
-          - if message.is_a?(String) && message.present?
-            #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => '', class: key}
-              = simple_format(message)
-              %a.close{href: '#'} &times;
-        / = form_tag('/notice_custom', method: 'get') do
-        /   = submit_tag 'SUCCESS', class: 'button success'
-        / = form_tag('/error_custom', method: 'get') do
-        /   = submit_tag 'ERROR', class: 'button error'
-        /- flash.each do |name, msg|
-        /  %div "#{name}: #{msg}"    
-        / - if flash[:success]
-        /   #messages.alert-box.success.radius.columns.small-12.small-centered{'data-alert' => ''}
-        /     = flash[:success]
-        /     %a.close{href: '#'} &times;
-        / - if flash[:info]
-        /   #messages.alert-box.info.radius.columns.small-12.small-centered{'data-alert' => ''}
-        /     = flash[:info]
-        /     %a.close{href: '#'} &times;
-        / - if flash[:alert]
-        /   #messages.alert-box.alert.radius.columns.small-12.small-centered{'data-alert' => ''}
-        /     = flash[:alert]
-        /     %a.close{href: '#'} &times;
-        / - if flash[:error]
-        /   #messages.alert-box.warning.radius.columns.small-12.small-centered{'data-alert' => ''}
-        /     = flash[:error]
-        /     %a.close{href: '#'} &times;
+    = render 'messages'
     = yield
     = render 'footer'

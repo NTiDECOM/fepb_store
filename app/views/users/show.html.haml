@@ -46,4 +46,4 @@
 .row
   .columns.large-12.large-centered.text-center
     = link_to t('views.application.edit'), edit_user_path(@user.id), class: 'button radius' if @user
-    = link_to t('views.application.back'), root_path, class: 'button radius'
+    = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

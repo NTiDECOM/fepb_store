@@ -30,7 +30,3 @@
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, ticket, class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_ticket_path(ticket), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, ticket, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
-
-%br
-
-=link_to t('views.application.new'), new_ticket_path, class: 'button success radius' if current_user and current_user.admin

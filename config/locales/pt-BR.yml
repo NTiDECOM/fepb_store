@@ -56,6 +56,57 @@ pt-BR:
       finalize_success: 'Venda registrada com sucesso'
     shirts:
     tickets:
+  models:
+    all_products: Todos os produtos
+    book:
+      author: 'Autor'
+      isbn: 'ISBN'
+      label: 'Livro'
+      pages_number: 'Número de páginas'
+      spiritual_author: 'Autor espiritual'
+      publisher: 'Editora'
+      synopisis: 'Sinopse'
+    cd: 
+      label: 'CD'
+    dvd: 
+      label: 'DVD'
+    sale:
+      buyer_name: 'Comprador'
+      items_number: 'Itens'
+      status:
+        canceled: 'Cancelada'
+        finalized: 'Finalizada'
+        in_progress: 'Em progresso'
+        label: 'Situação'
+    shirt: 
+      label: 'Camisa'
+    product:
+      buy_price: 'Preço de compra'
+      image: Imagem
+      label: 'Produto'
+      sell_price: 'Preço de venda'
+      title: 'Título'
+      type: Tipo
+      year: 'Ano'
+    ticket: 
+      event_day: 'Dia do evento'
+      event_time: 'Horário do evento'
+      label: 'Ingresso'
+    user:
+      cep: 'CEP'
+      cpf: 'CPF'
+      city: Cidade
+      email: E-mail      
+      name: Nome
+      password: Senha
+      password_confirmation: Confirmação de senha
+      phone1: 'Telefone 1'
+      phone2: 'Telefone 2'
+      state: Estado
+      street: Rua
+      street_complement: 'Complemento'
+      street_number: 'Número'
+      surname: Sobrenome
   views:
     application:
       auth:
@@ -121,53 +172,7 @@ pt-BR:
     user:
       edit:
         title: 'Editar usuário'
-      my_profile: 'Minha conta'
-  models:
-    all_products: Todos os produtos
-    book:
-      author: 'Autor'
-      isbn: 'ISBN'
-      label: 'Livro'
-      pages_number: 'Número de páginas'
-      spiritual_author: 'Autor espiritual'
-      publisher: 'Editora'
-      synopisis: 'Sinopse'
-    cd: 
-      label: 'CD'
-    dvd: 
-      label: 'DVD'
-    sale:
-      buyer_name: 'Comprador'
-      items_number: 'Itens'
-    shirt: 
-      label: 'Camisa'
-    product:
-      buy_price: 'Preço de compra'
-      image: Imagem
-      label: 'Produto'
-      sell_price: 'Preço de venda'
-      title: 'Título'
-      type: Tipo
-      year: 'Ano'
-    ticket: 
-      event_day: 'Dia do evento'
-      event_time: 'Horário do evento'
-      label: 'Ingresso'
-    user:
-      cep: 'CEP'
-      cpf: 'CPF'
-      city: Cidade
-      email: E-mail      
-      name: Nome
-      password: Senha
-      password_confirmation: Confirmação de senha
-      phone1: 'Telefone 1'
-      phone2: 'Telefone 2'
-      state: Estado
-      street: Rua
-      street_complement: 'Complemento'
-      street_number: 'Número'
-      surname: Sobrenome
+      my_profile: 'Minha conta'  
   date:
     abbr_day_names:
     - Dom

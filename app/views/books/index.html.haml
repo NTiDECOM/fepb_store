@@ -40,4 +40,4 @@
         / %td= link_to t('views.application.edit'), edit_book_path(book), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, book, class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_book_path(book), class: 'button radius' if current_user and current_user.admin
-        %td= link_to '<i class="fi-trash"></i>'.html_safe, book, class: 'button alert radius', method: :delete, data: { confirm: 'Are you sure?' } if current_user and current_user.admin
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, book, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin

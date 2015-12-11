@@ -11,6 +11,7 @@
       %th= t('models.sale.items_number')
       %th= t('models.sale.buyer_name')
       %th= t('models.sale.total')
+      %th= t('models.sale.status.label')
       %th= t('views.sale.updated_at')
       %th
       %th
@@ -21,6 +22,7 @@
         %td.text-right= sale.sale_items.length
         %td= sale.buyer_name
         %td= number_to_currency sale.total
+        %td= t("models.sale.status.#{sale.status}")
         %td= l sale.updated_at
-        %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
-        %td= link_to '<i class="fi-trash"></i>'.html_safe, @sale, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
+        / %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
+        / %td= link_to '<i class="fi-trash"></i>'.html_safe, @sale, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
