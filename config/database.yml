@@ -1,5 +1,5 @@
 default: &default
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -8,11 +8,10 @@ default: &default
 development:
   <<: *default
   database: fepb_store_development
-  username: postgres
-  password: 'postgres'
+  username: root
+  password: 
   host: localhost
-  port: 5432
-  schema_search_path: public
+  port: 3306
 
   # Minimum log levels, in increasing order:
   #   debug5, debug4, debug3, debug2, debug1,
