@@ -9,35 +9,31 @@
 }
 
 .top-bar {
-  height: 100%;
+  height: 5em !important;
 
   a, a:active, a:hover, a:visited {
-    color: #FFF;    
-    font-size: 16px;
-  }
-
-  li {
-    font-size: 16px; 
+    color: #FFF;
   }
 }
 
 .top-bar-section ul li > a {
-  font-size: 16px;
+  // font-size: 1em;
 }
 
 nav.top-bar > section > ul {
-	background-color: #111;
+	// background-color: #333;
 }
 
 nav.top-bar > ul.title-area > li, 
 nav.top-bar > section > ul > li {
-  padding: 10px;
+  padding: 1em;
 }
 
 nav.top-bar > section > ul > li > a {
-  padding: 30px;
+  // padding: 30px;
 }
 
 .top-bar-section .has-dropdown > a:after {
-	margin-top: 7px;
+	margin-top: 1em !important;
+  margin-right: 2.5em !important;
 }

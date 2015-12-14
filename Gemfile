@@ -38,7 +38,8 @@ gem 'haml', '~> 4.0.7', :group => :development
 # HTML 2 HAML
 gem 'html2haml', '2.0.0'
 #Zurb Foundation
-gem 'zurb-foundation', '~> 4.3.2'
+gem 'foundation-rails', '~> 5.5.3.2'
+#gem 'zurb-foundation', '~> 4.3.2'
 # Kaminari pagination
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
