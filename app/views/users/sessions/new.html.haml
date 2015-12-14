@@ -14,7 +14,7 @@
 / %script{:src => "http://codepen.io/assets/libs/fullpage/jquery.js"}
 .row
   .columns.large-12
-    %h2{style: "text-align: center;"}= t('views.application.auth.log_in')
+    %h2{style: "text-align: center;"}= t('views.application.auth.sign_in')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .row
         .columns.large-6.large-centered
@@ -35,6 +35,6 @@
         .columns.large-6.large-centered
           .actions
             %br/
-            = f.submit t('views.application.auth.log_in'), class: 'button radius success'
+            = f.submit t('views.application.auth.sign_in'), class: 'button radius success'
           = link_to t('views.application.back'), root_path, class: 'button radius'
           = render "devise/shared/links"

@@ -59,8 +59,3 @@ end
     sell_price: 15
   )
 end
-
-# SaleStatus.delete_all
-# SaleStatus.create! id: 0, name: "Em progresso"
-# SaleStatus.create! id: 1, name: "Finalizada"
-# SaleStatus.create! id: 2, name: "Cancelada"
