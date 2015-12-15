@@ -32,12 +32,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Devise security
 gem 'devise', '~> 3.5.2'
 # HAML
-gem 'haml', '~> 4.0.7', :group => :development
+gem 'haml', '~> 4.0.7'
 # HTML 2 HAML
 gem 'html2haml', '2.0.0'
-#Zurb Foundation
+# Zurb Foundation
 gem 'foundation-rails', '~> 5.5.3.2'
-#gem 'zurb-foundation', '~> 4.3.2'
 # Kaminari pagination
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
@@ -46,8 +45,6 @@ gem 'carrierwave'
 gem 'mailcatcher'
 # Rename
 gem 'rename'
-# RMagick
-# gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
