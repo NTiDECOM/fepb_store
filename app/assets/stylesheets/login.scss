@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
 .bg-img {
-  background-image: url('blue-login-bg.png');
+  background-image: asset-url('blue-login-bg.png');
   background-size: cover;
   display: block;
   height: 100%;
