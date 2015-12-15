@@ -24,4 +24,6 @@
 //= require prefixfree.min
 //= require flash_message
 
-$(document).foundation();
+$(function() {
+  $(document).foundation();
+});
