@@ -3,8 +3,6 @@ ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '0.3.20'
 
 group :assets do
   # Use SCSS for stylesheets
@@ -44,8 +42,6 @@ gem 'foundation-rails', '~> 5.5.3.2'
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
 gem 'carrierwave'
-# rails_12factor
-gem 'rails_12factor', group: :production
 # Mail Catcher
 gem 'mailcatcher'
 # Rename
@@ -65,6 +61,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use mysql as the database for Active Record
+  gem 'mysql2', '0.3.20'
 end
 
 group :development do
@@ -73,4 +71,9 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
