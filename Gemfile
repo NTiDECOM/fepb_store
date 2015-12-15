@@ -59,7 +59,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use mysql as the database for Active Record
-  gem 'mysql2', '0.3.20'
+  # gem 'mysql2', '0.3.20'
 end
 
 group :development do
@@ -71,6 +71,8 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'
-  gem 'pg'
+  gem 'rails_12factor'  
 end
+
+
+gem 'pg'
