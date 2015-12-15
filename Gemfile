@@ -42,8 +42,6 @@ gem 'foundation-rails', '~> 5.5.3.2'
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
 gem 'carrierwave'
-# Mail Catcher
-gem 'mailcatcher'
 # Rename
 gem 'rename'
 
