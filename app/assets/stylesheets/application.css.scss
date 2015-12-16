@@ -12,20 +12,18 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation
  *= require foundation_and_overrides
- *= require kaminari_overrides
  *= require foundation-icons
+ *= require kaminari_overrides 
  *= require footer
  *= require responsive-tables
+
  *= require topbar
  *= require login
  *= require sales
+ 
  */
-
-body {
-  color: #000;
-  font-size: 16px;
-}
 
 a, 
 a:active,

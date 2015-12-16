@@ -1,5 +1,5 @@
 .sale-text
-  = link_to sale_path, class: "button radius" do  
+  = link_to sale_path, class: "button radius tiny" do  
     %i.fi-shopping-cart
     - if current_sale.sale_items.present?
       = "(#{current_sale.sale_items.size})"

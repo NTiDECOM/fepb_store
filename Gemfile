@@ -3,21 +3,20 @@ ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use mysql as the database for Active Record
-gem 'mysql2', '0.3.20'
 
-group :assets do
-  # Use SCSS for stylesheets
-  gem 'sass-rails', '~> 5.0'
-  # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier', '>= 1.3.0'
-  # Use CoffeeScript for .coffee assets and views
-  gem 'coffee-rails', '~> 4.1.0'
-  # Foundation Icon Fonts on SASS for Rails
-  gem 'foundation-icons-sass-rails'
-  # Modernizr Rails
-  gem 'modernizr-rails'
-end
+gem 'pg'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 4.1.0'
+# Foundation Icon Fonts on SASS for Rails
+gem 'foundation-icons-sass-rails'
+# Modernizr Rails
+gem 'modernizr-rails'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -34,23 +33,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Devise security
 gem 'devise', '~> 3.5.2'
 # HAML
-gem 'haml', '~> 4.0.7', :group => :development
+gem 'haml', '~> 4.0.7'
 # HTML 2 HAML
 gem 'html2haml', '2.0.0'
-#Zurb Foundation
-gem 'zurb-foundation', '~> 4.3.2'
+# Zurb Foundation
+gem 'foundation-rails', '~> 5.5.3.2'
 # Kaminari pagination
 gem 'kaminari', '~> 0.16.3'
 # CarrierWave
 gem 'carrierwave'
-# rails_12factor
-gem 'rails_12factor', group: :production
-# Mail Catcher
-gem 'mailcatcher'
 # Rename
 gem 'rename'
-# RMagick
-# gem 'rmagick'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -64,6 +57,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Use mysql as the database for Active Record
+  # gem 'mysql2', '0.3.20'
 end
 
 group :development do
@@ -72,4 +67,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+  gem 'rails_12factor'  
 end
