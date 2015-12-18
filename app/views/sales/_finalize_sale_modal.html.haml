@@ -1,9 +1,9 @@
 .row
   .columns.small-8.large-12.text-center
-    %h2#modalTitle Quem está comprando esses itens?
+    %h2#finalize_sale_modal_title Quem está comprando esses itens?
 .row
   .columns.small-8.large-12.text-left
-    = form_tag finalize_sale_path, method: :post do
+    = form_tag finalize_sale_path, method: :patch do
       / = label_tag t('views.sale.customer_name')
       = text_field_tag :customer_name, nil,  placeholder: t('views.sale.customer_name')
       .row

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :sale_items, only: [:create, :update, :destroy]
 
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
-  post 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
+  patch 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'
