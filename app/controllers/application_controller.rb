@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin
     if !current_user.present?
-      redirect_to new_user_session_path, alert: t('errors.messages.permission')
+      redirect_to new_user_session_path
     elsif current_user.present? and !current_user.admin
       redirect_to new_user_session_path, alert: t('errors.messages.permission')
     end
