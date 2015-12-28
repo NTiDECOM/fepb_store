@@ -1,6 +1,6 @@
 .row
   .columns.small-8.large-12.text-center
-    %h2#finalize_sale_modal_title Quem está comprando esses itens?
+    %h2#finalize_sale_modal_title= t('views.sale.whos_buying')
 .row
   .columns.small-8.large-12.text-left
     = form_tag finalize_sale_path, method: :patch do

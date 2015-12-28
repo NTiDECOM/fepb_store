@@ -1,6 +1,6 @@
 .row.sale-row.sale-header
   .columns.small-8.large-12
-    %h4 Minhas compras
+    %h4= t('views.sale.my_sales')
 %br/    
 .row
   .columns.small-8.large-12
@@ -11,24 +11,25 @@
             %li= msg
     - if @sale_items.size.zero?
       %p
-        / There are no items in your shopping cart.  Please #{link_to "go back", root_path} and add some items to your cart.
-        Não há itens selecionados para comprar. Por favor, #{link_to "escolha algum produto", root_path, style: "font-weight: bold;"} para formar uma compra.
+        = t('views.sale.empty_sale_title')
+        = t('views.sale.empty_sale')
+      = link_to t('views.sale.continue_shopping'), root_path, class: 'button radius'
     - else
       .row.sale-row.sale-header
         .columns.small-8.large-3
-          Produto
+          = t('activerecord.models.product.other')
         .columns.small-8.large-3
-          Título
+          = t('generic.title')
         .columns.small-8.large-3
-          Quantidade
+          = t('models.sale.quantity')
         .columns.small-8.large-3
-          Preço unitário
+          = t('models.sale.unit_price')
       - @sale_items.each do |sale_item|
         = render 'sales/sale_row', sale_item: sale_item, show_total: true
       .row.sale-row.sale-header        
         .columns.small-8.large-12
           %h5.text-right
-            Preço total:
+            = t('models.sale.total_price')
             %span{style: "color: green"}= number_to_currency current_sale.total_price
       %br/
       .row
