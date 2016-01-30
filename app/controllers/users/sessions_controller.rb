@@ -1,6 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
 # before_filter :configure_sign_in_params, only: [:create]
   layout "signin"
+  include SalesHelper
 
   # GET /resource/sign_in
   # def new
@@ -9,15 +10,16 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    super
     puts ' >>>>>>>>>>>>>> SessionsController create'
-    UserMailer.sign_in_notif(current_user).deliver
+    super
+    # UserMailer.sign_in_notif(current_user).deliver
   end
 
   # DELETE /resource/sign_out
-  # def destroy
-  #   super
-  # end
+  def destroy
+    cancel_before_end_session
+    super
+  end
 
   # protected
 
