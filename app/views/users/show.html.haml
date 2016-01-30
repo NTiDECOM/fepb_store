@@ -1,6 +1,6 @@
 .row
   .columns.large-12.text-center
-    %h2{style: "text-align: center;"}= @user.admin == true ? t('models.user.my_profile') : 'My profile'
+    %h2{style: "text-align: center;"}= t('models.user.my_account')
     = image_tag(@user.avatar_url, size: "200", style: 'margin-bottom: 10px;') if @user.avatar
 
 .row

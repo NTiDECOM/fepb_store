@@ -56,6 +56,10 @@ pt-BR:
       finalize_success: 'Venda registrada com sucesso'
     shirts:
     tickets:
+  generic:
+    menu: 'Menu'
+    social_networks: 'Redes sociais'
+    title: 'Título'
   models:
     all_products: Todos os produtos
     book:
@@ -78,6 +82,9 @@ pt-BR:
         finalized: 'Finalizada'
         in_progress: 'Em progresso'
         label: 'Situação'
+      quantity: 'Quantidade'
+      total_price: 'Preço total'
+      unit_price: 'Preço unitário'      
     shirt: 
       label: 'Camisa'
     product:
@@ -96,7 +103,8 @@ pt-BR:
       cep: 'CEP'
       cpf: 'CPF'
       city: Cidade
-      email: E-mail      
+      email: E-mail
+      my_account: 'Minha conta'
       name: Nome
       password: Senha
       password_confirmation: Confirmação de senha
@@ -156,13 +164,17 @@ pt-BR:
       cancel_sale: 'Cancelar compra'
       continue_shopping: 'Continuar comprando'
       customer_name: 'Nome do comprador'
+      empty_sale: 'Escolha pelo menos um produto para formar uma compra.'
+      empty_sale_title: 'Nenhum item adicionado.'
       finalize: 'Finalizar'
       history: 'Histórico de vendas'
       id: 'ID'
+      my_sales: 'Minhas compras'
       quantity: 'Quantidade'
       register_sale: 'Registrar venda'
       total: 'Total'
       updated_at: 'Última movimentação'
+      whos_buying: 'Quem está comprando esses itens?'
     shirt:
       edit:
         title: 'Editar camisa'

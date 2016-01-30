@@ -5,13 +5,13 @@
     /Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
     %li.toggle-topbar.menu-icon
       %a{href: "#"}
-        %span Menu      
+        %span= t('generic.menu')
   %section.top-bar-section
     / Left Nav Section
     - if current_user.present? and current_user.admin
       %ul.left
         %li.has-dropdown.not-click
-          %a{href: "#" } Menu
+          %a{href: "#" }= t('generic.menu')
           %ul.dropdown
             %li
               %a= link_to t('views.application.manage_users'), users_path
