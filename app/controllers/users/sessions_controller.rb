@@ -9,15 +9,13 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    puts ' >>>>>>>>>>>>>> SessionsController create'
-    super
-    # UserMailer.sign_in_notif(current_user).deliver
-  end
+  # def create
+  #   super    
+  # end
 
   # DELETE /resource/sign_out
   def destroy
-    cancel_before_end_session
+    cancel_sale_before_end_session
     super
   end
 
