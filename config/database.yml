@@ -1,4 +1,4 @@
-# SQLite version 3.x
+ # SQLite version 3.x
 #   gem install sqlite3
 #
 #   Ensure the SQLite 3 gem is defined in your Gemfile
@@ -8,8 +8,8 @@ default: &default
   adapter: postgresql
   encoding: utf-8
   pool: 5
-  username: postgres
-  password: postgres
+  username: romero
+  password: romero
   host: localhost
   timeout: 5000
 
