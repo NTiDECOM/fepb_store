@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  isbn: MyString
-  title: MyString
-  author: MyString
-  spiritual_author: MyString
-  publisher: MyString
-  cost: 9.99
-  price: 9.99
-  year: 1
-  pages_number: 1
+o_pequeno_principe:
+  isbn: '1'
+  title: 'O pequeno príncipe'
+  author: 'O cara'
+  spiritual_author: 'O espírito'
+  publisher: 'ABC'
+  buy_price: 4.99
+  sell_price: 9.99
+  year: 1980
+  pages_number: 120
+  type: 'Book'
 
-two:
-  isbn: MyString
-  title: MyString
-  author: MyString
-  spiritual_author: MyString
-  publisher: MyString
-  cost: 9.99
-  price: 9.99
-  year: 1
-  pages_number: 1
+6_segundos_de_atencao:
+  title: 'Seis segundos de atenção'
+  author: 'Humberto Gessinger'
+  publisher: 'Engenheiros'
+  buy_price: 10.00
+  sell_price: 30.00
+  year: 2015
+  pages_number: 190
+  type: 'Book'

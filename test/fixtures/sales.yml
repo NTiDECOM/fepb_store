@@ -1,11 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 
-  buyer_name: MyString
-  price: 9.99
-
-two:
-  user_id: 
-  buyer_name: MyString
-  price: 9.99
+  id: 1
+  user_id: 1
+  buyer_name: 'Maria'
+  subtotal: 10.00
+  total: 10.00

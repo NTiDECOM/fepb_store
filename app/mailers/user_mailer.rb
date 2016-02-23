@@ -8,10 +8,15 @@ class UserMailer < ApplicationMailer
   def acc_created(user)
     @user = user
     @greeting = "Hi"
-    @url = 'http://localhost:3000/users/sign_up'
+    @url = new_user_session_url
 
-    attachments['book.png'] = File.read("#{Rails.root}/app/assets/images/default-book-cover.png")
-    mail to: @user.email, subject: 'Bem-vindo à Livraria FEPB!'
+    attachments['photo'] = File.read("#{Rails.root}/app/assets/images/fepb.png")
+    headers('X-Author' => 'Romero Meireles')
+    mail(
+      to: @user.email, 
+      subject: 'Bem-vindo à FEPB Loja!',
+      bcc: ['acc_created <romero.mfm@gmail.com>']
+    )
   end
 
   def sign_in_notif(user)
@@ -24,8 +29,8 @@ class UserMailer < ApplicationMailer
     attachments['photo'] = File.read("#{Rails.root}/app/assets/images/fepb.png")
     mail(
       to: @user.email, 
+      subject: 'Sign in notification',
       bcc: ['sign_in_notif <romero.mfm@gmail.com>'], 
-      subject: 'Sign in notification'
     )
   end
 end

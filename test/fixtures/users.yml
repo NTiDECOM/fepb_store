@@ -1,27 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  surname: MyString
-  email: MyString
-  password_digest: MyString
-  cpf: MyString
-  city: MyString
-  state: MyString
-  street: MyString
-  street_number: MyString
-  street_complement: MyString
-  cep: MyString
+admin:
+  name: 'Admin'
+  surname: 'Admin'
+  email: romeromeireles@hotmail.com
+  encrypted_password: BCrypt::Password.create('123123'),
+  cpf: '07644271481'
+  city: 'João Pessoa'
+  state: 'PB'
+  street: 'Rua Nicola Porto'
+  street_number: '281'
+  street_complement: 'Em frente ao bar Boteco do Rei'
+  cep: '58038-120'
 
-two:
-  name: MyString
-  surname: MyString
-  email: MyString
-  password_digest: MyString
-  cpf: MyString
-  city: MyString
-  state: MyString
-  street: MyString
-  street_number: MyString
-  street_complement: MyString
-  cep: MyString
+manoel:
+  name: Manoel
+  surname: Amaro
+  email: mano.lira@gmail.com
+  encrypted_password: '123123'
+  cpf: '07644271481'
+  city: 'João Pessoa'
+  state: 'PB'
+  street: 'Rua do bessa'
+  street_number: '10'
+  street_complement: 'Rua da favela'
+  cep: '58038-000'
