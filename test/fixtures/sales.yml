@@ -6,3 +6,10 @@ one:
   buyer_name: 'Maria'
   subtotal: 10.00
   total: 10.00
+
+two:
+  id: 2
+  user_id: 1
+  buyer_name: 'Josefina'
+  subtotal: 20.00
+  total: 20.00
