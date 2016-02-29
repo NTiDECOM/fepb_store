@@ -26,15 +26,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    puts " >>>>>>>>>> #{@user.password} - #{@user.password_confirmation}"
     if @user.password.nil? && @user.password_confirmation.present?
-      puts ">>> if 1 "
       redirect to @user, notice: t('warning.password_is_mandatory')
     elsif @user.password.present? && @user.password_confirmation.nil?
-      puts ">>> if 2"
       redirect to @user, notice: t('warning.password_confirmation_is_mandatory')
     elsif (@user.password.eql? @user.password_confirmation) == false
-      puts ">>> if 3"
       redirect to @user, notice: t('warning.passwords_must_match')
     else
       if @user.update(user_params)      
