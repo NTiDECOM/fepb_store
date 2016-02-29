@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -7,15 +6,14 @@ class UserMailer < ApplicationMailer
   #
   def acc_created(user)
     @user = user
-    @greeting = "Hi"
-    @url = new_user_session_url
-
-    attachments['photo'] = File.read("#{Rails.root}/app/assets/images/fepb.png")
-    headers('X-Author' => 'Romero Meireles')
+    @greeting = "Olá, #{@user.name}, seja bem-vindo!"
+    @message = "Sua conta na FEPB Loja acabou de ser criada. Para qualquer dúvida de utilização do sistema entre em contato com Shirley Para qualquer dúvida técnica contate o administrador Romero Meireles (996-447-337). Para acessar o site siga o link: #{root_url}"
+    
+    email_with_name = %("#{@user.name}" <#{@user.email}>)
     mail(
       to: @user.email, 
-      subject: 'Bem-vindo à FEPB Loja!',
-      bcc: ['acc_created <romero.mfm@gmail.com>']
+      bcc: ['acc_created <romeromeireles@hotmail.com>'], 
+      subject: 'Bem-vindo à FEPB Loja!'
     )
   end
 
@@ -27,10 +25,11 @@ class UserMailer < ApplicationMailer
 
     headers('X-Author' => 'Romero Meireles')
     attachments['photo'] = File.read("#{Rails.root}/app/assets/images/fepb.png")
+    email_with_name = %("#{@user.name}" <#{@user.email}>)
     mail(
       to: @user.email, 
-      subject: 'Sign in notification',
-      bcc: ['sign_in_notif <romero.mfm@gmail.com>'], 
+      bcc: ['sign_in_notif <romeromeireles@hotmail.com>'], 
+      subject: 'FEPB Sign in notification'
     )
   end
 end

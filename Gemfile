@@ -4,7 +4,6 @@ ruby '2.2.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
-# gem 'sqlite3'
 gem 'pg'
 
 # Use SCSS for stylesheets
@@ -77,6 +76,7 @@ group :production do
 end
 
 group :test do
+  gem 'capybara'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'
   gem 'mocha'

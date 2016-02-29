@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :validate_admin
 
 	def index
-      #@users = User.all
       @users = User.order(:name).page(params[:page])
   end
 
@@ -15,10 +13,12 @@ class UsersController < ApplicationController
   end 
 
   def create
+    @user = User.new(user_params)
     if @user.save
-      redirect_to @user, notice: "User created successfully"
+      UserMailer.acc_created(@user).deliver_now
+      redirect_to users_path, notice: "Usuário criado com sucesso"
     else
-      render action: :new, notice: "Could not update this User"
+      render action: :new, notice: "Não foi possível criar esta usuário"
     end
   end
 
@@ -26,18 +26,26 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: "User updated successfully"
+    if @user.password.nil? && @user.password_confirmation.present?
+      redirect to @user, notice: t('warning.password_is_mandatory')
+    elsif @user.password.present? && @user.password_confirmation.nil?
+      redirect to @user, notice: t('warning.password_confirmation_is_mandatory')
+    elsif (@user.password.eql? @user.password_confirmation) == false
+      redirect to @user, notice: t('warning.passwords_must_match')
     else
-        redirect_to @user, notice: "Could not update this User"
+      if @user.update(user_params)      
+        redirect_to @user, notice: "Usuário atualizado com sucesso"
+      else
+        redirect_to @user, notice: "Não foi possível atualizar esta usuário"
+      end
     end
   end
 
   def destroy
     if @user.destroy
-      redirect_to :users_path, notice: "User removed successfully"
+      redirect_to @users, notice: "Usuário removido com sucesso"
     else
-      redirect_to :users_path, notice: "User could not be removed"
+      redirect_to @users, notice: "Não é possível remover este usuário"
     end
   end
 
@@ -59,16 +67,19 @@ class UsersController < ApplicationController
       :street_number, 
       :street_complement,
       :avatar,
-      :admin
+      :admin, 
+      :password, 
+      :password_confirmation
     )
   end
 
   def set_user
-    if current_user
-      @user = current_user 
-    else
-      @user = User.find(params[:id])
-    end
+    # if current_user
+    #   @user = current_user 
+    # else
+    #   @user = User.find(params[:id])
+    # end
+    @user = User.find(params[:id])
   end
 
   def validate_admin

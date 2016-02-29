@@ -31,26 +31,26 @@
               %a= link_to t('views.sale.history'), sales_path
     / Right Nav Section
     %ul.right
-      - if !current_user.present?        
-        %li            
-          %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
-        %li.active
-          %a= link_to t('views.application.auth.sign_in'), new_user_session_path
-        %li.active
-          %a= link_to t('views.application.auth.sign_up'), new_user_registration_path          
-      - else
-        %li.sale-info
-          = render 'layouts/sale_text'
-        %li
-          = link_to user_path(current_user.id), class: 'my-account-link' do
-            = t('views.user.my_profile')
-            = image_tag(current_user.avatar_url) if current_user.avatar
-        %li
-          %a= link_to t('views.application.auth.sign_out'), destroy_user_session_path, method: 'delete'
-        / %li.has-dropdown
-        /   %a{href: "#" }= "Hi, #{current_user.name}"
-        /   %ul.dropdown
-        /     %li                
-        /       %a= link_to 'My profile', user_path(current_user.id)
-        /     %li.active
-        /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'
+      / - if !current_user.present?        
+      /   %li            
+      /     %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
+      /   %li.active
+      /     %a= link_to t('views.application.auth.sign_in'), new_user_session_path
+      /   %li.active
+      /     %a= link_to t('views.application.auth.sign_up'), new_user_registration_path
+      / - else
+      %li.sale-info
+        = render 'layouts/sale_text'
+      %li
+        = link_to user_path(current_user.id), class: 'my-account-link' do
+          = t('views.user.my_profile')
+          = image_tag(current_user.avatar_url, class: 'thumbnail', ) if current_user.avatar.url
+      %li
+        %a= link_to t('views.application.auth.sign_out'), destroy_user_session_path, method: 'delete'
+      / %li.has-dropdown
+      /   %a{href: "#" }= "Hi, #{current_user.name}"
+      /   %ul.dropdown
+      /     %li                
+      /       %a= link_to 'My profile', user_path(current_user.id)
+      /     %li.active
+      /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'

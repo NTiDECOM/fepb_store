@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "romero.mfm@gmail.com", date: Time.now
+  default from: "\"FEPB Loja\" Loja <romero.mfm@gmail.com>", date: Time.now
   layout 'mailer'
 end

@@ -4,8 +4,8 @@
       .columns.large-12.large-centered.text-center
         #error_explanation
           %h2
-            = pluralize(@user.errors.count, "error")
-            prohibited this book from being saved:
+            = pluralize(@user.errors.count, "erro")
+            impediu que este usuário fosse criado:
           %ul
             - @user.errors.full_messages.each do |message|
               %li
@@ -20,7 +20,7 @@
       .field
         = f.label t('models.user.name')
         %br
-        = f.text_field :name
+        = f.text_field :name, required: true
     .columns.large-5
       .field
         = f.label t('models.user.surname')
@@ -30,7 +30,18 @@
       .field
         = f.label t('models.user.email')
         %br
-        = f.email_field :email
+        = f.email_field :email, required: true
+  .row
+    .columns.large-4
+      .field
+        = f.label t('models.user.password')
+        %br
+        = f.password_field :password
+    .columns.large-4
+      .field
+        = f.label t('models.user.password_confirmation')
+        %br
+        = f.password_field :password_confirmation
   .row
     .columns.large-4
       .field
@@ -73,9 +84,11 @@
       .field
         = f.label :avatar
         = f.file_field :avatar, class: 'file-input'
-        / = f.hidden_field :product_image_cache
+        / = f.hidden_field :product_image_cache  
+  = f.hidden_field :admin, value: true
   %br
   .row
     .columns.large-12.large-centered.text-center
       .actions
         = f.submit class: 'button success radius'
+        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'
