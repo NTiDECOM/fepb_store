@@ -3,12 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
-    %h1
-      Welcome to example.com, #{@user.name}
-    %p
-      You have successfully signed up to example.com,
-      your username is: #{@user.email}.
-      %br/
-    %p
-      To login to the site, just follow this link: #{@url}.
-    %p Thanks for joining and have a great day!
+    %h1= @greeting
+    %p Sua conta na FEPB Loja acabou de ser criada. 
+    %p Para qualquer dúvida sobre utilização do sistema entre em contato com Shirley. 
+    %p Para qualquer dúvida técnica contate o administrador Romero Meireles (996-447-337). 
+    %p Você pode iniciar a utilização do sistema acessando o #{link_to('nosso site', root_url)}.
+      
+    %br 
+    %br
+
+    %p Obrigado por escolher a FEPB Loja!

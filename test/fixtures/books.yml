@@ -1,23 +1,23 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  isbn: MyString
-  title: MyString
-  author: MyString
-  spiritual_author: MyString
-  publisher: MyString
-  cost: 9.99
+  isbn: '123'
+  title: livro1
+  author: autor1
+  spiritual_author: autor espiritual 1
+  publisher: publisher 1
+  cost: 4.99
   price: 9.99
-  year: 1
-  pages_number: 1
+  year: 2015
+  pages_number: 100
 
 two:
-  isbn: MyString
-  title: MyString
-  author: MyString
-  spiritual_author: MyString
-  publisher: MyString
-  cost: 9.99
-  price: 9.99
-  year: 1
-  pages_number: 1
+  isbn: '1231'
+  title: livro2
+  author: autor2
+  spiritual_author: spiritual_author2
+  publisher: publisher2
+  cost: 4.99
+  price: 14.99
+  year: 2015
+  pages_number: 150

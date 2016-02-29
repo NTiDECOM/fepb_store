@@ -2,10 +2,10 @@
 
 one:
   user_id: 
-  buyer_name: MyString
+  buyer_name: Cliente1
   price: 9.99
 
 two:
   user_id: 
-  buyer_name: MyString
-  price: 9.99
+  buyer_name: Cliente2
+  price: 5.99

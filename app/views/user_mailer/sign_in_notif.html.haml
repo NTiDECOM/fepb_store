@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
   %body
     %h1
-      Bem-vindo, #{@user.name}
+      #{@greetings}, #{@user.name}
     %p
       #{@body}
       Seu e-mail é: #{@user.email}.
