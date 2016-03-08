@@ -7,8 +7,6 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.acc_created(user)
     assert_equal "Bem-vindo à FEPB Loja!", mail.subject
     assert_equal [user.email], mail.to
-    assert_equal ["romero.mfm@gmail.com"], mail.from
-    assert_match "Hi", mail.body.encoded
+    assert_equal ["romero.mfm@gmail.com"], mail.from    
   end
-
 end

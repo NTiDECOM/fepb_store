@@ -3,24 +3,23 @@ require 'test_helper'
 class SaleItemsControllerTest < ActionController::TestCase
 
   def setup
-    @sale_item = sale_items(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    @user = create(:user)
+    sign_in @user
+    @sale_item = create(:sale_item)
   end
 
-  test "should create" do
+  test "should create" do        
     post :create, sale_item: @sale_item.attributes
     assert_response :success
   end
 
-  # test "should update" do
-  #   sale_item = sale_items(:one)
-  #   put :update, {id: sale_item.id, sale_id: sale_item.sale_id}
-  #   assert_response :success
-  # end
-
-  test "should destroy" do
-    sale_item = sale_items(:one)
-    delete :destroy, id: sale_item.id
-
-    assert_redirected_to new_user_session_path
+  test "should update" do    
+    session[:sale_id] = @sale_item.sale_id
+    put :update, 
+      id: @sale_item, 
+      sale_id: @sale_item.sale_id,
+      sale_item: @sale_item.attributes
+    assert_response :success
   end
 end

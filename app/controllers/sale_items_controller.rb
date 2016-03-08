@@ -3,7 +3,7 @@ class SaleItemsController < ApplicationController
     @sale_item = SaleItem.new
   end
 
-  def create    
+  def create
     @sale = current_sale
 
     if @sale.id.present?
@@ -35,8 +35,8 @@ class SaleItemsController < ApplicationController
     @sale_items = @sale.sale_items
   end
 
-  def destroy
-    @sale = current_sale
+  def destroy    
+    @sale = current_sale    
     @sale.status = :canceled
     @sale_item = @sale.sale_items.find(params[:id])
     @sale_item.destroy
