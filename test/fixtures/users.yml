@@ -1,27 +1,27 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-admin:
-  name: 'Admin'
-  surname: 'Admin'
-  email: romeromeireles@hotmail.com
-  encrypted_password: BCrypt::Password.create('123123'),
-  cpf: '07644271481'
-  city: 'João Pessoa'
-  state: 'PB'
-  street: 'Rua Nicola Porto'
-  street_number: '281'
-  street_complement: 'Em frente ao bar Boteco do Rei'
-  cep: '58038-120'
+# admin:
+#   name: 'Admin'
+#   surname: 'Admin'
+#   email: romeromeireles@hotmail.com
+#   encrypted_password: BCrypt::Password.create('123123'),
+#   cpf: '07644271480'
+#   city: 'João Pessoa'
+#   state: 'PB'
+#   street: 'Rua Nicola Porto'
+#   street_number: '281'
+#   street_complement: 'Em frente ao bar Boteco do Rei'
+#   cep: '58038-121'
 
-manoel:
-  name: Manoel
-  surname: Amaro
-  email: mano.lira@gmail.com
-  encrypted_password: '123123'
-  cpf: '07644271481'
-  city: 'João Pessoa'
-  state: 'PB'
-  street: 'Rua do bessa'
-  street_number: '10'
-  street_complement: 'Rua da favela'
-  cep: '58038-000'
+# manoel:
+#   name: Manoel
+#   surname: Amaro
+#   email: mano.lira@gmail.com
+#   encrypted_password: '123123'
+#   cpf: '07644271483'
+#   city: 'João Pessoa'
+#   state: 'PB'
+#   street: 'Rua do bessa'
+#   street_number: '10'
+#   street_complement: 'Rua da favela'
+#   cep: '58038-000'

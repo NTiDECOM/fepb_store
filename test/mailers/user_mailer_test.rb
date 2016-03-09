@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
   test "acc_created" do
-    user = users(:admin)
+    user = build(:user)
 
     mail = UserMailer.acc_created(user)
     assert_equal "Bem-vindo à FEPB Loja!", mail.subject
