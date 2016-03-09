@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # attr_accessor :name, :email, :avatar, :avatar_url
-  validates_presence_of :name, :email
+  validates_presence_of :name
   validates_uniqueness_of :cpf
   # after_save :acc_created_notification
   # Include default devise modules. Others available are:
