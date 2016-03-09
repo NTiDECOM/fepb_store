@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class BookTest < ActiveSupport::TestCase
-  test "valid with all attributes" do
-    b = books(:o_pequeno_principe)
-    assert b.valid?, "Book is not valid"
+  def setup
+    @book = build(:product, :book)
+  end
+
+  test "valid with all attributes" do    
+    assert @book.valid?, "Book is not valid - #{@book.errors}"
   end
 end
