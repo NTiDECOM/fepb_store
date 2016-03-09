@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    name 'admin'
+    name Faker::Name.name
     email Faker::Internet.email
     # password: BCrypt::Password.create('123123')
     password '123123'

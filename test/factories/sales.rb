@@ -4,5 +4,6 @@ FactoryGirl.define do
     buyer_name Faker::Name.name
     subtotal Faker::Number.decimal(2)
     total {subtotal}
+    status Sale.status[:in_progress]
   end
 end

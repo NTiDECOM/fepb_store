@@ -8,10 +8,11 @@ class UserTest < ActiveSupport::TestCase
 
   def setup
     @user = build(:user)
+    @sale = build(:sale)
   end
 
   def teardown
-    @user = nil
+    @user = nil    
   end
 
   test "invalid without name and email" do
