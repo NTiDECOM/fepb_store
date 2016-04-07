@@ -4,7 +4,7 @@ class SaleItemsControllerTest < ActionController::TestCase
 
   def setup
     @request.env["devise.mapping"] = Devise.mappings[:user]
-    @user = create(:user)
+    @user = create(:user, :complete)
     sign_in @user
     @sale_item = create(:sale_item)
   end

@@ -4,8 +4,4 @@ class Product < ActiveRecord::Base
   mount_uploader :product_image, ProductImageUploader # Tells rails to use this uploader for this model.
   has_many :sale_items
   default_scope { where(active: true) }
-
-  def default_image
-
-  end
 end

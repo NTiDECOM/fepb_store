@@ -1,5 +1,5 @@
 class Book < Product
-  validates_presence_of :title, :author, :spiritual_author, :sell_price
+  validates_presence_of :title, :author, :sell_price
 
   def default_image_path
     "book.png"

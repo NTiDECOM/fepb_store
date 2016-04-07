@@ -128,6 +128,20 @@ GEM
     mime-types-data (3.2016.0221)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
+    minitest-capybara (0.7.2)
+      capybara (~> 2.2)
+      minitest (~> 5.0)
+      rake
+    minitest-metadata (0.5.3)
+      minitest (>= 4.7, < 6.0)
+    minitest-rails (2.2.0)
+      minitest (~> 5.7)
+      railties (~> 4.1)
+    minitest-rails-capybara (2.1.1)
+      capybara (~> 2.0)
+      minitest-capybara (~> 0.7.0)
+      minitest-metadata (~> 0.5.0)
+      minitest-rails (~> 2.1)
     mocha (1.1.0)
       metaclass (~> 0.0.1)
     modernizr-rails (2.7.1)
@@ -241,7 +255,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
-  capybara
   carrierwave
   coffee-rails (~> 4.1.0)
   devise (~> 3.5.2)
@@ -255,6 +268,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.3)
   mailcatcher
+  minitest-rails-capybara
   mocha
   modernizr-rails
   pg
