@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_filter :require_admin
-  
+
   def index
     @products = Product.order(:id).page(params[:page])
     @sale_item = current_sale.sale_items.new
@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-  end 
+  end
 
   def create
     @product = Product.new(product_params)
@@ -24,7 +24,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def edit       
+  def edit
   end
 
   def update
@@ -43,12 +43,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  def inventory
+    @products = Product.order(:id).page(params[:page])
+  end
+
   ##### helper methods #####
   private
 
   def product_params
     params.require(:product).
-    permit(:title, :buy_price, :sell_price, :product_image)
+    permit(:title, :buy_price, :sell_price, :product_image, :quantity)
   end
 
   def set_product

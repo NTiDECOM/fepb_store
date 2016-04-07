@@ -15,17 +15,17 @@
  *= require foundation
  *= require foundation_and_overrides
  *= require foundation-icons
- *= require kaminari_overrides 
+ *= require kaminari_overrides
  *= require footer
  *= require responsive-tables
 
  *= require topbar
  *= require login
  *= require sales
- 
+
  */
 
-a, 
+a,
 a:active,
 a:hover,
 a:visited {
@@ -42,7 +42,7 @@ a.button {
 
 input.number-field {
   display: inline;
-  width: 50px; 
+  width: 50px;
 }
 
 select {
@@ -54,4 +54,13 @@ select {
 table {
   margin-left: auto;
   margin-right: auto;
+}
+
+td.number-table-style,
+td.currency-table-style {
+  text-align: right;
+}
+
+.columns + .columns:last-child {
+  float: left;
 }

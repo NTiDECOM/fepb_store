@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
   patch 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
+  get '/inventory' => 'products#inventory', as: 'inventory'
 
   # get '/login' => 'sessions#new'
   # post 'login' => 'sessions#create'
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+
 
   # Example resource route with options:
   #   resources :products do

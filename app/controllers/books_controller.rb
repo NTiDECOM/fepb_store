@@ -11,7 +11,7 @@ class BooksController < ApplicationController
   end
 
   def show
-  end 
+  end
 
   def create
     @book = Book.new(book_params)
@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     end
   end
 
-  def edit       
+  def edit
   end
 
   def update
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).
-    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
+    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image, :quantity)
   end
 
   def set_book

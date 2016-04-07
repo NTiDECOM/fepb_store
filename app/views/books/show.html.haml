@@ -9,20 +9,23 @@
   .columns.large-6
     %p
       %strong= "#{t('models.book.isbn')}:"
-      = @book.isbn   
+      = @book.isbn
     %p
       %strong= "#{t('models.book.author')}:"
-      = @book.author  
+      = @book.author
     %p
       %strong= "#{t('models.book.spiritual_author')}:"
       = @book.spiritual_author
+    %p
+      %strong= "#{t('models.product.quantity')}:"
+      = @book.quantity
   .columns.large-6
     %p
       %strong= "#{t('models.product.sell_price')}:"
       = number_to_currency @book.sell_price
     %p
       %strong= "#{t('models.product.buy_price')}:"
-      = number_to_currency @book.buy_price  
+      = number_to_currency @book.buy_price
     %p
       %strong= "#{t('models.book.publisher')}:"
       = @book.publisher

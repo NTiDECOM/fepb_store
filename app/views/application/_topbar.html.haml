@@ -29,10 +29,12 @@
               %a= link_to t('activerecord.models.ticket.other'), tickets_path
             %li
               %a= link_to t('views.sale.history'), sales_path
+            %li
+              %a= link_to t('views.product.inventory'), inventory_path
     / Right Nav Section
     %ul.right
-      / - if !current_user.present?        
-      /   %li            
+      / - if !current_user.present?
+      /   %li
       /     %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
       /   %li.active
       /     %a= link_to t('views.application.auth.sign_in'), new_user_session_path
@@ -50,7 +52,7 @@
       / %li.has-dropdown
       /   %a{href: "#" }= "Hi, #{current_user.name}"
       /   %ul.dropdown
-      /     %li                
+      /     %li
       /       %a= link_to 'My profile', user_path(current_user.id)
       /     %li.active
       /       %a= link_to 'Logout', destroy_user_session_path, method: 'delete'

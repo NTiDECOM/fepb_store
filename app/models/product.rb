@@ -6,6 +6,6 @@ class Product < ActiveRecord::Base
   default_scope { where(active: true) }
 
   def default_image
-    
+
   end
 end
