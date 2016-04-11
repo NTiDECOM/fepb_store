@@ -14,7 +14,7 @@
           = number_to_currency product.sell_price
         .product-cart
           = form_for @sale_item, remote: true do |f|
-            = f.number_field :product_quantity, disabled: product.quantity == 0, value: 1, min: 1, class: 'number-field'
+            = f.number_field :product_quantity, disabled: product.quantity == 0, value: 1, min: 1, class: 'cart-number-field'
             = f.hidden_field :product_id, value: product.id
-            = f.button type: "submit", disabled: product.quantity == 0, title: (t('views.product.empty') if product.quantity == 0), class: "button radius small" do
+            = f.button type: "submit", disabled: product.quantity == 0, title: (t('views.product.empty') if product.quantity == 0), class: "radius tiny button" do
               %i.fi-shopping-cart

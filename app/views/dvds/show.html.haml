@@ -12,6 +12,9 @@
     %p
       %strong= "#{t('models.product.year')}:"
       = @dvd.year
+    %p
+      %strong= "#{t('models.product.quantity')}:"
+      = @dvd.quantity
 .row
   .columns.large-12.text-center
     = link_to t('views.application.edit'), edit_dvd_path(@dvd.id), class: 'button radius'

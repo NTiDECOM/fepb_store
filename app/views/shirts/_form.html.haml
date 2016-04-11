@@ -24,6 +24,9 @@
       .field
         = f.label t('models.product.buy_price')
         = f.text_field :buy_price, {class: 'price_field'}
+      .field
+        = f.label t('models.product.quantity')
+        = f.number_field :quantity
   .row
     .columns.large-12.text-center
       .actions

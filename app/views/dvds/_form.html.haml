@@ -27,6 +27,9 @@
       .field
         = f.label t('models.product.year')
         = f.number_field :year, min: 1950
+      .field
+        = f.label t('models.product.quantity')
+        = f.number_field :quantity
   .row
     .columns.large-12.text-center
       .actions

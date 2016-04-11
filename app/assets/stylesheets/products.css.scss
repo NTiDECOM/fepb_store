@@ -3,8 +3,13 @@
   They will automatically be included in application.css.
 */
 
+form > input.cart-number-field {
+	display: inline;
+	width: 50px;
+}
+
 .product-box {
-	border-radius: 5px; 
+	border-radius: 5px;
   border: 1px solid #c3c3c3;
   padding: 10px;
   position: relative;
@@ -12,13 +17,13 @@
 }
 
 .product-thumb {
-  border-radius: 5px; 
+  border-radius: 5px;
   border: 1px solid #c3c3c3;
-  margin: 0px 20px 10px 0px; 
+  margin: 0px 20px 10px 0px;
   padding: 10px;
 }
 
-.product-title, 
+.product-title,
 .product-sell-price {
   margin-bottom: 10px;
 }
@@ -27,8 +32,8 @@
 	margin: 0px;
 }
 
-.product-thumb-container {    
-    height:150px;    
+.product-thumb-container {
+    height:150px;
     text-align: center;  /* align the inline(-block) elements horizontally */
     font: 0/0 a;         /* remove the gap between inline(-block) elements */
 }
@@ -43,8 +48,8 @@
 .product-thumb-container img {
     display: inline-block;
     vertical-align: middle;          /* vertical alignment of the inline element */
-    font: 16px/1 Arial, sans-serif;  /* reset the font property */    
-    height:150px;    
+    font: 16px/1 Arial, sans-serif;  /* reset the font property */
+    height:150px;
     padding: 5px;
     border: 0px solid black;
 }

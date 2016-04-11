@@ -15,6 +15,9 @@
     %p
       %strong= "#{t('models.ticket.event_time')}:"
       = @ticket.event_time
+    %p
+      %strong= "#{t('models.product.quantity')}:"
+      = @ticket.quantity
 .row
   .columns.large-12.text-center
     = link_to t('views.application.edit'), edit_shirt_path(@ticket.id), class: 'button radius'

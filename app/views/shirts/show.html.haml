@@ -10,6 +10,9 @@
     %p
       %strong= "#{t('models.product.buy_price')}:"
       = number_to_currency @shirt.buy_price
+    %p
+      %strong= "#{t('models.product.quantity')}:"
+      = @shirt.quantity
 .row
   .columns.large-12.text-center
     = link_to t('views.application.edit'), edit_shirt_path(@shirt.id), class: 'button radius'

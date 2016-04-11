@@ -32,6 +32,9 @@
       .field
         = f.label t('models.ticket.event_time')
         = f.time_select :event_time
+      .field
+        = f.label t('models.product.quantity')
+        = f.number_field :quantity
   .row
     .columns.large-12.text-center
       .actions

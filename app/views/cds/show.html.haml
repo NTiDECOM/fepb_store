@@ -12,6 +12,9 @@
     %p
       %strong= "#{t('models.product.year')}:"
       = @cd.year
+    %p
+      %strong= "#{t('models.product.quantity')}:"
+      = @cd.quantity
 .row
   .columns.large-12.text-center
     = link_to t('views.application.edit'), edit_cd_path(@cd.id), class: 'button radius'
