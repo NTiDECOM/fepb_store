@@ -13,7 +13,7 @@ class SaleItemsController < ApplicationController
       if @sale_item.present?
         new_product_quantity = @sale_item.product_quantity.to_i + sale_item_params[:product_quantity].to_i
         @sale_item.update(product_quantity: new_product_quantity)
-      else        
+      else
         @sale_item = @sale.sale_items.new(sale_item_params)
         @sale.update(total: @sale.total_price)
       end
@@ -35,8 +35,8 @@ class SaleItemsController < ApplicationController
     @sale_items = @sale.sale_items
   end
 
-  def destroy    
-    @sale = current_sale    
+  def destroy
+    @sale = current_sale
     @sale.status = :canceled
     @sale_item = @sale.sale_items.find(params[:id])
     @sale_item.destroy

@@ -15,9 +15,14 @@ class SaleItem < ActiveRecord::Base
       product.sell_price
     end
   end
-  
+
   def total_price
     unit_price * product_quantity
+  end
+
+  def update_product_quantity(product_quantity_to_reduce)
+    product.quantity -= product_quantity_to_reduce
+    self.product.update(quantity: product.quantity)
   end
 
   private

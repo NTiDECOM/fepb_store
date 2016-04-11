@@ -20,6 +20,9 @@ class SalesController < ApplicationController
   def finalize
     @sale = current_sale
     @sale.update(status: :finalized, buyer_name: params[:customer_name])
+    @sale.sale_items.each do |sale_item|
+      sale_item.update_product_quantity(sale_item.product_quantity)      
+    end
     current_sale = nil
     session[:sale_id] = nil
     redirect_to root_path, notice: t('controllers.sales.finalize_success')
