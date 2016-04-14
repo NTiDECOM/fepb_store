@@ -23,6 +23,8 @@
 //= require responsive-tables
 //= require prefixfree.min
 //= require flash_message
+//= require js/foundation-datepicker.min
+//= require js/locales/foundation-datepicker.pt-br
 
 $(function() {
   $(document).foundation();
