@@ -1,7 +1,7 @@
 %nav.top-bar{"data-topbar" => true, role: "navigation"}
   %ul.title-area
     %li.name
-      %h1= link_to t('views.application.name'), root_path
+      = link_to( image_tag('fepb.png', size: '100', style: 'margin-top: -8px;'), root_path, target: '_blank')
     /Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
     %li.toggle-topbar.menu-icon
       %a{href: "#"}
@@ -10,13 +10,13 @@
     / Left Nav Section
     - if current_user.present? and current_user.admin
       %ul.left
+        %li
+          %a= link_to t('views.application.store'), root_path
         %li.has-dropdown.not-click
-          %a{href: "#" }= t('generic.menu')
+          %a{href: "#" }= t('menu.inventory.title')
           %ul.dropdown
             %li
-              %a= link_to t('views.application.manage_users'), users_path
-            %li
-              %a= link_to t('activerecord.models.product.other'), products_path
+              %a= link_to t('models.all_products'), inventory_path
             %li
               %a= link_to t('activerecord.models.book.other'), books_path
             %li
@@ -27,10 +27,10 @@
               %a= link_to t('activerecord.models.dvd.other'), dvds_path
             %li
               %a= link_to t('activerecord.models.ticket.other'), tickets_path
-            %li
-              %a= link_to t('views.sale.history'), sales_path
-            %li
-              %a= link_to t('views.product.inventory'), inventory_path
+        %li
+          %a= link_to t('views.sale.history'), sales_path
+        %li
+          %a= link_to t('views.application.manage_users'), users_path
     / Right Nav Section
     %ul.right
       / - if !current_user.present?

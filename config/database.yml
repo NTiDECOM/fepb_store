@@ -2,8 +2,8 @@ default: &default
   adapter: postgresql
   encoding: utf-8
   pool: 5
-  username: postgres
-  password: postgres
+  username: romero
+  password: romero
   host: localhost
   port: 5432
   timeout: 5000

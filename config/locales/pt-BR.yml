@@ -57,9 +57,13 @@ pt-BR:
     shirts:
     tickets:
   generic:
-    menu: 'Menu'
     social_networks: 'Redes sociais'
     title: 'Título'
+  menu:
+    title: 'Menu'
+    inventory:
+      products: 'Produtos'
+      title: 'Controle de estoque'
   models:
     all_products: Todos os produtos
     book:
@@ -120,24 +124,25 @@ pt-BR:
     application:
       auth:
         hello_guest: 'Olá, visitante'
-        forgot_password: Esqueci minha senha
-        sign_in: Entrar
-        sign_out: Sair
-        remember_password: Lembrar senha
-        sign_up: Criar conta
-      are_you_sure: "Tem certeza?"
-      back: Voltar
-      destroy: Remover
-      details: Detalhes
-      edit: Editar
+        forgot_password: 'Esqueci minha senha'
+        sign_in: 'Entrar'
+        sign_out: 'Sair'
+        remember_password: 'Lembrar senha'
+        sign_up: 'Criar conta'
+      are_you_sure: 'Tem certeza?'
+      back: 'Voltar'
+      destroy: 'Remover'
+      details: 'Detalhes'
+      edit: 'Editar'
       fepb: 'FEPB'
-      manage_users: Gerenciar usuários
-      name: Loja virtual FEPB
-      new: Novo
-      new_f: Nova
+      manage_users: 'Gerenciar usuários'
+      name: 'Loja virtual FEPB'
+      new: 'Novo'
+      new_f: 'Nova'
       select_one: 'Selecione...'
-      show: Exibir
-      virtual_store: Loja Virtual
+      show: 'Exibir'
+      virtual_store: 'Loja Virtual'
+      store: 'Loja'
     pagination:
       first: "&laquo; Primeira"
       last: "Última &raquo;"
