@@ -26,6 +26,8 @@
 //= require js/foundation-datepicker.min
 //= require js/locales/foundation-datepicker.pt-br
 
-$(function() {
-  $(document).foundation();
+$(document).on('ready page:load', function () {
+  $(function() {
+    $(document).foundation();
+  });
 });
