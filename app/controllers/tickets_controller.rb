@@ -2,7 +2,6 @@ class TicketsController < ApplicationController
 	before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
 	def index
-      #@tickets = Ticket.all
       @tickets = Ticket.order(:id).page(params[:page])
 	end
 
@@ -11,7 +10,7 @@ class TicketsController < ApplicationController
 	end
 
 	def show
-	end	
+	end
 
   def create
     @ticket = Ticket.new(ticket_params)
@@ -23,14 +22,16 @@ class TicketsController < ApplicationController
     end
 	end
 
-	def edit       
+	def edit
 	end
 
 	def update
+		@ticket.event_datetime = DateTime.parse(ticket_params[:event_datetime])
+		puts " >>> #{@ticket.event_datetime}"
 	  if @ticket.update(ticket_params)
 	  	redirect_to @ticket, notice: "Ticket updated successfully"
 	  else
-        redirect_to @ticket, notice: "Could not update this ticket"
+      redirect_to @ticket, notice: "Could not update this ticket"
 	  end
 	end
 
@@ -46,8 +47,14 @@ class TicketsController < ApplicationController
   private
 
 	def ticket_params
-    params.require(:ticket).
-    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
+    params.require(:ticket).permit(
+		  :title,
+			:buy_price,
+			:sell_price,
+			:product_image,
+			:event_datetime,
+			:quantity
+		)
 	end
 
 	def set_ticket
