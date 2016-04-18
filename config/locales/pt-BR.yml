@@ -101,6 +101,7 @@ pt-BR:
       type: 'Tipo'
       year: 'Ano'
     ticket:
+      event_datetime: 'Data e hora do evento'
       event_day: 'Dia do evento'
       event_time: 'Horário do evento'
       label: 'Ingresso'

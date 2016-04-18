@@ -24,7 +24,7 @@
         %td= ticket.title
         %td= number_to_currency ticket.sell_price
         %td= number_to_currency ticket.buy_price
-        %td= ticket.event_datetime
+        %td= ticket.event_datetime.strftime("%d/%m/%Y - %H:%M:%S") if !ticket.event_datetime.nil?
         / %td= link_to t('views.application.show'), ticket, class: 'button radius'
         / %td= link_to t('views.application.edit'), edit_ticket_path(ticket), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, ticket, class: 'button radius'

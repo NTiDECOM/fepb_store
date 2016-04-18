@@ -34,8 +34,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5.2'
 # HAML
 gem 'haml', '~> 4.0.7'
-# HTML 2 HAML
-gem 'html2haml', '2.0.0'
 # Zurb Foundation
 gem 'foundation-rails', '~> 5.5.3.2'
 # Kaminari pagination
@@ -72,7 +70,7 @@ group :development do
 end
 
 group :production do
-  gem 'rails_12factor'  
+  gem 'rails_12factor'
 end
 
 group :test do

@@ -15,22 +15,29 @@
         = f.file_field :product_image, class: 'file-input'
         / = f.hidden_field :product_image_cache
     .columns.large-8
-      .field
-        = f.label t('models.product.title')
-        = f.text_field :title
-      .field
-        = f.label t('models.product.sell_price')
-        = f.text_field :sell_price, {class: 'price_field'}
-      .field
-        = f.label t('models.product.buy_price')
-        = f.text_field :buy_price, {class: 'price_field'}
-    .columns.large-8
-      .field
-        = f.label t('models.product.year')
-        = f.number_field :year, min: 1950
-      .field
-        = f.label t('models.product.quantity')
-        = f.number_field :quantity
+      .row
+        .columns.large-12
+          .field
+            = f.label t('models.product.title')
+            = f.text_field :title
+      .row
+        .columns.large-6
+          .field
+            = f.label t('models.product.sell_price')
+            = f.text_field :sell_price, {class: 'price_field'}
+        .columns.large-6
+          .field
+            = f.label t('models.product.buy_price')
+            = f.text_field :buy_price, {class: 'price_field'}
+      .row
+        .columns.large-6
+          .field
+            = f.label t('models.product.year')
+            = f.number_field :year, min: 1950
+        .columns.large-6
+          .field
+            = f.label t('models.product.quantity')
+            = f.number_field :quantity
   .row
     .columns.large-12.text-center
       .actions

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407005240) do
+ActiveRecord::Schema.define(version: 20160417183458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,12 @@ ActiveRecord::Schema.define(version: 20160407005240) do
     t.integer  "year"
     t.integer  "pages_number"
     t.text     "synopisis"
-    t.date     "event_day"
-    t.datetime "event_time"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "product_image"
     t.boolean  "active"
     t.integer  "quantity",         default: 0
+    t.datetime "event_datetime"
   end
 
   create_table "sale_items", force: :cascade do |t|

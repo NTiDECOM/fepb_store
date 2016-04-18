@@ -11,7 +11,7 @@ class CdsController < ApplicationController
   end
 
   def show
-  end 
+  end
 
   def create
     @cd = Cd.new(cd_params)
@@ -23,7 +23,7 @@ class CdsController < ApplicationController
     end
   end
 
-  def edit       
+  def edit
   end
 
   def update
@@ -47,7 +47,14 @@ class CdsController < ApplicationController
 
   def cd_params
     params.require(:cd).
-    permit(:title, :buy_price, :sell_price, :year, :product_image)
+    permit(
+      :title,
+      :buy_price,
+      :sell_price,
+      :year,
+      :product_image,
+      :quantity
+    )
   end
 
   def set_cd
