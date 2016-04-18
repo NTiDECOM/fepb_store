@@ -13,7 +13,7 @@
       %th= t('models.product.title')
       %th= t('models.product.buy_price')
       %th= t('models.product.sell_price')
-      %th= t('models.product.year')
+      %th= t('models.ticket.event_datetime')
       %th
       %th
       %th
@@ -24,7 +24,7 @@
         %td= ticket.title
         %td= number_to_currency ticket.sell_price
         %td= number_to_currency ticket.buy_price
-        %td= ticket.year
+        %td= ticket.event_datetime
         / %td= link_to t('views.application.show'), ticket, class: 'button radius'
         / %td= link_to t('views.application.edit'), edit_ticket_path(ticket), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, ticket, class: 'button radius'
