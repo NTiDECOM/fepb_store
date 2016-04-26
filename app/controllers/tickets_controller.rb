@@ -16,9 +16,9 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
 
     if @ticket.save
-      redirect_to @ticket, notice: "Ticket created successfully"
+      redirect_to @ticket, notice: "Ingresso criado com suscesso"
     else
-    	render action: :new, notice: "Could not update this ticket"
+    	render action: :new, notice: "Não foi possível criar o ingresso"
     end
 	end
 
@@ -29,17 +29,17 @@ class TicketsController < ApplicationController
 		@ticket.event_datetime = DateTime.parse(ticket_params[:event_datetime])
 		puts " >>> #{@ticket.event_datetime}"
 	  if @ticket.update(ticket_params)
-	  	redirect_to @ticket, notice: "Ticket updated successfully"
+	  	redirect_to @ticket, notice: "Ingresso atualizado com sucesso"
 	  else
-      redirect_to @ticket, notice: "Could not update this ticket"
+      redirect_to @ticket, notice: "Não foi possível atualizar as informações deste ingreeo"
 	  end
 	end
 
 	def destroy
       if @ticket.destroy
-	    redirect_to @ticket, notice: "Ticket removed successfully"
+	    redirect_to @ticket, notice: "Ingresso removi com sucesso"
 	  else
-	  	redirect_to @ticket, notice: "Ticket could not be removed"
+	  	redirect_to @ticket, notice: "Não foi possível remover o ingresso"
 	  end
 	end
 

@@ -28,7 +28,7 @@
     .columns.large-6
       .field
         = f.label t('models.ticket.event_datetime')
-        = f.text_field :event_datetime, class: 'span2'
+        = f.text_field :event_datetime, class: 'span2', value: @ticket.event_datetime.strftime("%d/%m/%Y - %H:%M:%S")
       .field
         = f.label t('models.product.quantity')
         = f.number_field :quantity
