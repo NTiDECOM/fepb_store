@@ -12,6 +12,7 @@
   %thead
     %tr
       %th
+      %th= t('models.product.isbn')
       %th= t('models.product.title')
       %th= t('models.dvd.publisher')
       %th= t('models.product.buy_price')
@@ -24,6 +25,7 @@
     -@dvds.each do |dvd|
       %tr
         %td= dvd.product_image ? image_tag(dvd.product_image_url, size: "100") : ''
+        %td= dvd.isbn
         %td= dvd.title
         %td= dvd.publisher
         %td= number_to_currency dvd.sell_price
