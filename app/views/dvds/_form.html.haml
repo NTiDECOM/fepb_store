@@ -27,6 +27,11 @@
       .row
         .columns.large-6
           .field
+            = f.label t('models.dvd.publisher')
+            = f.text_field :publisher
+      .row
+        .columns.large-6
+          .field
             = f.label t('models.product.sell_price')
             = f.text_field :sell_price, {class: 'price_field'}
         .columns.large-6

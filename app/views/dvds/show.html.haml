@@ -11,6 +11,9 @@
       %strong= "#{t('models.product.isbn')}:"
       = @dvd.isbn
     %p
+      %strong= "#{t('models.dvd.publisher')}:"
+      = @dvd.publisher
+    %p
       %strong= "#{t('models.product.sell_price')}:"
       = number_to_currency @dvd.sell_price
     %p
