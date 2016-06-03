@@ -93,6 +93,7 @@ pt-BR:
     shirt:
       label: 'Camisa'
     product:
+      isbn: 'ISBN'
       buy_price: 'Preço de compra'
       image: 'Imagem'
       label: 'Produto'

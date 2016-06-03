@@ -8,6 +8,9 @@
   .columns.large-8
     %br
     %p
+      %strong= "#{t('models.product.isbn')}:"
+      = @cd.isbn
+    %p
       %strong= "#{t('models.product.sell_price')}:"
       = number_to_currency @cd.sell_price
     %p
