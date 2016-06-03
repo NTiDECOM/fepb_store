@@ -79,6 +79,7 @@ pt-BR:
       publisher: 'Produtora'
     dvd:
       label: 'DVD'
+      publisher: 'Produtora'
     sale:
       buyer_name: 'Comprador'
       items_number: 'Itens'

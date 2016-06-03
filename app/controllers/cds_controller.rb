@@ -50,6 +50,7 @@ class CdsController < ApplicationController
     permit(
       :isbn,
       :title,
+      :publisher,
       :buy_price,
       :sell_price,
       :year,
