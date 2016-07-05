@@ -59,6 +59,7 @@ pt-BR:
   generic:
     social_networks: 'Redes sociais'
     title: 'Título'
+    search: 'Pesquisar'
   menu:
     title: 'Menu'
     inventory:
@@ -166,10 +167,11 @@ pt-BR:
       edit:
         title: 'Editar produto'
       empty: 'Nenhuma unidade em estoque'
+      form:
       index:
       inventory: 'Controle de estoque'
+      search: 'Digite um título de produto aqui'
       show:
-      form:
     sale:
       cancel_sale: 'Cancelar compra'
       continue_shopping: 'Continuar comprando'

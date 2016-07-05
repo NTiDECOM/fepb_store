@@ -74,6 +74,7 @@ group :production do
 end
 
 group :test do
+  gem 'rspec'
   gem 'minitest-rails-capybara'
   gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers', '~> 2.0'

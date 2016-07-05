@@ -3,7 +3,12 @@ class ProductsController < ApplicationController
   before_filter :require_admin
 
   def index
-    @products = Product.order(:id).page(params[:page])
+    if params[:title]
+      @products = ProductQuery.new.search.by_title(params[:title]).order(:id).page(params[:page])
+    else
+      @products = Product.order(:id).page(params[:page])
+    end
+
     @sale_item = current_sale.sale_items.new
   end
 
