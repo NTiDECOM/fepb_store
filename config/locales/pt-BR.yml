@@ -77,8 +77,10 @@ pt-BR:
       synopisis: 'Sinopse'
     cd:
       label: 'CD'
+      publisher: 'Produtora'
     dvd:
       label: 'DVD'
+      publisher: 'Produtora'
     sale:
       buyer_name: 'Comprador'
       items_number: 'Itens'
@@ -93,6 +95,7 @@ pt-BR:
     shirt:
       label: 'Camisa'
     product:
+      isbn: 'ISBN'
       buy_price: 'Preço de compra'
       image: 'Imagem'
       label: 'Produto'

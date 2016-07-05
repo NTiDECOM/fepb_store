@@ -16,10 +16,19 @@
         / = f.hidden_field :product_image_cache
     .columns.large-8
       .row
-        .columns.large-12
+        .columns.large-8
           .field
             = f.label t('models.product.title')
             = f.text_field :title
+        .columns.large-4
+          .field
+            = f.label t('models.product.isbn')
+            = f.text_field :isbn
+      .row
+        .columns.large-6
+          .field
+            = f.label t('models.dvd.publisher')
+            = f.text_field :publisher
       .row
         .columns.large-6
           .field
