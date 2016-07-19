@@ -2,8 +2,9 @@
   .columns.large-12.text-center
     %div#search_products
       = form_for(products_path, method: 'get', id: 'products_search_by_title') do
-        = text_field_tag :title, params[:title], placeholder: t('views.product.search'), style: 'display: inline; width: 300px'
-      = submit_tag t('generic.search'), class: 'button radius', style: 'display: inline'
+        -# = select_tag(:product, options_for_select(product_select_type_path), style: 'display: inline; width: 100px')
+        = text_field_tag :search_param, params[:search_param], placeholder: t('views.product.search'), style: 'display: inline; width: 400px'
+        = submit_tag t('generic.search'), class: 'button radius', style: 'display: inline'
 .row
   .columns.large-12.text-center
     %div#paginate= paginate @products

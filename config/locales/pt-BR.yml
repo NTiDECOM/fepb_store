@@ -173,7 +173,7 @@ pt-BR:
       form:
       index:
       inventory: 'Controle de estoque'
-      search: 'Digite um título de produto aqui'
+      search: 'Pesquise por título, ISBN, autor ou autor espiritual'
       show:
     sale:
       cancel_sale: 'Cancelar compra'
