@@ -30,4 +30,6 @@ $(document).on('ready page:load', function () {
   $(function() {
     $(document).foundation();
   });
+
+  $(".alert-box").delay(4000).fadeOut(1000);
 });
