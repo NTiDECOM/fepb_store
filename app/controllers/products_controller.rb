@@ -1,9 +1,11 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]  
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
+    @selected_product_type = params[:product_type]
+    puts ">>> @selected_product_type: #{@selected_product_type}"
     if params[:search_param]
-      @products = ProductQuery.new.search.multi(params[:search_param]).order(:id).page(params[:page])
+      @products = ProductQuery.new.search.multi(params[:search_param], @selected_product_type).order(:id).page(params[:page])
     else
       @products = Product.order(:id).page(params[:page])
     end

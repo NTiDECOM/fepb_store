@@ -37,5 +37,5 @@
       = @book.pages_number
 .row
   .columns.large-12.text-center
-    = link_to t('views.application.edit'), edit_book_path(@book), class: 'button radius'
+    = link_to t('views.application.edit'), edit_book_path(@book), class: 'button radius' if current_user.present? && current_user.admin
     = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

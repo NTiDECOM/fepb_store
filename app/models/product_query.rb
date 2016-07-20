@@ -12,9 +12,20 @@ class ProductQuery
       where("LOWER(title) LIKE ?", "%#{title.downcase}%")
     end
 
-    def multi(param)
+    def multi(param, product_type)
       param = param.downcase
-      where("LOWER(title) LIKE ? OR isbn like ? OR author LIKE ? OR spiritual_author LIKE ?", "%#{param}%", "%#{param}%", "%#{param}%", "%#{param}%")
+      where("(
+        LOWER(title) LIKE ?
+        OR isbn like ?
+        OR author LIKE ?
+        OR spiritual_author LIKE ?)
+        AND type LIKE ?",
+        "%#{param}%",
+        "%#{param}%",
+        "%#{param}%",
+        "%#{param}%",
+        "%#{product_type}%"
+      )
     end
   end
 end
