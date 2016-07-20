@@ -69,16 +69,22 @@ group :development do
   gem 'mailcatcher'
 end
 
-group :production do
-  gem 'rails_12factor'
+
+group :test, :development do
+  gem 'rspec'
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'rspec'
   gem 'minitest-rails-capybara'
-  gem 'shoulda', '~> 3.5'
-  gem 'shoulda-matchers', '~> 2.0'
+  gem 'shoulda'
+  gem 'shoulda-matchers'
   gem 'mocha'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'cucumber'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
