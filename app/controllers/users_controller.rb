@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :require_admin, only: [:edit, :destroy]
 
 	def index
     @users = User.order(:name).page(params[:page])
@@ -10,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-  end 
+  end
 
   def create
     @user = User.new(user_params)
@@ -33,7 +34,7 @@ class UsersController < ApplicationController
     elsif (@user.password.eql? @user.password_confirmation) == false
       redirect to @user, notice: t('warning.passwords_must_match')
     else
-      if @user.update(user_params)      
+      if @user.update(user_params)
         redirect_to @user, notice: "Usuário atualizado com sucesso"
       else
         redirect_to @user, notice: "Não foi possível atualizar esta usuário"
@@ -54,35 +55,26 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
-      :name, 
-      :surname, 
-      :email, 
-      :cpf, 
+      :name,
+      :surname,
+      :email,
+      :cpf,
       :phone1,
       :phone2,
-      :city, 
-      :state,         
+      :city,
+      :state,
       :cep,
-      :street, 
-      :street_number, 
+      :street,
+      :street_number,
       :street_complement,
       :avatar,
-      :admin, 
-      :password, 
+      :admin,
+      :password,
       :password_confirmation
     )
   end
 
   def set_user
-    # if current_user
-    #   @user = current_user 
-    # else
-    #   @user = User.find(params[:id])
-    # end
     @user = User.find(params[:id])
-  end
-
-  def validate_admin
-    redirect_to new_user_session_path, alert: t('errors.messages.permission') if !current_user or current_user.admin == false
   end
 end

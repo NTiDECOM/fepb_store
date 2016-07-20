@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_filter :require_admin
+  before_action :set_product, only: [:show, :edit, :update, :destroy]  
 
   def index
     if params[:search_param]

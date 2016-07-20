@@ -10,13 +10,14 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # def create
-  #   super    
+  #   super
   # end
 
   # DELETE /resource/sign_out
   def destroy
     cancel_sale_before_end_session
-    super
+    # super
+    sign_out_and_redirect(root_path)
   end
 
   # protected
