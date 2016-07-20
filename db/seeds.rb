@@ -3,8 +3,9 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   cities = City.create([name: 'Chicago', name: 'Copenhagen'])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'faker'
 
 User.create(
   name: 'admin',
@@ -14,48 +15,56 @@ User.create(
   admin: true
 )
 
-1.upto(2) do |n|
+1.upto(20) do |n|
   Book.create(
-    title: "Livro #{n}", 
-    author: "Autor #{n}", 
-    spiritual_author: "Autor espiritual #{n}", 
-    buy_price: 20,
-  	sell_price: 50, 
-    year: 2015, 
-    pages_number: n + 100, 
-    synopisis: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    active: true
+    isbn: Faker::Code.isbn,
+    title: Faker::Book.title,
+    author: Faker::Book.author,
+    spiritual_author: Faker::Book.author,
+    publisher: Faker::Book.publisher,
+    buy_price: Faker::Number.decimal(2),
+    sell_price: Faker::Number.decimal(2).to_f + 30.00,
+    year: (Faker::Date.between(2.days.ago, Date.today)).year,
+    pages_number: Faker::Number.number(3),
+    synopisis: Faker::Lorem.paragraph(2),
+    type: 'Book'
   )
 end
 
-1.upto(2) do |n|
+1.upto(20) do |n|
   Cd.create(
-    title: "Cd #{n}", 
-    buy_price: 2,
-    sell_price: 10
+    title: Faker::Hipster.word,
+    buy_price: Faker::Number.decimal(2),
+    sell_price: Faker::Number.decimal(2).to_f + 20.00,
+    year: (Faker::Date.between(2.days.ago, Date.today)).year,
+    type: 'Cd'
   )
 end
 
-1.upto(2) do |n|
+1.upto(20) do |n|
   Dvd.create(
-    title: "Dvd #{n}", 
-    buy_price: 5,
-    sell_price: 20
+    title: Faker::Hipster.word,
+    buy_price: Faker::Number.decimal(2),
+    sell_price: Faker::Number.decimal(2).to_f + 20.00,
+    year: (Faker::Date.between(2.days.ago, Date.today)).year,
+    type: 'Dvd'
   )
 end
 
-1.upto(2) do |n|
+1.upto(20) do |n|
   Shirt.create(
-    title: "Camisa #{n}", 
-    buy_price: 10,
-    sell_price: 20
+    title: Faker::Hipster.word,
+    buy_price: Faker::Number.decimal(2),
+    sell_price: Faker::Number.decimal(2).to_f + 20.00,
+    type: 'Shirt'
   )
 end
 
-1.upto(2) do |n|
+1.upto(20) do |n|
   Ticket.create(
-    title: "Ingresso #{n}", 
-    buy_price: 2,
-    sell_price: 15
+    title: Faker::Hipster.word,
+    buy_price: Faker::Number.decimal(2),
+    sell_price: Faker::Number.decimal(2).to_f + 20.00,
+    type: 'Ticket'
   )
 end
