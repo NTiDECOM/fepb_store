@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :require_admin, only: [:edit, :destroy]
+  # before_filter :require_admin, only: [:edit, :destroy]
   # after_filter :flash_to_headers
 
   helper_method :current_sale
@@ -25,8 +25,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
+    root_path
   end
 
   protected
@@ -36,8 +37,8 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.for(:sign_up) {
       |u| u.permit(
-        :name, :surname, 
-        :email, 
+        :name, :surname,
+        :email,
         :password, :password_confirmation,
         :admin
       )
@@ -45,14 +46,14 @@ class ApplicationController < ActionController::Base
 
     devise_parameter_sanitizer.for(:account_update) {
       |u| u.permit(
-        :name, :surname, 
-        :cpf, 
-        :phone1, :phone2, 
-        :city, :state, :cep, 
+        :name, :surname,
+        :cpf,
+        :phone1, :phone2,
+        :city, :state, :cep,
         :street, :street_number, :street_complement,
         :admin
       )
-    }     
+    }
   end
 
   private
