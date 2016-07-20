@@ -23,6 +23,7 @@
 //= require responsive-tables
 //= require prefixfree.min
 //= require flash_message
+//= require dist/jquery.ellipsis
 //= require js/foundation-datepicker.min
 //= require js/locales/foundation-datepicker.pt-br
 
@@ -32,4 +33,8 @@ $(document).on('ready page:load', function () {
   });
 
   $(".alert-box").delay(4000).fadeOut(1000);
+
+  $(".product-title").ellipsis({
+    row: 1
+  });
 });
