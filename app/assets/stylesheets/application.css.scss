@@ -61,3 +61,7 @@ td.currency-table-style {
 .columns + .columns:last-child {
   float: left;
 }
+
+form[class^="edit"] div.row > div.columns {
+  float: left !important;
+}

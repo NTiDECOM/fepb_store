@@ -116,6 +116,7 @@ pt-BR:
       email: E-mail
       my_account: 'Minha conta'
       name: Nome
+      neighborhood: Bairro
       password: Senha
       password_confirmation: Confirmação de senha
       phone1: 'Telefone 1'
