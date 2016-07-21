@@ -28,12 +28,13 @@
 //= require js/locales/foundation-datepicker.pt-br
 
 $(document).on('ready page:load', function () {
+  //activating foundation
   $(function() {
     $(document).foundation();
   });
-
+  //setting up auto closing message boxes
   $(".alert-box").delay(4000).fadeOut(1000);
-
+  //setting up ellipsis for products title
   $(".product-title").ellipsis({
     row: 1
   });

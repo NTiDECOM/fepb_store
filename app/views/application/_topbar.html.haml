@@ -37,7 +37,7 @@
         %li
           %a{href: '#'}= current_user.present? ? current_user.name : t('views.application.auth.hello_guest')
         %li.active
-          %a= link_to t('views.application.auth.sign_in'), new_user_session_path
+          %a= link_to t('views.application.auth.sign_in'), new_user_session_path, class: "button radius"
         %li.active
           -# %a= link_to t('views.application.auth.sign_up'), new_user_registration_path
       - else

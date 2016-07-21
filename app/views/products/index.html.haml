@@ -15,7 +15,7 @@
       .product-box.text-center
         .product-thumb-container
           = link_to product.product_image ? image_tag(product.product_image_url) : '', url_for(product)
-        .product-title
+        %div{class: "product-title has-tip", "aria-haspopup" => "true", "data-tooltip" => true, title: product.title}
           = product.title
         .product-sell-price
           = number_to_currency product.sell_price
