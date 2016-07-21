@@ -27,7 +27,7 @@ class TicketsController < ApplicationController
 
 	def update
 		@ticket.event_datetime = DateTime.parse(ticket_params[:event_datetime])
-		puts " >>> #{@ticket.event_datetime}"
+		
 	  if @ticket.update(ticket_params)
 	  	redirect_to @ticket, notice: "Ingresso atualizado com sucesso"
 	  else

@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @selected_product_type = params[:product_type]
-    puts ">>> @selected_product_type: #{@selected_product_type}"
+    
     if params[:search_param]
       @products = ProductQuery.new.search.multi(params[:search_param], @selected_product_type).order(:id).page(params[:page])
     else
