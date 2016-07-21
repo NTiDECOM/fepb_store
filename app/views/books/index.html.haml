@@ -20,6 +20,7 @@
       %th= t('models.product.sell_price')
       %th= t('models.product.year')
       %th= t('models.book.pages_number')
+      %th= t('models.product.quantity')
       %th
       %th
       %th
@@ -35,9 +36,8 @@
         %td= number_to_currency book.sell_price
         %td= number_to_currency book.buy_price
         %td= book.year
-        %td= book.pages_number
-        / %td= link_to t('views.application.show'), book, class: 'button radius'
-        / %td= link_to t('views.application.edit'), edit_book_path(book), class: 'button radius' if current_user and current_user.admin
+        %td.number-table-style= book.pages_number
+        %td.number-table-style= book.quantity
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, book, class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_book_path(book), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, book, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin

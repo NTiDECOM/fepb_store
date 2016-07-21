@@ -14,9 +14,9 @@
     %tr
       %th
       %th= t('models.product.title')
-      %th= t('models.product.quantity')
       %th= t('models.product.sell_price')
       %th= t('models.product.buy_price')
+      %th= t('models.product.quantity')
       %th
       %th
       %th
@@ -25,9 +25,9 @@
       %tr
         %td= link_to product.product_image ? image_tag(product.product_image_url, size: "80") : '', url_for(product)
         %td= product.title
-        %td.number-table-style= product.quantity
         %td.currency-table-style= number_to_currency product.sell_price
         %td.currency-table-style= number_to_currency product.buy_price
+        %td.number-table-style= product.quantity
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, url_for(product), class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_polymorphic_path(product), class: 'button radius small' if current_user and current_user.admin
-        %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius small', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin    
+        %td= link_to '<i class="fi-trash"></i>'.html_safe, polymorphic_path(product, method: 'delete'), class: 'button alert radius small', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin

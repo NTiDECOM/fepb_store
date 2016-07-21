@@ -14,6 +14,7 @@
       %th= t('models.product.buy_price')
       %th= t('models.product.sell_price')
       %th= t('models.product.year')
+      %th= t('models.product.quantity')
       %th
       %th
       %th
@@ -25,8 +26,7 @@
         %td= number_to_currency shirt.sell_price
         %td= number_to_currency shirt.buy_price
         %td= shirt.year
-        / %td= link_to t('views.application.show'), shirt, class: 'button radius'
-        / %td= link_to t('views.application.edit'), edit_shirt_path(shirt), class: 'button radius' if current_user and current_user.admin
+        %td.number-table-style= shirt.quantity
         %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, shirt, class: 'button radius'
         %td= link_to '<i class="fi-pencil"></i>'.html_safe, edit_shirt_path(shirt), class: 'button radius' if current_user and current_user.admin
         %td= link_to '<i class="fi-trash"></i>'.html_safe, shirt, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
