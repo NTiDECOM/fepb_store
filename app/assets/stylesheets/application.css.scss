@@ -65,3 +65,7 @@ td.currency-table-style {
 form[class^="edit"] div.row > div.columns {
   float: left !important;
 }
+
+div.product-cart button[disabled="disabled"] {
+  background-color: #C5C5C5;
+}
