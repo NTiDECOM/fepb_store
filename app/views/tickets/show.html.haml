@@ -15,7 +15,7 @@
       = number_to_currency @ticket.buy_price
     %p
       %strong= "#{t('models.ticket.event_datetime')}:"
-      = @ticket.format_event_datetime
+      = @ticket.event_datetime.strftime("%d/%m/%Y - %H:%M:%S") if !@ticket.event_datetime.nil?
     %p
       %strong= "#{t('models.product.quantity')}:"
       = @ticket.quantity
