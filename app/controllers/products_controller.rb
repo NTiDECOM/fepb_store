@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
 
   def index
     @selected_product_type = params[:product_type]
-    
+
     if params[:search_param]
-      @products = ProductQuery.new.search.multi(params[:search_param], @selected_product_type).order(:id).page(params[:page])
+      @products = ProductQuery.new.search.multi(params[:search_param], @selected_product_type).order(:title).page(params[:page])
     else
       @products = Product.order(:id).page(params[:page])
     end
