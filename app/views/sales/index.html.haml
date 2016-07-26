@@ -8,6 +8,7 @@
   %thead
     %tr
       %th= t('models.sale.id')
+      %th= t('models.sale.seller_name')
       %th= t('models.sale.items_number')
       %th= t('models.sale.buyer_name')
       %th= t('models.sale.total')
@@ -19,6 +20,7 @@
     -@sales.each do |sale|
       %tr
         %td.text-right= sale.id
+        %td= sale.seller_name
         %td.text-right= sale.sale_items.length
         %td= sale.buyer_name
         %td= number_to_currency sale.total

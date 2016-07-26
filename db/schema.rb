@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721122638) do
+ActiveRecord::Schema.define(version: 20160726203749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,11 +52,12 @@ ActiveRecord::Schema.define(version: 20160721122638) do
   create_table "sales", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "buyer_name"
-    t.decimal  "subtotal",   precision: 12, scale: 3
-    t.decimal  "total",      precision: 12, scale: 3
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.integer  "status",                              default: 0
+    t.decimal  "subtotal",    precision: 12, scale: 3
+    t.decimal  "total",       precision: 12, scale: 3
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
+    t.integer  "status",                               default: 0
+    t.string   "seller_name"
   end
 
   add_index "sales", ["user_id"], name: "index_sales_on_user_id", using: :btree
