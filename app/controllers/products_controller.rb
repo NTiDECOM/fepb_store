@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     if params[:search_param]
       @products = ProductQuery.new.search.multi(params[:search_param], @selected_product_type).order(:title).page(params[:page])
     else
-      @products = Product.order(:id).page(params[:page])
+      @products = Product.order(:title).page(params[:page])
     end
 
     @sale_item = current_sale.sale_items.new
