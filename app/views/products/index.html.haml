@@ -22,7 +22,7 @@
         - if current_user.present? && current_user.admin
           .product-cart
             = form_for @sale_item, remote: true do |f|
-              = f.number_field :product_quantity, disabled: product.quantity == 0, value: 1, min: 1, class: 'cart-number-field'
+              = f.number_field :product_quantity, disabled: product.quantity == 0 || product.quantity == nil, value: 1, min: 1, class: 'cart-number-field'
               = f.hidden_field :product_id, value: product.id
-              = f.button type: "submit", disabled: product.quantity == 0, title: (t('views.product.empty') if product.quantity == 0), class: "radius tiny button" do
+              = f.button type: "submit", disabled: product.quantity == 0 || product.quantity == nil, title: (t('views.product.empty') if product.quantity == 0), class: "radius tiny button" do
                 %i.fi-shopping-cart
