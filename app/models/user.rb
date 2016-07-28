@@ -5,7 +5,11 @@ class User < ActiveRecord::Base
   # after_save :acc_created_notification
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable, :registerable
   mount_uploader :avatar, AvatarUploader # Tells rails to use this uploader for this model.
   has_many :sales, dependent: :destroy
+
+  def full_name
+    [name, surname].compact.join(" ")
+  end
 end

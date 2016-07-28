@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.acc_created(@user).deliver_now
+      # UserMailer.acc_created(@user).deliver_now
       redirect_to users_path, notice: "Usuário criado com sucesso"
     else
       render action: :new, notice: "Não foi possível criar esta usuário"
@@ -27,19 +27,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.password.nil? && @user.password_confirmation.present?
-      redirect to @user, notice: t('warning.password_is_mandatory')
-    elsif @user.password.present? && @user.password_confirmation.nil?
-      redirect to @user, notice: t('warning.password_confirmation_is_mandatory')
-    elsif (@user.password.eql? @user.password_confirmation) == false
-      redirect to @user, notice: t('warning.passwords_must_match')
+    # if @user.password.present? && @user.password_confirmation.present?
+    #   redirect to @user, notice: t('warning.password_is_mandatory')
+    # elsif @user.password.present? && @user.password_confirmation.present?
+    #   redirect to @user, notice: t('warning.password_confirmation_is_mandatory')
+    # elsif (@user.password.eql? @user.password_confirmation) == false
+    #   redirect to @user, notice: t('warning.passwords_must_match')
+    # else
+    if @user.update(user_params)
+      redirect_to @user, notice: "Usuário atualizado com sucesso"
     else
-      if @user.update(user_params)
-        redirect_to @user, notice: "Usuário atualizado com sucesso"
-      else
-        redirect_to @user, notice: "Não foi possível atualizar esta usuário"
-      end
+      redirect_to @user, notice: "Não foi possível atualizar este usuário #{@user.errors.full_messages}"
     end
+    # end
   end
 
   def destroy
@@ -61,8 +61,9 @@ class UsersController < ApplicationController
       :cpf,
       :phone1,
       :phone2,
-      :city,
       :state,
+      :city,
+      :neighborhood,
       :cep,
       :street,
       :street_number,
