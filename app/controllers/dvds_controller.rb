@@ -11,7 +11,7 @@ class DvdsController < ApplicationController
 	end
 
 	def show
-	end	
+	end
 
   def create
     @dvd = Dvd.new(dvd_params)
@@ -23,7 +23,7 @@ class DvdsController < ApplicationController
     end
 	end
 
-	def edit       
+	def edit
 	end
 
 	def update
@@ -47,7 +47,14 @@ class DvdsController < ApplicationController
 
 	def dvd_params
     params.require(:dvd).
-    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
+    permit(
+      :title,
+      :buy_price,
+      :sell_price,
+      :year,
+      :product_image,
+      :quantity
+    )
 	end
 
 	def set_dvd

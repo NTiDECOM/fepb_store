@@ -51,7 +51,8 @@ class ApplicationController < ActionController::Base
         :phone1, :phone2,
         :city, :state, :cep,
         :street, :street_number, :street_complement,
-        :admin
+        :admin,
+        :password, :password_confirmation, :current_password
       )
     }
   end

@@ -34,11 +34,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    # if @product.update(product_params)
-    #   redirect_to @product, notice: "Product updated successfully"
-    # else
-    #   redirect_to @product, notice: "Could not update this product"
-    # end
+    if @product.update(product_params)
+      redirect_to @product, notice: "Product updated successfully"
+    else
+      redirect_to @product, notice: "Could not update this product"
+    end
   end
 
   def destroy
@@ -50,16 +50,15 @@ class ProductsController < ApplicationController
   end
 
   def inventory
-    @products = Product.order(:id).page(params[:page])
+    @products = Product.order(:title).page(params[:page])
   end
 
   ##### helper methods #####
   private
 
-  # def product_params
-  #   params.require(:product).
-  #   permit(:title, :buy_price, :sell_price, :product_image, :quantity)
-  # end
+  def product_params
+    params.require(:product).permit(:title, :buy_price, :sell_price, :product_image, :quantity)
+  end
 
   def set_product
     @product = Product.find(params[:id])

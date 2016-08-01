@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'products#index'
 
   devise_for :users, :controllers => {sessions: "users/sessions"}
-
   resources :books
   resources :cds
   resources :dvds

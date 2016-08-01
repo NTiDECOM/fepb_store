@@ -19,8 +19,7 @@ class SalesController < ApplicationController
 
   def finalize
     @sale = current_sale
-    full_name = current_user.surname.nil? ? current_user.name : "#{current_user.name} #{current_user.surname}"
-    @sale.update(status: :finalized, buyer_name: params[:customer_name], seller_name: full_name)
+    @sale.update(status: :finalized, buyer_name: params[:customer_name], seller_name: current_user.full_name)
     @sale.sale_items.each do |sale_item|
       sale_item.update_product_quantity(sale_item.product_quantity)
     end

@@ -85,6 +85,7 @@ pt-BR:
     sale:
       buyer_name: 'Comprador'
       items_number: 'Itens'
+      seller_name: 'Vendedor'
       status:
         canceled: 'Cancelada'
         finalized: 'Finalizada'
@@ -199,6 +200,10 @@ pt-BR:
       edit:
         title: 'Editar ingresso'
     user:
+      cancel_account: 'Cancelar conta'
+      change_password: 'Alterar senha'
+      current_password: 'Senha atual'
+      current_password_explanation: 'Precisamos da sua senha atual para confirmar a mudança'
       edit:
         title: 'Editar usuário'
       my_profile: 'Minha conta'

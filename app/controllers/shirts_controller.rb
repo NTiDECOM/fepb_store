@@ -11,7 +11,7 @@ class ShirtsController < ApplicationController
 	end
 
 	def show
-	end	
+	end
 
   def create
     @shirt = Shirt.new(shirt_params)
@@ -23,7 +23,7 @@ class ShirtsController < ApplicationController
     end
 	end
 
-	def edit       
+	def edit
 	end
 
 	def update
@@ -47,7 +47,13 @@ class ShirtsController < ApplicationController
 
 	def shirt_params
     params.require(:shirt).
-    permit(:isbn, :title, :author, :spiritual_author, :publisher, :buy_price, :sell_price, :year, :pages_number, :product_image)
+    permit(
+      :title,
+      :buy_price,
+      :sell_price,
+      :product_image,
+      :quantity
+    )
 	end
 
 	def set_shirt
