@@ -19,4 +19,9 @@ Rails.application.routes.draw do
   get '/inventory' => 'products#inventory', as: 'inventory'
   get '/report/books' => 'reports#books', as: 'books_report'
 
+  # Reports Routes
+  namespace :reports do
+    get 'month-report', to: 'sales_report#month_report', as: 'month_sales_report'
+  end
+
 end

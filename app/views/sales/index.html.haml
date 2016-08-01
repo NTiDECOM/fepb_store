@@ -4,27 +4,40 @@
     %div#paginate= paginate @sales
     %div#page_entries_info= page_entries_info @sales
 %br
-%table.responsive
-  %thead
-    %tr
-      %th= t('models.sale.id')
-      %th= t('models.sale.seller_name')
-      %th= t('models.sale.items_number')
-      %th= t('models.sale.buyer_name')
-      %th= t('models.sale.total')
-      %th= t('models.sale.status.label')
-      %th= t('views.sale.updated_at')
-      %th
-      %th
-  %tbody
-    -@sales.each do |sale|
-      %tr
-        %td.text-right= sale.id
-        %td= sale.seller_name
-        %td.text-right= sale.sale_items.length
-        %td= sale.buyer_name
-        %td= number_to_currency sale.total
-        %td= t("models.sale.status.#{sale.status}")
-        %td= l sale.updated_at
-        / %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
-        / %td= link_to '<i class="fi-trash"></i>'.html_safe, @sale, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin
+
+.row
+  .columns.large-12.text-center
+    %div#search_products
+      = form_tag('reports/month-report.pdf', method: 'get') do
+        = select_tag(:month, options_for_select(month_select_tag_types, @month), style: 'display: inline; width: 150px')
+        = select_tag(:year, options_for_select(years_select_tag_types, @year), style: 'display: inline; width: 150px')
+        = submit_tag t('generic.report'), class: 'button small radius', style: 'display: inline'
+
+%br
+
+.row
+  .columns.large-12
+    %table.responsive
+      %thead
+        %tr
+          %th= t('models.sale.id')
+          %th= t('models.sale.seller_name')
+          %th= t('models.sale.items_number')
+          %th= t('models.sale.buyer_name')
+          %th= t('models.sale.total')
+          %th= t('models.sale.status.label')
+          %th= t('views.sale.updated_at')
+          %th
+          %th
+      %tbody
+        -@sales.each do |sale|
+          %tr
+            %td.text-right= sale.id
+            %td= sale.seller_name
+            %td.text-right= sale.sale_items.length
+            %td= sale.buyer_name
+            %td= number_to_currency sale.total
+            %td= t("models.sale.status.#{sale.status}")
+            %td= l sale.updated_at
+            / %td= link_to '<i class="fi-magnifying-glass"></i>'.html_safe, sale, class: 'button radius'
+            / %td= link_to '<i class="fi-trash"></i>'.html_safe, @sale, class: 'button alert radius', method: :delete, data: { confirm: t('views.application.are_you_sure') } if current_user and current_user.admin

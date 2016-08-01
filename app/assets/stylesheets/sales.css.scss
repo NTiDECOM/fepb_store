@@ -6,14 +6,14 @@
 div.sale-row {
   padding: 20px;
 
-  a {  	
+  a {
     color: #111;
     font-size: 16px;
   }
 }
 
 div.sale-text {
-	a, a:active, a:visited, a:focus, a:hover {  	
+	a, a:active, a:visited, a:focus, a:hover {
     color: #FFF;
     font-size: 16px !important;
   }
@@ -21,4 +21,8 @@ div.sale-text {
 
 .sale-header {
   background-color: #ECECEC;
+}
+
+table.responsive {
+  width: 100%;
 }
