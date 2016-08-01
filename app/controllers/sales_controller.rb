@@ -2,7 +2,7 @@ class SalesController < ApplicationController
   # before_action :set_sale, only: [:show, :edit, :update, :destroy]
 
   def index
-    @sales = Sale.order(:id).page(params[:page])
+    @sales = Sale.order(updated_at: :desc).page(params[:page])
   end
 
   def show
