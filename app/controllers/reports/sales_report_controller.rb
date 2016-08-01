@@ -3,7 +3,7 @@ class Reports::SalesReportController < ApplicationController
   def month_report
     begining_date = DateTime.new(params[:year].to_i, params[:month].to_i)
     end_date = create_end_date(params[:year].to_i, params[:month].to_i)
-    @sales = Sale.where(:updated_at => begining_date..end_date)
+    @sales = Sale.where(:updated_at => begining_date..end_date, :status => 1)
     respond_to do |format|
       format.html
       format.pdf do
