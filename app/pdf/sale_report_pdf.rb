@@ -4,9 +4,9 @@ class SaleReportPdf < Prawn::Document
     super()
     @sales_history = sales_history
     @view = view
-    logo
+    # logo
     move_down 20
-    text "Relatório de Vendas - Livraria FEPB", :align => :center
+    text "Relatório de Vendas - Livraria FEPB (#{Time.now.strftime('%d/%m/%Y %H:%M:%S')})", :align => :center
     sale_details
     sales_amount
   end
