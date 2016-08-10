@@ -52,7 +52,11 @@ class SaleReportPdf < Prawn::Document
     items = sale.sale_items
     details_string = ""
     items.each do |item|
-      details_string += (item.product.title + "\n")
+      begin
+        details_string += (item.product.title + "\n")
+      rescue
+        details_string += "Indefinido\n"
+      end
     end
     return details_string
   end
