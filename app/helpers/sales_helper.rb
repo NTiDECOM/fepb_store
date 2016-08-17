@@ -10,7 +10,7 @@ module SalesHelper
     item_list = ""
     items.each do |item|
       begin
-        item_list += item.product.title
+        item_list += (item.product.title + "<br />")
       rescue
         item_list += "Indefinido".html_safe
       end
