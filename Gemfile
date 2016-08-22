@@ -21,6 +21,11 @@ gem 'rename'
 gem 'prawn'
 gem 'prawn-table'
 
+# Deploy
+gem 'capistrano', '~> 3.6.0'
+gem 'capistrano-bundler', '~> 1.1.4'
+gem 'capistrano-rails', '~> 1.1.7'
+
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
