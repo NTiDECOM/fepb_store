@@ -20,3 +20,5 @@ test:
 production:
   <<: *default
   database: fepb_store_prod
+  username: <%= ENV['FEPB_STORE_DATABASE_USERNAME'] %>
+  password: <%= ENV['FEPB_STORE_DATABASE_PASSWORD'] %>

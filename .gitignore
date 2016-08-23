@@ -18,7 +18,6 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
-config/database.yml
 *.idea/
 .rbenv
 .byebug_history
