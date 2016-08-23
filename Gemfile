@@ -21,6 +21,7 @@ gem 'rename'
 gem 'prawn'
 gem 'prawn-table'
 gem 'puma'
+gem 'seed_dump'
 
 gem 'bcrypt', '~> 3.1.7'
 
