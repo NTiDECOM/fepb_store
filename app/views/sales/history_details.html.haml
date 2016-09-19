@@ -36,6 +36,6 @@
           = t('models.sale.total_price')
           %span{style: "color: green"}= number_to_currency @sale.total_price
     %br/
-    .row
-      .columns.small-8.large-12.text-center
-        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'
+.row
+  .columns.small-8.large-12.text-center
+    = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'
