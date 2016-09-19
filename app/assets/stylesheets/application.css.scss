@@ -59,15 +59,13 @@ select {
 table {
   margin-left: auto;
   margin-right: auto;
-  td { 
-    a, a:visited {
-      background-color: transparent;
-      color: #000 !important;
-    }
-    a:active, a:focus, a:hover {
-      background-color: transparent;
-      color: #008CBA !important;
-    }
+  a, a:visited {
+    background-color: transparent;
+    color: #000 !important;
+  }
+  a:active, a:focus, a:hover {
+    background-color: transparent;
+    color: #008CBA !important;
   }
 }
 

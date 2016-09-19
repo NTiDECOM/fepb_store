@@ -25,9 +25,12 @@ div.sale-text {
 
 
 div.history-details {
-  td { 
-    a, a:active, a:visited, a:focus, a:hover { 
+  a, a:visited {
+      background-color: transparent;
       color: #000 !important;
     }
-  }
+    a:active, a:focus, a:hover {
+      background-color: transparent;
+      color: #008CBA !important;
+    }
 }
