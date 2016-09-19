@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7.1'
 
 gem 'pg'
 
@@ -42,6 +42,15 @@ gem 'kaminari', '~> 0.16.3'
 gem 'carrierwave'
 # Rename
 gem 'rename'
+
+gem 'brakeman'
+
+gem 'rubocop'
+
+gem 'better_errors'
+
+gem 'awesome_print'
+
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
