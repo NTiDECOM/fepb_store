@@ -20,4 +20,9 @@ module ProductsHelper
       [t('activerecord.models.ticket.other'), 'Ticket']
     ]
   end
+
+  def quantity_disabled_for? (product)
+    puts " >>>>>>>>>>> quantity_disabled_for? #{product.quantity == 0 || product.quantity == nil}"
+    product.quantity == 0 || product.quantity == nil
+  end
 end
