@@ -18,5 +18,10 @@ Rails.application.routes.draw do
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
   patch 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
   get 'inventory' => 'products#inventory', as: 'inventory'
-  get 'report/books' => 'reports#books', as: 'books_report'
+  get '/report/books' => 'reports#books', as: 'books_report'
+
+  # Reports Routes
+  namespace :reports do
+    get 'month-report', to: 'sales_report#month_report', as: 'month_sales_report'
+  end
 end

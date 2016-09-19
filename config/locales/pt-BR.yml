@@ -60,6 +60,7 @@ pt-BR:
     social_networks: 'Redes sociais'
     title: 'Título'
     search: 'Pesquisar'
+    report: 'Relatório'
   menu:
     title: 'Menu'
     inventory:
@@ -84,6 +85,7 @@ pt-BR:
     sale:
       buyer_name: 'Comprador'
       items_number: 'Itens'
+      items_description: 'Descrição'
       seller_name: 'Vendedor'
       status:
         canceled: 'Cancelada'

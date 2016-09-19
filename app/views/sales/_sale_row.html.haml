@@ -4,11 +4,11 @@
       = link_to sale_item.product do
         = sale_item.product.product_image ? image_tag(sale_item.product.product_image_url, size: "80") : ''
     .columns.small-8.large-3
-      = link_to sale_item.product.title, sale_item.product
+      = sale_item.product.title
     .columns.small-8.large-3
-      = link_to sale_item, method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do 
+      = link_to sale_item, method: :delete, class: "button radius alert small", data: { confirm: t('views.application.are_you_sure') } do
         %i.fi-trash
-      = f.number_field :product_quantity, method: :patch, value: sale_item.product_quantity.to_i, min: 1, class: "number-field", style: "width: 50px;"      
+      = f.number_field :product_quantity, method: :patch, value: sale_item.product_quantity.to_i, min: 1, class: "number-field", style: "width: 50px;"
       = f.button type: "submit", class: "button radius small" do
         %i.fi-refresh
     .columns.small-8.large-3

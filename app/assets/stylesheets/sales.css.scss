@@ -23,10 +23,15 @@ div.sale-text {
   background-color: #ECECEC;
 }
 
+
 div.history-details {
   td { 
     a, a:active, a:visited, a:focus, a:hover { 
       color: #000 !important;
     }
   }
+}
+
+table.responsive {
+  width: 100%;
 }

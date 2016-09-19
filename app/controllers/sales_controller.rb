@@ -3,6 +3,7 @@ class SalesController < ApplicationController
   before_action :get_sales, only: [:index, :details]
 
   def index
+    @sales = Sale.order(id: :desc).page(params[:page])
   end
 
   def show

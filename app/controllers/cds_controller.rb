@@ -49,6 +49,7 @@ class CdsController < ApplicationController
     params.require(:cd).
     permit(
       :title,
+      :isbn,
       :buy_price,
       :sell_price,
       :year,

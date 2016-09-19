@@ -36,7 +36,12 @@
         .columns.small-8.large-12.text-center
           = link_to t('views.sale.cancel_sale'), @sale, method: :delete, data: { confirm: t('views.application.are_you_sure') }, class: 'button radius secondary'
           = link_to t('views.sale.continue_shopping'), root_path, class: 'button radius'
-          = link_to t('views.sale.register_sale'), '#', class: 'button radius alert', "data-reveal-id" => "finalize_sale_modal"
+          = link_to t('views.sale.register_sale'), '#', class: 'button radius alert finalize_modal', "data-reveal-id" => 'finalize_sale_modal'
+          :javascript
+            $('a.finalize_modal').click(function(event) {
+              event.preventDefault();
+              $('#finalize_sale_modal').foundation('reveal', open);
+            });
 
 #finalize_sale_modal.reveal-modal{"aria-hidden" => "true", "aria-labelledby" => "finalize_sale_modal_title", "data-reveal" => true, "role" => "dialog"}
   = render 'sales/finalize_sale_modal'
