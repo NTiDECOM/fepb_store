@@ -3,8 +3,9 @@
   .columns.large-12.text-center
     %div#paginate= paginate @sales
     %div#page_entries_info= page_entries_info @sales
-%br
-%table.responsive
+%br/
+
+%table.responsive.table-style
   %thead
     %tr
       %th= t('models.sale.id')
@@ -21,7 +22,11 @@
       %tr
         %td.text-right= sale.id
         %td= sale.seller_name
-        %td.text-right= sale.sale_items.length
+        %td.text-right
+          / = sale.sale_items.to_s
+          -# %div{class: "sale_items_list has-tip", "aria-haspopup" => "true", "data-tooltip" => true, title: sale.items_to_s]}
+          = sale.sale_items.length
+          = link_to "(#{t('views.sale.check_items')})", history_details_sale_path(sale.id)
         %td= sale.buyer_name
         %td= number_to_currency sale.total
         %td= t("models.sale.status.#{sale.status}")

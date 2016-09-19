@@ -1,0 +1,41 @@
+.row.sale-row.sale-header
+  .columns.small-8.large-12
+    %h4.text-center= t('views.sale.details')
+%br/
+
+.row  
+  .columns.large-12
+    %p= "#{t('models.sale.seller_name')}: #{@sale.seller_name}"
+    %p= "#{t('models.sale.buyer_name')}: #{@sale.buyer_name}"
+
+.row.history-details
+  .columns.small-8.large-12
+    .row.sale-row.sale-header
+      .columns.small-8.large-3
+        = t('activerecord.models.product.other')
+      .columns.small-8.large-3
+        = t('generic.title')
+      .columns.small-8.large-3
+        = t('models.sale.quantity')
+      .columns.small-8.large-3
+        = t('models.sale.unit_price')
+    - @sale_items.each do |sale_item|
+      .row.sale-row
+        .columns.small-8.large-3
+          = link_to sale_item.product do
+            = sale_item.product.product_image ? image_tag(sale_item.product.product_image_url, size: "80") : ''
+        .columns.small-8.large-3
+          = link_to sale_item.product.title, sale_item.product
+        .columns.small-8.large-3
+          = sale_item.product_quantity.to_i
+        .columns.small-8.large-3
+          = number_to_currency sale_item.product.sell_price
+    .row.sale-row.sale-header
+      .columns.small-8.large-12
+        %h5.text-right
+          = t('models.sale.total_price')
+          %span{style: "color: green"}= number_to_currency current_sale.total_price
+    %br/
+    .row
+      .columns.small-8.large-12.text-center
+        = link_to t('views.application.back'), 'javascript:history.go(-1);', class: 'button radius'

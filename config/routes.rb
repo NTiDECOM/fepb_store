@@ -9,13 +9,14 @@ Rails.application.routes.draw do
   resources :shirts
   resources :tickets
   resources :users
-  resource :sale, only: [:show, :destroy]
-  resources :sales, only: [:index]
+  resource :sale, only: [:show, :destroy] do
+    get 'history_details/:sale_id' => 'sales#history_details', as: :history_details, on: :collection
+  end
+  resources :sales, only: [:index] 
   resources :sale_items, only: [:create, :update, :destroy]
 
   post 'add_sale_item' => 'sales#add_sale_item', as: 'add_sale_item'
   patch 'finalize_sale' => 'sales#finalize', as: 'finalize_sale'
-  get '/inventory' => 'products#inventory', as: 'inventory'
-  get '/report/books' => 'reports#books', as: 'books_report'
-
+  get 'inventory' => 'products#inventory', as: 'inventory'
+  get 'report/books' => 'reports#books', as: 'books_report'
 end

@@ -80,7 +80,9 @@ en:
       last: "Última &raquo;"
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
-      truncate: "&hellip;"    
+      truncate: "&hellip;"
+    sale:
+      check_items: 'Check items'
     user:
       edit:
         title: 'Editar usuário'

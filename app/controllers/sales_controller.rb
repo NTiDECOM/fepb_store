@@ -1,8 +1,8 @@
 class SalesController < ApplicationController
   # before_action :set_sale, only: [:show, :edit, :update, :destroy]
+  before_action :get_sales, only: [:index, :details]
 
   def index
-    @sales = Sale.order(:id).page(params[:page])
   end
 
   def show
@@ -26,5 +26,16 @@ class SalesController < ApplicationController
     current_sale = nil
     session[:sale_id] = nil
     redirect_to root_path, notice: t('controllers.sales.finalize_success')
+  end
+
+  def history_details
+    @sale = Sale.find(params[:sale_id])
+    @sale_items = @sale.sale_items
+  end
+
+  private
+
+  def get_sales
+    @sales = Sale.order(:id).page(params[:page])
   end
 end

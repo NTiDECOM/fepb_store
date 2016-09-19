@@ -6,8 +6,8 @@ class Sale < ActiveRecord::Base
   enum status: [:in_progress, :finalized, :canceled]
 
   def total_price
-    self.sale_items.collect { |sale_item| 
-      sale_item.valid? ? (sale_item.product_quantity * sale_item.product.sell_price) : 0 
+    self.sale_items.collect { |sale_item|
+      sale_item.valid? ? (sale_item.product_quantity * sale_item.product.sell_price) : 0
     }.sum
   end
 

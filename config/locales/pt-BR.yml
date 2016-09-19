@@ -179,8 +179,10 @@ pt-BR:
       show:
     sale:
       cancel_sale: 'Cancelar compra'
+      check_items: 'Ver itens'
       continue_shopping: 'Continuar comprando'
       customer_name: 'Nome do comprador'
+      details: 'Detalhes da venda'
       empty_sale: 'Escolha pelo menos um produto para formar uma compra.'
       empty_sale_title: 'Nenhum item adicionado.'
       finalize: 'Finalizar'

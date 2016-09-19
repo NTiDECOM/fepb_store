@@ -29,8 +29,16 @@ a:visited {
   i {
     color: #FFF;
   }
-  color: #FFF !important;  
+  color: #FFF !important;
   background-color: transparent;
+}
+
+li > a:visited.secondary {
+  color: #000 !important;
+}
+
+li.current > a:visited.secondary {
+  color: #FFF !important;
 }
 
 a.button {
@@ -51,6 +59,16 @@ select {
 table {
   margin-left: auto;
   margin-right: auto;
+  td { 
+    a, a:visited {
+      background-color: transparent;
+      color: #000 !important;
+    }
+    a:active, a:focus, a:hover {
+      background-color: transparent;
+      color: #008CBA !important;
+    }
+  }
 }
 
 td.number-table-style,
