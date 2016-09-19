@@ -71,6 +71,7 @@ end
     title: Faker::Hipster.word,
     buy_price: Faker::Number.decimal(2),
     sell_price: Faker::Number.decimal(2).to_f + 20.00,
-    type: 'Ticket'
+    type: 'Ticket',
+    event_datetime: Faker::Time.between(DateTime.now + 1.week, DateTime.now + 6.months)
   )
 end
